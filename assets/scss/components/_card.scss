@@ -1,0 +1,51 @@
+/*============================
+   8. Card
+============================*/
+
+@use "../utils/mixins" as *;
+@use '../variables' as *;
+
+.card {
+    background-color: $white;
+    border: 1px solid $border-color;
+    margin-bottom: 24px;
+    color: inherit;
+
+    .card-title {
+        color: $gray-900;
+        margin-bottom: 0;
+        font-weight: $font-weight-semibold;
+        font-size: 1rem;
+    }
+
+    .card-body {
+        padding: 20px;
+    }
+}
+
+.card-header {
+    border-color: $border-color;
+    padding: 1rem 1.5rem;
+    background: $white;
+    position: relative;
+}
+
+.card-footer {
+    background-color: $white;
+    border-color: $border-color;
+    padding: 15px 20px;
+}
+
+@keyframes movebounce {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(10px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}

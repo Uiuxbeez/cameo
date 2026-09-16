@@ -1,0 +1,69 @@
+/*============================
+    . Experts
+============================*/
+
+@use "../utils/mixins" as *;
+@use '../variables' as *;
+
+
+// Package List
+.package-list-item {
+    padding: 20px;
+    display: grid;
+    align-items: center;
+    border: 1px solid $border-color;
+    border-radius: 5px;
+    box-shadow: $box-shadow;
+    grid-template-columns: 4fr 8fr;
+    gap: 20px;
+    margin-bottom: 24px;
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    @include respond-below(lg) {
+        grid-template-columns: 8fr;
+    }
+    & > div:first-child {
+        height: 100%;
+    }
+    .package-list-img {
+        height: 100%;
+        img {
+            border-radius: $border-radius-md;
+            height: 100%;
+            object-fit: cover;
+            @include respond-below (md) {
+                height: auto;
+            }
+        }
+    }
+
+    .package-list-content {
+        p {
+            font-size: 16px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        hr {
+            margin: 12px 0;
+        }
+
+        .price {
+            font-size: 24px;
+            font-weight: 600;
+            color: $gray-900;
+            margin-bottom: 0;
+        }
+    }
+}
+.glightbox-clean {
+    .gslide-media {
+        box-shadow: none;
+    }
+}

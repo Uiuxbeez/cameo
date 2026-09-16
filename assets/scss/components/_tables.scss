@@ -1,0 +1,75 @@
+/*============================
+    13. Tables
+============================*/
+
+@use "../utils/mixins" as *;
+@use '../variables' as *;
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.table {
+    background-color: $white;
+    margin-bottom: 0 !important;
+    width: 100%;
+
+    thead {
+        tr {
+            th {
+                background: $light;
+                font-size: 16px;
+                font-weight: $font-weight-semibold;
+                padding: 8px 20px;
+                color: $gray-900;
+            }
+        }
+    }
+
+    tbody {
+        tr {
+            td {
+                padding: 16px 20px;
+                font-size: 16px;
+                vertical-align: middle;
+                color: $gray-600;
+                a {
+                    color: $gray-900;
+                    &:hover {
+                        color: $primary;
+                    }
+                }
+            }
+        }
+    }
+}
+
+th {
+    font-weight: $font-weight-semibold;
+    color: $gray-900;
+}
+
+.table>:not(caption)>*>* {
+    background-color: $white;
+}
+
+table.table.dataTable>:not(caption)>*>* {
+    background-color: $white;
+}
+
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr {
+    border-color: $border-color;
+}
+
+.table-nowrap {
+
+    th,
+    td {
+        white-space: nowrap;
+    }
+}

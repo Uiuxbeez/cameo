@@ -1,0 +1,880 @@
+/*============================
+    . Booking
+============================*/
+
+@use "../utils/mixins" as *;
+@use '../variables' as *;
+
+.booking-appointment {
+    .booking-appointment-banner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        position: relative;
+        background: url(../img/booking/booking-appointment-banner.jpg) no-repeat center center;
+        background-size: cover;
+
+        .booking-appointment-banner-content {
+            position: relative;
+
+            .booking-appointment-banner-title {
+                text-align: start;
+                font-size: 80px;
+                color: $white;
+                font-weight: 700;
+                line-height: 96px;
+                font-family: $font-family-primary;
+
+                @include respond-below(xl) {
+                    font-size: 60px;
+                    font-weight: 700;
+                    line-height: 76px;
+                }
+
+                span {
+                    color: $primary;
+                }
+            }
+        }
+    }
+
+    .booking-appointment-content {
+        padding: 24px;
+        height: 100vh;
+        overflow-y: scroll;
+
+        .booking-appointment-content-header {
+            padding-bottom: 24px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid $border-color;
+            @include respond-below(sm) {
+                flex-direction: column;
+                align-items: start !important;
+                gap: 10px;
+            }
+            h2 {
+                font-size: 24px;
+            }
+        }
+
+        .accordion.booking-accordion {
+
+            .accordion-header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding-bottom: 20px;
+            }
+
+            .accordion-button::after {
+                content: none;
+            }
+
+            .accordion-button::before {
+                content: "\ea5f";
+                font-family: "tabler-icons" !important;
+                font-size: 24px;
+                line-height: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 3.125rem;
+                color: var(--gray-900);
+                background-image: none;
+                margin-right: 8px;
+            }
+
+            .accordion-button:not(.collapsed)::before {
+                transform: rotate(180deg);
+                -webkit-transform: rotate(180deg);
+            }
+
+            .accordion-button {
+                padding: 0;
+                font-size: 20px;
+                font-weight: $font-weight-semibold;
+                font-family: $font-family-primary;
+            }
+
+            .accordion-body {
+                padding: 0;
+            }
+
+            .accordion-item {
+                border: none;
+                border-radius: inherit;
+            }
+        }
+
+        .services-items {
+            display: grid;
+            grid-template-columns: 9fr 3fr 2fr;
+            align-items: center;
+            @include respond-below(xl) {
+                gap: 12px;
+            }
+            @include respond-below(sm) {
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+                margin-bottom: 30px !important;
+            }
+            .item {
+                a {
+                    flex-shrink: 0;
+                }
+                img {
+                    border-radius: 4px;
+                    width: 48px;
+                    height: 48px;
+                }
+                .service-item-tile {
+                    font-size: 16px;
+                    font-weight: 600;
+                }
+                &.text-end {
+                    @include respond-below(sm) {
+                        text-align: start !important;
+                        margin-left: 65px;
+                    }
+                }
+            }
+        }
+    }
+
+    &.multi-step {
+        .booking-appointment-banner {
+            padding: 40px;
+            background: url(../img/booking/booking-appointment-banner.jpg) no-repeat center center;
+            background-size: cover;
+
+            .booking-appointment-banner-content {
+                position: relative;
+
+                .booking-appointment-banner-title {
+                    text-align: start;
+                    font-size: 40px;
+                    color: $white;
+                    font-weight: 700;
+                    line-height: 58px;
+                    font-family: $font-family-primary;
+                    margin-bottom: 48px;
+
+                    @include respond-below(xl) {
+                        font-size: 60px;
+                        font-weight: 700;
+                        line-height: 76px;
+                        margin-bottom: 24px;
+                    }
+
+                }
+            }
+
+            .booking-steps {
+                position: relative;
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    margin: auto;
+                    left: 20px;
+                    width: 2px;
+                    height: 70%;
+                    border-left: 2px dashed $border-color;
+                }
+
+                .booking-step {
+                    position: relative;
+                    display: flex;
+                    align-items: flex-start;
+                    gap: 15px;
+                    margin-bottom: 30px;
+                    color: $white;
+
+                    .step-number {
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 50%;
+                        background: $white;
+                        color: $dark;
+                        font-family: $font-family-primary;
+                        font-weight: 600;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        z-index: 1;
+                        flex-shrink: 0;
+                    }
+
+                    .step-content {
+                        h2 {
+                            font-family: $font-family-secondary;
+                            font-size: 16px;
+                            margin-bottom: 5px;
+                            font-weight: 600;
+                            color: $white;
+                        }
+
+                        p {
+                            font-size: 13px;
+                            opacity: 0.8;
+                            margin: 0;
+                        }
+                    }
+
+                    &.active {
+                        .step-number {
+                            background: $primary;
+                            color: $white;
+                        }
+                    }
+
+                    &.done {
+                        .step-number {
+                            background: $success;
+                            color: $white;
+                        }
+                    }
+                }
+            }
+
+        }
+
+    }
+}
+
+.booking-wizard {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid $border-color;
+}
+.booking-appointment-date-content {
+    .booking-appointment-date-item {
+        .title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+        .booking-appointment-container {
+            position: relative;
+            padding: 0 50px;
+            @include respond-below(sm) {
+                padding: 0 37px;
+            }
+            .custom-arrow {
+                width: 36px;
+                height: 36px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                background: $white;
+                border: 1px solid $border-color;
+                font-size: 16px;
+                box-shadow: $box-shadow;
+                color: $dark;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 2;
+                border-radius: 50%;
+                @include respond-below(lg) {
+                    width: 32px;
+                    height: 32px;
+                    font-size: 16px;
+                }
+
+                &:hover {
+                    background: $primary;
+                    color: $white;
+                }
+                &.appointment-prev {
+                    left: 0;
+                }
+
+                &.appointment-next {
+                    right: 0;
+                }
+
+                &:before {
+                    display: none;
+                }
+
+                &:hover {
+                    color: $white;
+                }
+            }
+            .booking-appointment-slider {  
+                .swiper-wrapper {
+                    box-sizing: content-box; 
+                    width: 100%;
+                }
+                .swiper-slide {
+                    flex-shrink: 0; 
+                    text-align: center;
+                }
+                label {
+                    cursor: pointer;
+                    @include respond-below(lg) {
+                        width: 100%;
+                    }
+                }
+
+                input {
+                    display: none;
+                }
+
+                .booking-appointment-slide {
+                    width: 96px;
+                    border: 1px solid $border-color;
+                    padding: 6px 12px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    border-radius: 4px;
+                    @include respond-below(lg) {
+                        margin: auto;
+                    }
+                    .date-bold {
+                        font-size: 24px;
+                        font-weight: 600;
+                        color: $dark;
+                    }
+                }
+
+                /* Active when radio is checked */
+                input:checked+.booking-appointment-slide {
+                    background: $primary;
+                    color: $white;
+
+                    .date-bold {
+                        color: $white;
+                    }
+                }
+            }
+        }
+
+        .nav.nav-tabs {
+            background: $light;
+            padding: 4px;
+            border-radius: 4px;
+            border: none;
+
+            .nav-link {
+                padding: 8px 20px;
+                border-radius: 6px;
+                font-size: 16px;
+                font-weight: 600;
+                color: $gray-900;
+                @include respond-below(sm) {
+                    padding: 8px 14px;
+                }
+                &.active {
+                    border: 1px solid $border-color;
+                }
+            }
+        }
+
+        .booking-appointment-time-slot {
+
+            display: flex;
+            align-items: center;
+            @include respond-below(sm) {
+                gap: 12px !important;
+            }
+            label {
+                cursor: pointer;
+                display: block;
+            }
+
+            input {
+                display: none;
+            }
+
+            .booking-appointment-badge {
+                border: 1px solid $border-color;
+                padding: 6px 12px;
+                border-radius: 6px;
+                text-align: center;
+                transition: 0.3s;
+
+                .date-bold {
+                    font-size: 20px;
+                    font-weight: 600;
+                }
+            }
+
+            input:checked+.booking-appointment-badge {
+                background: $primary;
+                color: $white;
+                border-color: $primary;
+
+                .date-bold {
+                    color: $white;
+                }
+            }
+        }
+
+        .booking-services-details {
+            @include respond-below(lg) {
+                overflow-x: scroll;
+            }
+        }
+
+        .booking-appointment-services {
+            display: grid;
+            grid-template-columns: 1fr 3fr 3fr 3fr 2fr;
+            gap: 20px;
+            padding: 20px;
+            background: $light;
+            border: 1px solid $border-color;
+            border-radius: 4px;
+
+            @include respond-below(lg) {
+                grid-template-columns: 0fr 2fr 2fr 2fr 1fr;
+                min-width: 700px;
+
+            }
+
+            .item {
+                .service-title {
+                    font-size: 16px;
+                    font-weight: 600;
+                    color: $gray-900;
+                }
+
+                .btn {
+                    width: 32px;
+                    height: 32px;
+                    background: $danger;
+                    color: $white;
+                    border-radius: 40px;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+
+        }
+
+        .service-price {
+            font-size: 16px;
+            font-weight: 600;
+            color: $gray-900;
+        }
+
+        .service-total-price {
+            font-size: 24px;
+            font-weight: 600;
+            color: $gray-900;
+            font-family: $font-family-primary;
+        }
+    }
+}
+
+.booking-content-offcanvas {
+    max-width: 910px;
+    width: 100%;
+
+    .offcanvas-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .offcanvas-title {
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .btn-close {
+            width: 28px;
+            height: 28px;
+            background: $light;
+            border: 1px solid $border-color;
+            font-size: 16px;
+        }
+
+    }
+}
+
+.booking-payment-method {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    @include respond-below(xxl) {
+        gap: 8px;
+    }
+
+    .booking-payment-method-item {
+        width: 112px;
+        height: 106px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        border: 1px solid $border-color;
+        border-radius: 4px;
+        cursor: pointer;
+        position: relative;
+        transition: 0.3s;
+        @include respond-below(xxl) {
+            width: 100px;
+            height: 106px;
+        }
+        @include respond-below (xl) {
+            width: 80px;
+            height: 106px;
+        }
+        @include respond-below (lg) {
+            width: 92px;
+            height: 100px;
+            padding: 6px;
+        }
+
+        input {
+            display: none;
+        }
+
+        span {
+            margin-top: 8px;
+        }
+
+        &:has(input:checked) {
+            border-color: $primary;
+            background: $white;
+        }
+
+        &:has(input:checked)::after {
+            content: "✔";
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 20px;
+            height: 20px;
+            background: $primary;
+            color: $white;
+            font-size: 12px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @include respond-below (xl) {
+                top: 4px;
+                right: 4px;
+            }
+        }
+    }
+}
+
+.booking-appointment-date-item {
+    .form-control {
+        min-height: 50px;
+    }
+}
+
+.Checkout-card-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: $gray-900;
+}
+
+.booking-coupons {
+    margin-bottom: 16px;
+
+    .booking-coupon {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .coupon-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: $gray-900;
+        }
+
+        .coupon-code-copy {
+            padding: 8px 16px;
+            border: 1px dashed $primary;
+            border-radius: 4px;
+            background: $primary-transparent;
+            color: $primary;
+            font-size: 16px;
+            font-weight: 600;
+        }
+    }
+}
+
+.booking-footer {
+    @include respond-below(sm) {
+        flex-direction: column;
+        gap: 16px;
+    }
+    .booing-footer-left {
+        @include respond-below(sm) {
+            width: 100%;
+            flex-direction: column;
+        }
+        .btn {
+            @include respond-below(sm) {
+                width: 100%;
+            }
+        }
+    }
+    .primary-btn {
+        @include respond-below(sm) {
+            width: 100%;
+        }
+    }
+}
+
+.booking-modal {
+    .modal-header {
+        .modal-title {
+            font-size: 24px;
+            font-weight: 600;
+            @include respond-below(lg) {
+                font-size: 22px;
+            }
+            @include respond-below(md) {
+                font-size: 18px;
+            }
+        }
+
+        .btn-close {
+            background: $light;
+            border: 1px solid $border-color;
+            font-size: 16px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}
+
+
+.available-staffs {
+    .available-staff {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border: 1px solid $border-color;
+        border-radius: 4px;
+        padding: 15px;
+        cursor: pointer;
+        transition: 0.3s;
+
+
+        &.active {
+            border-color: $primary;
+            background: $primary-transparent;
+
+            .check-btn {
+                background: $primary;
+            }
+        }
+
+
+        .staff-name {
+            font-size: 16px;
+            font-weight: 600;
+
+        }
+
+        .check-btn {
+            padding: 4px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: $dark;
+            color: $white;
+            border: none;
+        }
+    }
+}
+
+// Booking Details
+.booking-details-cover {
+    .success-card {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 16px;
+        border: 1px solid $success;
+        border-radius: 4px;
+        background: $success-transparent;
+        margin-bottom: 24px;
+
+        h2 {
+            font-size: 24px;
+
+            @include respond-below(md) {
+                font-size: 18px;
+            }
+
+        }
+
+        .tick-mark {
+            width: 40px;
+            height: 40px;
+            background: $success;
+            border-radius: 50%;
+            color: $white;
+            font-size: 24px;
+            padding: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+    }
+
+    .booking-details-card {
+        border: 1px solid $border-color;
+        border-radius: 4px;
+        box-shadow: $box-shadow-sm;
+
+        .booking-details-card-header {
+            padding: 16px 24px;
+            border-bottom: 1px solid $border-color;
+            h2 {
+                font-size: 24px;
+
+                @include respond-below(md) {
+                    font-size: 18px;
+                }
+
+            }
+        }
+
+        .booking-details-card-body {
+            padding: 24px;
+            .title {
+                font-size: 16px;
+                font-weight: 600;
+                color: $gray-900;
+            }
+            .google-map {
+                iframe {
+                    height: 188px;
+                }
+            }
+        }
+
+        .contact-badge {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: $dark;
+            color: $white;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}
+
+
+// Booking Invoice
+.booking-invoice {
+    .booking-invoice-card-body {
+        padding: 40px;
+        @include respond-below(md) {
+            padding: 24px;
+        }
+    }
+    .invoice-title {
+        font-size: 20px;
+    }
+    .title {
+        font-size: 16px;
+        font-weight: 500;
+        color: $gray-900;
+    }
+
+    .invoice-table {
+        .thead-dark {
+            tr {
+                th {
+                    background: $dark;
+                    color: $white;
+                }
+            }
+        }
+    }
+}
+.swiper-pagination-bullet {
+    background: $white;
+    opacity: 1;
+    width: 12px;
+    height: 12px;
+    &.swiper-pagination-bullet-active {
+        background: $primary;
+        width: 24px;
+        border-radius: 50px;
+    }
+}
+.category-slider {
+    padding-bottom: 56px;
+    @include respond-below(md) {
+        padding-bottom: 46px;
+    }
+    .swiper-pagination {
+        bottom: 0;
+    }
+}
+.booking-appointment-content-two {
+    .booking-appointment-date-item {
+        .booking-appointment-services {
+            @include respond-below (xxl) {
+                grid-template-columns: 0fr 2fr 3fr 3fr 1fr;
+            }
+        }
+    }
+
+    .booking-services-details {
+        @include respond-below (xl) {
+            overflow-y: scroll;
+        }
+        .booking-appointment-services {
+            @include respond-below (xl) {
+                min-width: 700px;
+            }
+        }
+    }
+
+}
+.appoinment-details {
+    width: 23%;
+    margin-left: auto;
+    padding-right: 0;
+    @include respond-below(xxl) {
+        width: 28%;
+    }
+    @include respond-below(xl) {
+        width: 34%;
+    }
+    @include respond-below(md) {
+        width: 100%;
+    }
+}
+
+.custom-table {
+    table {
+        tr {
+            &:last-child {
+                td {
+                    border-bottom: none !important;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,66 @@
+// Cameo homepage styles. Edit this partial and compile main.scss.
+/* Shared typography for index.html and index-skin2.html. */
+:where(html.cameo-home) body{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+}/* Include navigation, links, controls, labels, and decorative text.
+   Keep Tabler's font on icon elements; pseudo-element icons retain
+   the fonts assigned by their own library styles. */
+:where(html.cameo-home) body,
+:where(html.cameo-home) body *:not(.ti){
+    font-family: "Montserrat", sans-serif !important;
+}
+:where(html.cameo-home) :where(body) :is(h1, h2){
+    font-weight: 500;
+}
+:where(html.cameo-home) :where(body) :is(h3, h4, h5, h6, .title, .section-title){
+    font-weight: 500;
+}/* Main titles can also carry the template's .title class. */
+:where(html.cameo-home) :where(body) :is(h1, h2).title{
+    font-weight: 500;
+}
+:where(html.cameo-home) body p{
+    font-weight: 400;
+}
+:where(html.cameo-home) :where(body) :is(h1, h2, h3, h4, h5, h6, .title, .section-title) span{
+    font-family: inherit;
+    font-weight: inherit;
+}
+:where(html.cameo-home) body :is(p, h1, h2, h3, h4, h5, h6) :is(strong, b){
+    font-weight: 600;
+}
+
+// Refine text rhythm without changing grids, containers, or section padding.
+:where(html.cameo-home) body {
+    font-size: 15px;
+    line-height: 1.8;
+
+    :is(h1, h2, h3, h4, h5, h6) {
+        line-height: 1.4;
+        letter-spacing: 0;
+    }
+
+    :is(h3, h4, h5, h6) {
+        font-weight: 600;
+        margin-bottom: 16px;
+    }
+
+    p:not(.counter-value):not(.step-count):not(.section-title) {
+        font-size: 15px;
+        line-height: 1.8;
+        letter-spacing: 0;
+        color: #171717;
+    }
+
+
+    :is(.hero-section-one, .about-section-one, .offer-section-one,
+        .advertising-video, .cameo-footer, .cameo-locations, .wellness-section-six,
+        .counter-section-six,
+        .s2-promise, .s2-story, .s2-brand-image) p:not(.counter-value):not(.step-count):not(.section-title) {
+        color: #f5f5f5;
+    }
+}
+
+html:where(.cameo-home)[data-cameo-theme=dark] body p:not(.counter-value):not(.step-count):not(.section-title):not(.text-white) {
+    color: #e0e0e0;
+}

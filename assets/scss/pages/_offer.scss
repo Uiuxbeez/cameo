@@ -1,0 +1,330 @@
+/*============================
+    28. Offer
+============================*/
+
+@use "../utils/mixins" as *;
+@use '../variables' as *;
+
+.offer-section {
+    background: $darkmode-dark;
+
+    .offer-bg1 {
+        right: 10px;
+        top: -10%;
+        animation: sparkleFloat 5s ease-in-out infinite;
+    }
+
+    .offer-bg2 {
+        left: 2%;
+        bottom: 10%;
+        animation: sparkleFloat 5s ease-in-out infinite;
+    }
+}
+.offer-section-one {
+    background: url(../img/home/offer-bg.jpg);
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    .service-title  {
+        font-size: 32px;
+        font-weight: $font-weight-semibold;
+        color: $white;
+        margin-bottom: 40px;
+        @include respond-below(sm) {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+    }
+    .service-item-six {
+        padding: 40px;
+        border-radius: 4px;
+        background: url(../img/home/offer-bg-1.jpg);
+        background-size: 100% 100%;
+        @include respond-below(sm) {
+            padding: 20px;
+        }
+    }
+    .service-list {
+        .service-list-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, .2);
+
+            &:last-child {
+                padding-bottom: 0;
+                margin-bottom: 0;
+                border-bottom: 0;
+            }
+
+            .service-check {
+                flex: 0 0 auto;
+                color: $primary;
+                font-size: 24px;
+                line-height: 1;
+                margin-top: 3px;
+            }
+
+            .service-head {
+                min-width: 0;
+            }
+            .service-name {
+                color: $white !important;
+                margin-bottom: 8px;
+            }
+            .service-description {
+                color: $white;
+            }
+            .service-price {
+                font-size: 20px;
+                color: $white;
+                @include respond-below(sm) {
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+    .offer-left {
+        position: sticky;
+        top: 100px;
+    }
+    .view-more {
+        @include respond-below(lg) {
+            text-align: center;
+        }
+    }
+}
+
+.offer-item {
+    .offer-icon {
+        width: 90px;
+        aspect-ratio: 1 / 1;
+        background: $pink-transparent;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        clip-path: polygon(50% 0%, 93% 25%, 93% 75%,
+                50% 100%, 7% 75%, 7% 25%);
+
+        &.offer-icon-two {
+            background: $teal-transparent;
+        }
+
+        &.offer-icon-three {
+            background: $purple-transparent;
+        }
+    }
+
+    .offer-right {
+        min-width: 110px;
+        text-align: right;
+
+        @include respond-below(sm) {
+            text-align: center;
+        }
+
+    }
+
+    .price {
+        color: $heading-color;
+    }
+}
+
+// offer item
+.offer-section-five {
+    background: transparent;
+
+    .offer-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid $border-color;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+        @include respond-below(md) {
+            justify-content: space-between;
+            align-items: center !important;
+        }
+        @include respond-below(sm) {
+            justify-content: center;
+            text-align: center;
+        }
+        .title {
+            font-size: 24px;
+            font-weight: $font-weight-semibold;
+        }
+        .offer-right {
+            p {
+                font-family: $font-family-primary;
+                font-size: 20px;
+                font-weight: $font-weight-semibold;
+            }
+        }
+    }
+
+    .element-one {
+        bottom: 0;
+        left: -315px;
+    }
+}
+
+// Experts Section
+.experts-section-one {
+    background: $primary-transparent;
+    position: relative;
+    .container {
+        position: relative;
+        z-index: 1;
+    }
+    .head-area {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-bottom: 40px;
+        position: relative;
+        @include respond-below(lg) {
+            justify-content: center;
+            text-align: center;
+            flex-direction: column;
+        }
+        .element-1 {
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: auto;
+            top: 0;
+            @include respond-below(lg) {
+                display: none;
+            }
+        }
+    }
+    .section-header {
+        .sub-title {
+            color: $gray-900;
+        }
+        .title {
+            color: $gray-900;
+        }
+    }
+    .element-1 {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+    }
+}
+.experts-item {
+    &-one {
+        text-align: center;
+        transition: all 0.8s;
+        &:hover {
+            transform: translateY(-10px);
+            .experts-overlay {
+                .social-icon {
+                    top: 0;
+                }
+                img {
+                    transform: scale(1.1);
+                }
+            }
+        }
+        .experts-overlay {
+            position: relative;
+            overflow: hidden;
+            border-radius: 4px;
+            img {
+                transition: all 0.8s;
+            }
+            .social-icon {
+                background: $white-100;
+                backdrop-filter: blur(20px);
+                padding: 16px;
+                border-radius: 0px 0px 100px 100px;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                gap: 8px;
+                width: fit-content;
+                position: absolute;
+                top: -170px;
+                right: 12px;
+                font-size: 18px;
+                transition: all 0.8s;
+                .icon {
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: $white;
+                    background: $dark;
+                    transition: all 0.8s;
+                    &:hover {
+                        background: $primary;
+                    }
+                }
+            }
+        }
+        .experts-content {
+            text-align: center;
+            padding-top: 20px;
+            .experts-name {
+                font-size: 24px;
+                font-weight: $font-weight-semibold;
+                color: $gray-900;
+                margin-bottom: 4px;
+                a {
+                    transition: all 0.8s;
+                    &:hover {
+                        color: $primary;
+                    }
+                }
+            }
+            .experts-designation {
+                font-size: 16px;
+                font-weight: $font-weight-normal;
+                color: $primary;
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+// Professional Section
+.professional-section-one {
+    background: url(../img/bg/professinoal-bg.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 80px;
+    @include respond-below(md) {
+        margin-top: 50px;
+        min-height: 400px;
+    }
+    @include respond-below(sm) {
+        min-height: 250px;
+    }
+    .pro-title {
+        font-size: 72px;
+        font-weight: $font-weight-semibold;
+        color: $white;
+        margin-bottom: 0;
+        @include respond-below(md) {
+            font-size: 48px;
+        }
+        @include respond-below(sm) {
+            font-size: 32px;
+        }
+        span {
+            display: block;
+        }
+    }
+}

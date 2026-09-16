@@ -1,0 +1,155 @@
+@use 'mixins' as *;
+@use '../variables' as *;
+
+body {
+	font-family: $font-family-secondary;
+	font-size: $font-size-base;
+	background-color: $white;
+	color: $body-color;
+	line-height: 1.6;
+	scroll-behavior: smooth;
+	overflow-x: hidden;
+
+	@include respond-below(md) {
+		font-size: 15px;
+	}
+}
+
+/* Links & focus - accessible and theme-aware */
+a {
+	color: var(--heading-color);
+	text-decoration: none;
+	transition: color 0.25s ease;
+	@include transition(all 0.5s);
+
+	&:hover,
+	&:focus {
+		color: var(--primary);
+		@include transition(all 0.5s);
+		outline: none;
+	}
+
+	&:focus-visible {
+		box-shadow: 0 0 0 4px rgba(194, 84, 20, 0.35);
+		border-radius: 4px;
+	}
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: $heading-color;
+	font-weight: $font-weight-bold;
+	font-family: $font-family-primary;
+}
+
+h1 {
+	font-size: 36px;
+
+	@include respond-below(lg) {
+		font-size: 32px;
+	}
+
+	@include respond-below(md) {
+		font-size: 28px;
+	}
+}
+
+h2 {
+	font-size: 32px;
+
+	@include respond-below(lg) {
+		font-size: 30px;
+	}
+
+	@include respond-below(md) {
+		font-size: 26px;
+	}
+}
+
+h3 {
+	font-size: 28px;
+
+	@include respond-below(lg) {
+		font-size: 26px;
+	}
+
+	@include respond-below(md) {
+		font-size: 24px;
+	}
+}
+
+h4, .custom-title {
+	font-size: 24px;
+
+	@include respond-below(lg) {
+		font-size: 22px;
+	}
+}
+
+h5, .sub-title {
+	font-size: 20px;
+
+	@include respond-below(lg) {
+		font-size: 19px;
+	}
+}
+
+h6 {
+	font-size: 18px;
+
+	@include respond-below(lg) {
+		font-size: 17px;
+	}
+}
+
+.title {
+	font-size: 22px;
+
+	@include respond-below(lg) {
+		font-size: 20px;
+	}
+
+	@include respond-below(md) {
+		font-size: 18px;
+	}
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+p {
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+::selection {
+	background: $primary;
+	color: $white;
+	text-shadow: none;
+	-webkit-text-fill-color: white;
+	/* Chrome/Safari for gradient text */
+	-moz-text-fill-color: white;
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+	a {
+		transition: none;
+
+		&:focus-visible {
+			box-shadow: 0 0 0 3px rgba(194, 84, 20, 0.35);
+		}
+	}
+}
+
+.fs-20 {
+	font-size: 20px;
+}

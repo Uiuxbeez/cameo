@@ -1,0 +1,307 @@
+/*============================
+    . Experts
+============================*/
+
+@use "../utils/mixins" as *;
+@use '../variables' as *;
+
+.expert-profile-card {
+  border-radius: 4px;
+  text-align: center;
+
+  .image-wrapper {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      border-radius: 4px;
+    }
+
+    .social-bar {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.7);
+      padding: 8px 12px;
+      border-radius: 30px;
+      display: flex;
+      gap: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      bottom: -80px;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      transition: all 0.4s ease;
+
+      .icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        color: #fff;
+        text-decoration: none;
+        transition: 0.3s;
+        background: $gray-900;
+
+        &:hover {
+          transform: translateY(-3px);
+          opacity: 0.9;
+          background: $primary;
+        }
+      }
+    }
+
+    &:hover .social-bar {
+      bottom: 15px;
+      opacity: 1;
+    }
+  }
+
+  .expert-profile-content {
+    padding: 8px 20px 0;
+
+    h2 {
+      margin-bottom: 4px;
+      font-size: 24px;
+      font-weight: $font-weight-bold;
+    }
+
+    p {
+      margin: 0;
+      font-size: 16px;
+      color: $gray-700;
+    }
+  }
+}
+
+//   Expert Details
+
+.expert-details {
+  .profile-box {
+    display: flex;
+    gap: 48px;
+    padding: 40px;
+    border: 1px solid $border-color;
+    border-radius: 4px;
+    box-shadow: $box-shadow-sm;
+    align-items: center;
+    margin-bottom: 40px;
+
+    @include respond-below(md) {
+      padding: 24px;
+      gap: 24px;
+    }
+
+    .left {
+      .image-wrapper {
+        position: relative;
+
+        img {
+          border-radius: 4px;
+        }
+
+        .badge {
+          position: absolute;
+          right: 0px;
+          top: 0px;
+          background: $primary;
+          color: $white;
+          padding: 18px 14px;
+          font-size: 16px;
+          font-weight: $font-weight-medium;
+          writing-mode: vertical-rl;
+          transform: rotate(180deg);
+          border-radius: 0;
+        }
+      }
+    }
+
+    .right {
+      flex: 1;
+
+      .expert-name {
+        margin-bottom: 20px;
+
+        h2 {
+          margin: 0;
+          font-size: 24px;
+          font-weight: 700;
+        }
+
+        span {
+          margin: 5px 0 10px;
+          color: $primary;
+          font-size: 16px;
+        }
+      }
+
+      .info {
+        gap: 24px;
+        margin-bottom: 24px;
+        margin-top: 20px;
+
+        h2 {
+          font-size: 16px;
+          color: $gray-900;
+        }
+
+        p {
+          color: $gray-600;
+        }
+      }
+
+      .social {
+        a {
+          display: inline-flex;
+          width: 40px;
+          height: 40px;
+          align-items: center;
+          justify-content: center;
+          background: $dark;
+          color: $white;
+          border-radius: 50%;
+          margin-right: 8px;
+          font-size: 18px;
+
+          &:hover {
+            background: $primary;
+          }
+        }
+      }
+    }
+  }
+
+  .content-grid {
+    margin-top: 20px;
+
+    h2 {
+      margin-bottom: 20px;
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .left-content {
+      .summary-title {
+        margin-bottom: 40px;
+
+        p {
+          margin-bottom: 0;
+        }
+      }
+
+      p {
+        font-size: 16px;
+        color: $gray-600;
+        margin-bottom: 20px;
+      }
+
+      .skill {
+        margin-bottom: 24px;
+
+        span {
+          display: block;
+          font-size: 16px;
+          margin-bottom: 12px;
+          color: $gray-600;
+          font-weight: 500;
+        }
+
+        p {
+          font-size: 16px;
+          color: $gray-900;
+          margin-bottom: 12px;
+          font-weight: 500;
+        }
+
+        .bar {
+          height: 6px;
+          background: $gray-100;
+          border-radius: 3px;
+
+          div {
+            height: 100%;
+            background: $primary;
+            border-radius: 3px;
+          }
+
+          &.dark {
+            div {
+              background: $dark;
+            }
+          }
+        }
+      }
+    }
+
+    .contact-box {
+      background: $light;
+      padding: 40px;
+      border: 1px solid $border-color;
+      border-radius: 10px;
+
+      @include respond-below(md) {
+        padding: 24px;
+      }
+    }
+  }
+
+  @include respond-below(lg) {
+    .profile-box {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+
+      .info {
+        flex-direction: column;
+        gap: 10px !important;
+      }
+    }
+  }
+}
+.membership-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+	margin-bottom: 16px;	
+}
+.membership-remaining-days {
+  margin-bottom: 24px;
+
+  span {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 12px;
+    color: $gray-600;
+    font-weight: 400;
+  }
+
+  p {
+    font-size: 16px;
+    margin-bottom: 12px;
+    color: $gray-600;
+    font-weight: 400;
+  }
+
+  .bar {
+    height: 6px;
+    background: $gray-100;
+    border-radius: 3px;
+
+    div {
+      height: 100%;
+      background: $primary;
+      border-radius: 3px;
+    }
+
+    &.dark {
+      div {
+        background: $dark;
+      }
+    }
+  }
+}

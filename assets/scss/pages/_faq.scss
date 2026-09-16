@@ -1,0 +1,132 @@
+/*============================
+    21. Faq
+============================*/
+
+@use "../utils/mixins" as *;
+@use '../variables' as *;
+
+.faq-section {
+    background: $light;
+
+    .section-header {
+        @include respond-below(md) {
+            text-align: center;
+        }
+
+        .section-title {
+            &.title-left {
+                &::before {
+                    @include respond-below(md) {
+                        left: 50%;
+                        @include transform(translateX(-50%));
+                    }
+                }
+            }
+        }
+    }
+}
+
+.faq-accordion {
+    position: relative;
+    z-index: 9;
+    border: 0;
+
+    .accordion-button:not(.collapsed) {
+        padding-bottom: 8px;
+
+        &::after {
+            @include transform(rotate(45deg));
+        }
+    }
+
+    .accordion-item {
+        border: 1px solid $border-color;
+        border-radius: $border-radius-md;
+        box-shadow: $box-shadow;
+
+        .accordion-button {
+            border-radius: $border-radius-sm !important;
+            font-size: 20px;
+            font-weight: $font-weight-semibold;
+
+            @include respond-below(md) {
+                font-size: 18px;
+            }
+        }
+    }
+
+    &-two {
+        .accordion-item {
+            border-radius: $border-radius-md;
+            box-shadow: $box-shadow;
+            overflow: hidden;
+            border: 1px solid $border-color;
+
+            .accordion-button {
+                border-radius: 0 !important;
+
+                &::after {
+                    content: "\ea5f";
+                    font-weight: $font-weight-normal;
+                }
+
+                &:not(.collapsed) {
+                    background-color: $light;
+                    padding-bottom: 8px;
+
+                    &::after {
+                        content: "\ea62";
+                        transform: none;
+                    }
+                }
+            }
+        }
+
+        .accordion-body {
+            background-color: $light;
+
+            .accordion-content {
+                padding: 12px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+        }
+    }
+
+    &-three {
+        .accordion-item {
+            border: 1px solid $border-color;
+            border-radius: $border-radius-lg;
+
+            .accordion-button {
+                border-radius: 10px !important;
+
+                &::after {
+                    content: "\ea69";
+                    font-weight: $font-weight-normal;
+                }
+
+                &:not(.collapsed) {
+                    padding-bottom: 8px;
+
+                    &::after {
+                        content: "\ea68";
+                        transform: none;
+                    }
+                }
+            }
+        }
+
+        .accordion-body {
+            .accordion-content {
+                padding: 12px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+        }
+    }
+}

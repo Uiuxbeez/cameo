@@ -1,0 +1,70 @@
+/*============================
+    15. Content
+============================*/
+
+@use "../utils/mixins" as *;
+@use '../variables' as *;
+
+.content {
+    padding: 60px 0;
+
+    @include respond-below(lg) {
+        padding: 40px 0;
+    }
+}
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    background-color: $white;
+    z-index: 99999999999 !important
+}
+
+[data-loader="circle-side"] {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    top: 50%;
+    left: 50%;
+    margin-left: -25px;
+    margin-top: -25px;
+    -webkit-animation: circle infinite .95s linear;
+    -moz-animation: circle infinite .95s linear;
+    -o-animation: circle infinite .95s linear;
+    animation: circle infinite .95s linear;
+    border: 6px solid $primary-transparent;
+    border-top: 5px solid $primary;
+    border-radius: 100%
+}
+
+@-webkit-keyframes circle {
+    0% {
+        @include transform(rotate(0));
+    }
+
+    100% {
+        @include transform(rotate(360deg));
+    }
+}
+
+@keyframes circle {
+    0% {
+        @include transform(rotate(0));
+    }
+
+    100% {
+        @include transform(rotate(360deg));
+    }
+}
+
+.theme-1 {
+    [data-loader="circle-side"] {
+        border: 6px solid rgba(80, 114, 59, 0.1);
+        border-top: 5px solid $primary;
+    }
+}

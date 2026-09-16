@@ -1,0 +1,128 @@
+// Cameo homepage styles. Edit this partial and compile main.scss.
+
+:where(html.cameo-home) .cameo-locations{padding:64px 0;background:#111;border-top:4px solid #e91d25;border-bottom:1px solid #333;color:#fff}
+:where(html.cameo-home) .cameo-locations .cameo-locations-label{color:#e91d25;text-transform:uppercase;letter-spacing:3px;font-size:12px;margin-bottom:16px}
+:where(html.cameo-home) .cameo-locations h2{color:#fff;font-size:clamp(25px,3vw,40px);margin-bottom:32px}
+:where(html.cameo-home) .cameo-locations .cameo-locations-cities{display:grid;grid-template-columns:repeat(3, 1fr);list-style:none;margin:0 0 30px;padding:0}
+:where(html.cameo-home) .cameo-locations .cameo-locations-cities li{display:flex;align-items:center;gap:16px;padding:18px 24px;border-right:1px solid #444;font-size:clamp(28px,3.3vw,48px);font-weight:700}
+:where(html.cameo-home) .cameo-locations .cameo-locations-cities li:first-child{padding-left:0}
+:where(html.cameo-home) .cameo-locations .cameo-locations-cities li:last-child{border:0}
+:where(html.cameo-home) .cameo-locations .cameo-locations-cities li i{color:#e91d25;font-size:30px}
+:where(html.cameo-home) .cameo-locations .cameo-locations-bottom{display:flex;align-items:center;justify-content:space-between;gap:24px}
+:where(html.cameo-home) .cameo-locations .cameo-locations-bottom p{color:#ccc;margin:0;max-width:660px}
+:where(html.cameo-home) .cameo-locations .cameo-locations-bottom a{display:inline-flex;align-items:center;gap:14px;padding:15px 24px;background:#e91d25;color:#fff;font-weight:600;flex-shrink:0}
+:where(html.cameo-home) .cameo-locations .cameo-locations-bottom a:hover{background:#fff;color:#111}
+:where(html.cameo-home) .cameo-locations .cameo-locations-bottom a:focus-visible{outline:2px solid #fff;outline-offset:5px}@media(max-width: 767.98px){
+:where(html.cameo-home) .cameo-locations{padding:44px 0}
+:where(html.cameo-home) .cameo-locations .cameo-locations-cities{grid-template-columns:1fr}
+:where(html.cameo-home) .cameo-locations .cameo-locations-cities li{padding:18px 0;border-right:0;border-bottom:1px solid #444}
+:where(html.cameo-home) .cameo-locations .cameo-locations-bottom{align-items:flex-start;flex-direction:column}}
+:where(html.cameo-skin2) .about-section-one {
+  background: url('../img/home-2/well-bg-1.png') center / cover no-repeat;
+}
+
+:where(html.cameo-skin2) .cameo-locations {
+  background: url('../img/home-2/well-bg-1.png') center / cover no-repeat;
+  border-color: rgba(255, 255, 255, .2);
+
+  .cameo-locations-label,
+  .cameo-locations-cities li i,
+  .cameo-locations-bottom p {
+    color: #fff;
+  }
+
+  .cameo-locations-cities li {
+    border-color: rgba(255, 255, 255, .25);
+  }
+}
+
+:root:where(.cameo-home),
+:root:where(.cameo-home)[data-cameo-theme]{--secondary: #e91d25;--secondary-rgb: 233, 29, 37;--secondary-hover: #111;--secondary-transparent: #f5f5f5;--secondary-100: #eee;--secondary-200: #ddd;--success: #e91d25;--success-rgb: 233, 29, 37;--success-hover: #111;--success-transparent: #f5f5f5;--success-100: #eee;--success-200: #ddd;--info: #e91d25;--info-rgb: 233, 29, 37;--info-hover: #111;--info-transparent: #f5f5f5;--info-100: #eee;--info-200: #ddd;--danger: #e91d25;--danger-rgb: 233, 29, 37;--danger-hover: #111;--danger-transparent: #f5f5f5;--danger-100: #eee;--danger-200: #ddd;--orange: #e91d25;--orange-rgb: 233, 29, 37;--orange-hover: #111;--orange-transparent: #f5f5f5;--orange-100: #eee;--orange-200: #ddd;--pink: #e91d25;--pink-rgb: 233, 29, 37;--pink-hover: #111;--pink-transparent: #f5f5f5;--pink-100: #eee;--pink-200: #ddd;--purple: #e91d25;--purple-rgb: 233, 29, 37;--purple-hover: #111;--purple-transparent: #f5f5f5;--purple-100: #eee;--purple-200: #ddd;--teal: #e91d25;--teal-rgb: 233, 29, 37;--teal-hover: #111;--teal-transparent: #f5f5f5;--teal-100: #eee;--teal-200: #ddd;--cyan: #e91d25;--cyan-rgb: 233, 29, 37;--cyan-hover: #111;--cyan-transparent: #f5f5f5;--cyan-100: #eee;--cyan-200: #ddd;--warning: #e91d25;--warning-rgb: 233, 29, 37;--warning-hover: #111;--warning-transparent: #f5f5f5;--warning-100: #eee;--warning-200: #ddd;--bs-primary: #e91d25;--bs-primary-rgb: 233, 29, 37;--bs-dark-rgb: 17, 17, 17;--bs-secondary-rgb: 102, 102, 102;--bs-body-color: #666;--bs-body-bg: #fff}
+:where(html.cameo-home) .text-primary{color:#e91d25 !important}
+:where(html.cameo-home) .bg-primary{background-color:#e91d25 !important}
+:where(html.cameo-home) .bg-primary-transparent{background-color:#f5f5f5 !important}
+:where(html.cameo-home) .border-primary{border-color:#e91d25 !important}
+:where(html.cameo-home) .text-secondary{color:#e91d25 !important}
+:where(html.cameo-home) .bg-secondary{background-color:#e91d25 !important}
+:where(html.cameo-home) .bg-secondary-transparent{background-color:#f5f5f5 !important}
+:where(html.cameo-home) .border-secondary{border-color:#e91d25 !important}
+:where(html.cameo-home) .text-success{color:#e91d25 !important}
+:where(html.cameo-home) .bg-success{background-color:#e91d25 !important}
+:where(html.cameo-home) .bg-success-transparent{background-color:#f5f5f5 !important}
+:where(html.cameo-home) .border-success{border-color:#e91d25 !important}
+:where(html.cameo-home) .text-info{color:#e91d25 !important}
+:where(html.cameo-home) .bg-info{background-color:#e91d25 !important}
+:where(html.cameo-home) .bg-info-transparent{background-color:#f5f5f5 !important}
+:where(html.cameo-home) .border-info{border-color:#e91d25 !important}
+:where(html.cameo-home) .text-danger{color:#e91d25 !important}
+:where(html.cameo-home) .bg-danger{background-color:#e91d25 !important}
+:where(html.cameo-home) .bg-danger-transparent{background-color:#f5f5f5 !important}
+:where(html.cameo-home) .border-danger{border-color:#e91d25 !important}
+:where(html.cameo-home) .text-orange{color:#e91d25 !important}
+:where(html.cameo-home) .bg-orange{background-color:#e91d25 !important}
+:where(html.cameo-home) .bg-orange-transparent{background-color:#f5f5f5 !important}
+:where(html.cameo-home) .border-orange{border-color:#e91d25 !important}
+:where(html.cameo-home) .text-pink{color:#e91d25 !important}
+:where(html.cameo-home) .bg-pink{background-color:#e91d25 !important}
+:where(html.cameo-home) .bg-pink-transparent{background-color:#f5f5f5 !important}
+:where(html.cameo-home) .border-pink{border-color:#e91d25 !important}
+:where(html.cameo-home) .text-purple{color:#e91d25 !important}
+:where(html.cameo-home) .bg-purple{background-color:#e91d25 !important}
+:where(html.cameo-home) .bg-purple-transparent{background-color:#f5f5f5 !important}
+:where(html.cameo-home) .border-purple{border-color:#e91d25 !important}
+:where(html.cameo-home) .text-teal{color:#e91d25 !important}
+:where(html.cameo-home) .bg-teal{background-color:#e91d25 !important}
+:where(html.cameo-home) .bg-teal-transparent{background-color:#f5f5f5 !important}
+:where(html.cameo-home) .border-teal{border-color:#e91d25 !important}
+:where(html.cameo-home) .text-cyan{color:#e91d25 !important}
+:where(html.cameo-home) .bg-cyan{background-color:#e91d25 !important}
+:where(html.cameo-home) .bg-cyan-transparent{background-color:#f5f5f5 !important}
+:where(html.cameo-home) .border-cyan{border-color:#e91d25 !important}
+:where(html.cameo-home) .text-warning{color:#e91d25 !important}
+:where(html.cameo-home) .bg-warning{background-color:#e91d25 !important}
+:where(html.cameo-home) .bg-warning-transparent{background-color:#f5f5f5 !important}
+:where(html.cameo-home) .border-warning{border-color:#e91d25 !important}
+:where(html.cameo-home) body{background-color:#fff;color:#666}
+:where(html.cameo-home) .s2-section .s2-blue,
+:where(html.cameo-home) .s2-section .s2-green,
+:where(html.cameo-home) .s2-section .s2-gold,
+:where(html.cameo-home) .s2-section .s2-purple{color:#e91d25 !important;background-color:#eee !important}
+:where(html.cameo-home) .testimonial-section-seven .ti-star-filled{color:#e91d25}
+:root:where(.cameo-home),
+:root:where(.cameo-home)[data-cameo-theme]{--primary: #e91d25;--primary-rgb: 233, 29, 37;--primary-hover: #e91d25;--primary-transparent: #f5f5f5;--primary-200: #ddd;--orange: #e91d25;--orange-hover: #e91d25;--orange-transparent: #f5f5f5;--heading-color: #111;--body-color: #666;--dark: #111;--dark-hover: #000;--dark-700: #111111b2;--light: #f5f5f5;--light-100: #f5f5f5;--light-200: #eee;--light-transparent: #f5f5f5;--border-color: #ddd}
+:where(html.cameo-home) .s2-section{--s2-ink: #111;--s2-muted: #666;--s2-border: #ddd;--s2-card: #fff;background:linear-gradient(120deg, #fff, #f5f5f5)}
+:where(html.cameo-home) .s2-section .s2-script{color:#666}
+:where(html.cameo-home) .s2-section .s2-icon{color:#e91d25;background:#f5f5f5}
+:where(html.cameo-home) .s2-section .s2-eyebrow,
+:where(html.cameo-home) .s2-section .s2-portfolio-footer a{color:#e91d25}
+:where(html.cameo-home) .s2-section .s2-eyebrow::after,
+:where(html.cameo-home) .s2-section .s2-script::after{background:#e91d25}
+:where(html.cameo-home) .s2-section .s2-button,
+:where(html.cameo-home) .s2-section .s2-button:hover,
+:where(html.cameo-home) .s2-section .s2-filters button[aria-pressed=true],
+:where(html.cameo-home) .s2-section .s2-feature .s2-project-copy>a i,
+:where(html.cameo-home) .s2-section .s2-wide .s2-project-copy>a i{background:#e91d25}
+:where(html.cameo-home) .s2-section .s2-story::after{background:linear-gradient(rgba(0, 0, 0, 0.7019607843), rgba(0, 0, 0, 0.2666666667))}
+:where(html.cameo-home) .s2-section .s2-watch>span{color:#111}
+:where(html.cameo-home) .s2-section .s2-brand-image{background:rgba(0,0,0,.1333333333)}
+:where(html.cameo-home) .s2-section .s2-brand-image::after{background:linear-gradient(rgba(255, 255, 255, 0.2078431373), transparent 45%, rgba(0, 0, 0, 0.7490196078))}
+:where(html.cameo-home) .s2-section .s2-brand-image .s2-script{color:#111}
+:where(html.cameo-home) .s2-section .s2-promise{background:linear-gradient(120deg, #111, #333)}
+:where(html.cameo-home) .s2-section .s2-promise p{color:#ddd}
+:where(html.cameo-home) .s2-section .s2-promise .s2-icon{color:#e91d25;background:#222}
+:where(html.cameo-home) .s2-section .s2-stats{box-shadow:0 5px 30px rgba(0,0,0,.0196078431)}
+:where(html.cameo-home) header.header-six.s2-header.is-scrolled{background:#111}
+:where(html.cameo-home) .hero-section-one .banner-tab-one .banner-data-one .banner-text-one{background:rgba(17,17,17,.8196078431)}
+html:where(.cameo-home)[data-cameo-theme=dark]{--secondary-transparent: #222;--success-transparent: #222;--info-transparent: #222;--danger-transparent: #222;--orange-transparent: #222;--pink-transparent: #222;--purple-transparent: #222;--teal-transparent: #222;--cyan-transparent: #222;--warning-transparent: #222;--heading-color: #f5f5f5;--body-color: #ccc;--light: #222;--light-100: #222;--light-200: #333;--light-transparent: #222;--primary-transparent: #222;--orange-transparent: #222;--border-color: #444;--form-bg: #222;--input-border: #555}
+html:where(.cameo-home)[data-cameo-theme=dark] body{background:#111}
+html:where(.cameo-home)[data-cameo-theme=dark] .s2-section{--s2-ink: #f5f5f5;--s2-muted: #bbb;--s2-border: #444;--s2-card: #222;background:linear-gradient(120deg, #111, #222)}
+html:where(.cameo-home)[data-cameo-theme=dark] .s2-section .s2-icon{background:#333}
+html:where(.cameo-home)[data-cameo-theme=dark] .s2-section .s2-script{color:#bbb}
+html:where(.cameo-home)[data-cameo-theme=dark] .s2-section .s2-brand-image .s2-script{color:#111}
+html:where(.cameo-home)[data-cameo-theme=dark] .signage-faq-item,
+html:where(.cameo-home)[data-cameo-theme=dark] .about-item-six,
+html:where(.cameo-home)[data-cameo-theme=dark] .offcanvas,
+html:where(.cameo-home)[data-cameo-theme=dark] .dropdown-menu,
+html:where(.cameo-home)[data-cameo-theme=dark] .stat-item-one,
+html:where(.cameo-home)[data-cameo-theme=dark] .testimonial-section-seven .testimonial-item{background-color:#222;border-color:#444}
+html:where(.cameo-home)[data-cameo-theme=dark] .form-control{background:#222;border-color:#555}

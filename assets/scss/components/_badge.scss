@@ -1,0 +1,41 @@
+/*============================
+    5. Badge
+============================*/
+
+@use '../variables' as *;
+@use "sass:map";
+
+@each $color, $value in $theme-colors {
+    .badge-soft-#{$color} {
+        color: var(--#{$color});
+        background-color: var(--#{$color}-transparent);
+
+        &[href] {
+            color: var(--#{$color});
+            text-decoration: none;
+
+            &:is(:hover, :focus) {
+                text-decoration: none;
+                background-color: var(--#{$color}-transparent);
+            }
+        }
+    }
+
+    .badge-outline-#{$color} {
+        color: var(--#{$color});
+        border-color: var(--#{$color});
+    }
+}
+
+.badge {
+    vertical-align: middle;
+    font-size: 14px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-weight: $font-weight-normal
+}
+
+.badge-sm {
+    padding: 5px 7px;
+    font-size: 12px;
+}

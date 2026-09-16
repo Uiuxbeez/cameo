@@ -1,0 +1,149 @@
+/*============================
+    38. Pricing
+============================*/
+
+@use "../utils/mixins" as *;
+@use '../variables' as *;
+
+.pricing-item {
+    margin-bottom: 20px;
+    box-shadow: $box-shadow-sm;
+
+    .pricing-item-one {
+        .pricing-item-list {
+            border-radius: $border-radius-lg;
+
+            h5 {
+                padding-bottom: 20px;
+                margin-bottom: 20px;
+                border-bottom: 1px dashed $gray-100;
+            }
+
+            .pricing {
+                border-bottom: 1px dashed $gray-100;
+
+                .price {
+                    font-size: 32px;
+                    font-weight: $font-weight-bold;
+
+                    @include respond-below(lg) {
+                        font-size: 28px;
+                    }
+                }
+
+                .badge {
+                    padding: 7px 8px;
+                    font-size: 14px;
+                    font-weight: $font-weight-medium;
+                }
+            }
+        }
+    }
+}
+
+// Statistics section five
+.statistics-section-five {
+    background: $dark;
+    background-size: cover;
+
+    .stat-item {
+        text-align: center;
+        position: relative;
+
+        &:before {
+            content: '';
+            position: absolute;
+            bottom: 3px;
+            left: 0;
+            width: 0%;
+            height: 5px;
+            background: $primary-linear-gradient;
+            margin: auto;
+            right: 0;
+            transition: all 0.3s ease-in-out;
+        }
+
+        h3 {
+            font-size: 56px;
+            font-weight: $font-weight-bold;
+            color: $darkmode-white;
+
+            @include respond-below(lg) {
+                font-size: 40px;
+            }
+
+            @include respond-below(md) {
+                font-size: 34px;
+            }
+        }
+    }
+
+    &:hover {
+        .stat-item {
+            &:before {
+                width: 43%;
+            }
+        }
+    }
+}
+
+.stat-section {
+    position: relative;
+    .element-1 {
+        position: absolute;
+        bottom: 10%;
+        left: 0;
+        z-index: -1;
+    }
+}
+
+.stat-item-one {
+    border: 1px solid $border-color;
+    padding: 40px;
+    text-align: center;
+    background: $white;
+    &:hover {
+        h3 {
+            color: $primary;
+        }
+    }
+    h3 {
+        font-size: 56px;
+        font-weight: $font-weight-bold;
+        color: $dark;
+        transition: all 0.8s;
+    }
+    p {
+        font-size: 16px;
+        font-weight: $font-weight-medium;  
+        margin-top: 4px;
+    }
+    &.two {
+        border-left: 0;
+        @include respond-below(sm) {
+            border-left: 1px solid $border-color;
+            border-top: 0;
+        }
+    }
+    &.three {
+        border-left: 0;
+        @include respond-below(lg) {
+            border-left: 1px solid $border-color;
+            border-top: 0;
+        }
+        @include respond-below(sm) {
+            border-left: 1px solid $border-color;
+            border-top: 0;
+        }
+    }
+    &.four {
+        border-left: 0;
+        @include respond-below(lg) {
+            border-top: 0;
+        }
+        @include respond-below(sm) {
+            border-left: 1px solid $border-color;
+            border-top: 0;
+        }
+    }
+}

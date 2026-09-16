@@ -1,0 +1,68 @@
+// Cameo homepage styles. Edit this partial and compile main.scss.
+
+// Keep service copy inside equal-height image cards at every breakpoint.
+:where(html.cameo-home) .signature-section .signature-item {
+    display: grid;
+    min-height: 360px;
+    height: 100%;
+    isolation: isolate;
+
+    .signature-img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -2;
+    }
+
+    &::before {
+        z-index: -1;
+        background: linear-gradient(180deg, rgba(0, 0, 0, .15), rgba(0, 0, 0, .9));
+    }
+
+    .signature-content {
+        position: relative;
+        bottom: auto;
+        align-self: end;
+        padding: 24px;
+        transition: none;
+    }
+
+    .signature-content .description {
+        width: 100%;
+        margin-bottom: 20px;
+        color: #fff !important;
+    }
+
+    .signature-btn a {
+        white-space: normal;
+    }
+}
+
+:where(html.cameo-home) ﻿.hero-section-one>.tab-content::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg, rgba(0, 0, 0, 0.48) 0%, rgba(0, 0, 0, 0.28) 50%, rgba(0, 0, 0, 0.1) 100%);pointer-events:none}
+:where(html.cameo-home) .signage-services .services-img img{width:100%;height:440px;object-fit:cover;border-radius:6px}
+:where(html.cameo-home) .signage-services .service-title{font-size:clamp(28px,3vw,36px);margin-bottom:24px}
+:where(html.cameo-home) .signage-services .service-list .service-list-item{justify-content:flex-start;gap:14px;padding-bottom:18px;margin-bottom:18px;border-bottom:1px solid #ddd}
+:where(html.cameo-home) .signage-services .service-check{color:var(--primary);font-size:26px;flex-shrink:0;margin-top:3px}
+:where(html.cameo-home) .signage-services .service-cta{margin-top:24px}
+:where(html.cameo-home) .professional-section-one.advertising-video{overflow:hidden;isolation:isolate;background:#171717 url("../img/cameo/hero-dubai-first.png") center/cover;padding:80px 0}
+:where(html.cameo-home) .advertising-video .video-background{position:absolute;inset:0;z-index:-2;pointer-events:none}
+:where(html.cameo-home) .advertising-video iframe{position:absolute;top:50%;left:50%;width:max(100vw,1067px);height:max(56.25vw,600px);transform:translate(-50%, -50%);border:0}
+:where(html.cameo-home) .advertising-video::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg, rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.4))}
+:where(html.cameo-home) .advertising-video .container{position:relative}
+:where(html.cameo-home) .signage-faq{background:var(--primary-transparent) url("../img/home/experts-img-1.png") no-repeat right bottom}
+:where(html.cameo-home) .signage-faq-heading{font-size:30px;line-height:1.3;margin-bottom:20px}
+:where(html.cameo-home) .signage-faq-photo{display:block;width:100%;height:320px;object-fit:cover;border-radius:12px;margin-top:28px;box-shadow:0 16px 40px rgba(0,0,0,.12)}
+:where(html.cameo-home) .signage-faq-item{background:#fff;border:1px solid #ddd;border-radius:10px;margin-bottom:12px;overflow:hidden}
+:where(html.cameo-home) .signage-faq-item summary{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 24px;cursor:pointer;list-style:none;font-weight:600;color:#222;line-height:1.5}
+:where(html.cameo-home) .signage-faq-item summary::-webkit-details-marker{display:none}
+:where(html.cameo-home) .signage-faq-item summary::after{content:"+";color:var(--primary);font-size:24px;flex-shrink:0}
+:where(html.cameo-home) .signage-faq-item[open]{border-color:var(--primary);box-shadow:0 8px 24px rgba(0,0,0,.05)}
+:where(html.cameo-home) .signage-faq-item[open] summary{color:var(--primary)}
+:where(html.cameo-home) .signage-faq-item[open] summary::after{content:"−"}
+:where(html.cameo-home) .signage-faq-item summary:focus-visible{outline:2px solid var(--primary);outline-offset:-4px}
+:where(html.cameo-home) .signage-faq-item p{padding:0 24px 22px;margin:0;line-height:1.75}@media(max-width: 575.98px){
+:where(html.cameo-home) .signage-faq-item summary{padding:16px}
+:where(html.cameo-home) .signage-faq-item p{padding:0 16px 18px}
+:where(html.cameo-home) .signage-faq-photo{height:280px}}

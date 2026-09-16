@@ -1,0 +1,446 @@
+/*============================
+    9. Forms
+============================*/
+
+@use "../utils/mixins" as *;
+@use '../variables' as *;
+
+.form-control {
+    border-color: $input-border;
+    color: $gray-900;
+    background-color: $form-bg;
+    font-size: 16px;
+    font-weight: $font-weight-normal;
+    line-height: 1.6;
+    border-radius: 6px;
+    padding: 0.5rem 0.75rem;
+    min-height: 44px;
+    transition: all 0.5s;
+
+    &:focus {
+        box-shadow: none;
+        border-color: $input-border;
+        background-color: $form-bg;
+        color: $gray-900;
+
+        &::-webkit-input-placeholder,
+        &::placeholder {
+            color: $gray-400;
+            padding-inline-start: 0;
+        }
+    }
+
+    &::-webkit-input-placeholder {
+        color: $gray-400;
+        padding-inline-start: 0;
+        transition: padding-inline-start 0.1s ease-in;
+    }
+
+    &:-moz-placeholder {
+        color: $gray-400;
+    }
+
+    &::-moz-placeholder {
+        color: $gray-400;
+    }
+
+    &:-ms-input-placeholder {
+        color: $gray-400;
+    }
+}
+
+.form-control-sm {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.75rem;
+    height: auto;
+    min-height: 34px;
+}
+
+.form-control-lg {
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+    min-height: 40px;
+
+    @include respond-below(md) {
+        padding: 0.5rem 0.75rem;
+        min-height: 30px;
+    }
+}
+
+textarea {
+    &.form-control {
+        min-height: 38px;
+        height: auto;
+    }
+
+    resize: none;
+}
+
+.form-control[type="file"] {
+    padding: 0.3rem 0.5rem;
+
+    &.form-control-sm {
+        padding: 0.25rem 0.5rem !important;
+    }
+
+    &.form-control-lg {
+        padding: 0.5rem 1rem !important;
+    }
+}
+
+input.form-control[type="color"],
+input.form-control[type="range"] {
+    min-height: 38px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.form-check {
+    min-height: inherit !important;
+}
+
+.col-form-label-lg,
+.col-form-label-sm,
+.col-form-label {
+    font-weight: $font-weight-medium;
+}
+
+.col-form-label {
+    font-size: 14px;
+    font-weight: $font-weight-medium;
+    color: $heading-color;
+}
+
+.form-label {
+    font-size: 16px;
+    font-weight: $font-weight-semibold;
+    color: $gray-900;
+    margin-bottom: 4px;
+}
+
+.custom-select.is-invalid,
+.form-control.is-invalid,
+.custom-select:invalid,
+.form-control:invalid,
+.custom-select.is-valid,
+.form-control.is-valid,
+.custom-select:valid,
+.form-control:valid {
+    &:focus {
+        box-shadow: none !important;
+    }
+}
+
+select.form-control {
+    &:not([size]):not([multiple]) {
+        height: 38px;
+    }
+}
+
+select.form-control-sm {
+    &:not([size]):not([multiple]) {
+        height: 32px;
+    }
+}
+
+.password-eye {
+    cursor: pointer;
+
+    &:before {
+        font-family: tabler-icons;
+        content: "\ea9a";
+        font-style: normal;
+        font-weight: 400;
+        font-variant: normal;
+        vertical-align: middle;
+        line-height: 1.2;
+        font-size: 16px;
+    }
+}
+
+.show-password {
+    .password-eye {
+        &:before {
+            content: "\F06D1";
+        }
+    }
+}
+
+.form-floating> {
+
+    .form-control-plaintext,
+    .form-control {
+        &::placeholder {
+            color: transparent !important;
+        }
+    }
+}
+
+.form-floating>.form-control,
+.form-floating>.form-control-plaintext,
+.form-floating>.form-select {
+    height: calc(3.5rem - 4px);
+}
+
+.form-floating {
+    &.floating-primary {
+        label {
+            color: $primary;
+            opacity: 1;
+        }
+
+        input {
+            border: 1px solid $primary;
+        }
+
+        &>.form-control:focus~label {
+            color: $primary !important;
+        }
+    }
+
+    &.floating-secondary {
+        label {
+            color: $secondary;
+            opacity: 1;
+        }
+
+        input {
+            border: 1px solid $secondary;
+        }
+
+        &>.form-control:focus~label {
+            color: $secondary !important;
+        }
+    }
+
+    &.floating-warning {
+        label {
+            color: $warning;
+            opacity: 1;
+        }
+
+        input {
+            border: 1px solid $warning;
+        }
+
+        &>.form-control:focus~label {
+            color: $warning !important;
+        }
+    }
+
+    &.floating-info {
+        label {
+            color: $info;
+            opacity: 1;
+        }
+
+        input {
+            border: 1px solid $info;
+        }
+
+        &>.form-control:focus~label {
+            color: $info !important;
+        }
+    }
+
+    &.floating-success {
+        label {
+            color: $success;
+            opacity: 1;
+        }
+
+        input {
+            border: 1px solid $success;
+        }
+
+        &>.form-control:focus~label {
+            color: $success !important;
+        }
+    }
+
+    &.floating-danger {
+        label {
+            color: $danger;
+            opacity: 1;
+        }
+
+        input {
+            border: 1px solid $danger;
+        }
+
+        &>.form-control:focus~label {
+            color: $danger !important;
+        }
+    }
+}
+
+.form-floating>.form-control-plaintext~label::after,
+.form-floating>.form-control:focus~label::after,
+.form-floating>.form-control:not(:placeholder-shown)~label::after,
+.form-floating>.form-select~label::after {
+    background-color: $white;
+    border-radius: $border-radius-md;
+}
+
+.form-control.is-valid:focus,
+.was-validated .form-control:valid:focus {
+    border-color: $success;
+    box-shadow: none;
+}
+
+.input-group-flat {
+    &:focus-within {
+        border-radius: $border-radius-md;
+
+        .form-control,
+        .input-group-text {
+            border-color: $input-border !important;
+            background: $white !important;
+        }
+    }
+
+    .form-control {
+        &:focus {
+            border-color: $input-border;
+            box-shadow: none;
+        }
+
+        &:not(:last-child) {
+            border-right: 0;
+        }
+
+        &:not(:first-child) {
+            border-left: 0;
+        }
+    }
+
+    .input-group-text {
+        background-color: $form-bg;
+        border-color: $input-border;
+        transition: all 0.5s;
+
+        &:first-child {
+            padding-right: 0;
+        }
+
+        &:last-child {
+            padding-left: 0;
+        }
+
+        i {
+            color: $gray-300;
+        }
+    }
+}
+
+.form-check-input {
+    &:checked {
+        background-color: $primary;
+        border-color: $primary;
+
+        ~label {
+            color: $gray-900;
+        }
+    }
+
+    &:focus {
+        box-shadow: none;
+    }
+
+    ~label {
+        color: $gray-700;
+    }
+}
+
+.file-uploader {
+    position: relative;
+
+    input {
+        font-size: 0;
+        opacity: 0;
+        position: absolute;
+    }
+
+    .input-file {
+        width: 100%;
+        background: $light;
+        border-radius: 5px;
+        display: flex;
+        height: 38px;
+        align-items: center;
+
+        .browse-btn {
+            height: 38px;
+            background: $dark;
+            color: $white;
+            display: inline-flex;
+            align-items: center;
+            padding: 10px;
+            border-radius: 5px 0 0 5px;
+            font-size: 14px;
+        }
+
+        .browse-text {
+            font-size: 14px;
+            color: $gray-300;
+            padding-left: 12px;
+        }
+    }
+}
+
+.input-icon-addon {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $gray-400;
+    pointer-events: none;
+    font-size: 14px;
+    padding: 0 12px 0 12px;
+
+    &:last-child {
+        right: 0;
+        left: auto;
+    }
+}
+
+.input-icon-end {
+    .input-icon-addon {
+        right: 0;
+        left: auto;
+    }
+
+    .form-control {
+        padding-right: 32px;
+    }
+}
+
+.input-icon-start {
+    .form-control {
+        padding-left: 32px;
+    }
+}
+
+.input-group-text {
+    background-color: transparent;
+    border-color: $border-color;
+}
+
+.form-control.bookingrange {
+    height: 35px;
+    font-size: 13px;
+}
+
+.input-group {
+    button {
+        position: relative;
+        z-index: 2;
+    }
+}

@@ -1,0 +1,150 @@
+/*============================
+    30. Booking Details
+============================*/
+
+@use "../utils/mixins" as *;
+@use '../variables' as *;
+
+.booking1-items {
+    box-shadow: $box-shadow;
+
+    .booking1-item {
+        .booking1-item-list {
+            border-bottom: 1px dashed $gray-100;
+            &:last-child {
+                border-bottom: 0;
+            }
+        }
+    }
+
+    .booking-item-one {
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+        border-bottom: 1px solid $gray-100;
+    }
+}
+
+.no-service {
+    background: $danger-transparent;
+    padding: 8px 10px;
+    color: $danger;
+    font-size: 14px;
+    font-weight: $font-weight-semibold;
+    border-radius: $border-radius-md;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.book-item {
+    border: 1px solid $border-color;
+    padding: 12px;
+    border-radius: $border-radius-md;
+
+    .price {
+        font-size: 16px;
+        font-weight: $font-weight-semibold;
+        color: $gray-900;
+        margin-bottom: 0;
+    }
+
+    .book-img {
+        margin-bottom: 14px;
+
+        img {
+            border-radius: $border-radius-md;
+        }
+    }
+
+    span {
+        display: block;
+        margin-bottom: 14px;
+    }
+
+    .btn-icon {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        font-size: 16px;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+.payment-content {
+    border-top: 1px solid $border-color;
+    padding-top: 24px;
+}
+
+.payment-options {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 24px;
+
+    @include respond-below(sm) {
+        gap: 12px;
+    }
+
+    li {
+        flex: 1;
+        display: flex;
+
+        @include respond-below(md) {
+            width: calc(50% - 20px);
+            flex: none;
+        }
+
+        @include respond-below(sm) {
+            width: 100%;
+        }
+
+        .form-check {
+            border: 1px solid $border-color;
+            border-radius: $border-radius-md;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            flex: auto;
+
+            .form-check-input {
+                margin: 0 auto 12px;
+            }
+
+            &.active {
+                border-color: $primary;
+            }
+        }
+    }
+}
+
+.coupon-item {
+    border: 1px solid $border-color;
+    padding: 20px;
+    border-radius: $border-radius-md;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 16px;
+
+    @include respond-below(sm) {
+        flex-direction: column;
+        align-items: start;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.copy-code {
+    background: $primary-transparent;
+    border: 1px dashed $primary;
+    font-weight: $font-weight-semibold;
+    padding: 8px 16px;
+    border-radius: $border-radius-md;
+    color: $primary;
+}

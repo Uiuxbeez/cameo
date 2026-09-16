@@ -1,0 +1,48 @@
+.inline {
+    display: block;
+    position: relative;
+    top: 2px;
+    width: 100%;
+    box-shadow: none;
+    border: none;
+
+    .flatpickr-rContainer {
+        display: block;
+        width: 100%;
+
+        .flatpickr-days {
+            width: 100%;
+            border: none;
+
+
+            .dayContainer {
+                width: 100%;
+                min-width: 100%;
+                max-width: 100%;
+
+                .flatpickr-day {
+                    max-width: 100%;
+                }
+            }
+        }
+    }
+
+    .flatpickr-current-month {
+        padding: 0;
+    }
+
+    .flatpickr-months {
+
+        .flatpickr-next-month,
+        .flatpickr-prev-month {
+            padding: 0;
+        }
+    }
+
+    .flatpickr-day.today,
+    .flatpickr-day.selected {
+        background-color: transparent;
+        color: rgb(25, 0, 255);
+        border: none;
+    }
+}

@@ -1,0 +1,71 @@
+/*============================
+    7. Background
+============================*/
+
+@use "../utils/mixins" as *;
+@use '../variables' as *;
+@use "sass:map";
+
+@each $color, $value in $theme-colors {
+    .bg-#{$color} {
+        background-color: var(--#{$color}) !important;
+    }
+}
+
+@each $color, $value in $theme-colors {
+    .text-#{$color} {
+        color: var(--#{$color}) !important;
+    }
+}
+
+@each $color, $value in $theme-colors {
+    .link-#{$color} {
+        color: var(--#{$color}) !important;
+
+        &:hover,
+        &:focus {
+            color: var(--#{$color}-hover) !important;
+        }
+    }
+}
+
+@each $color, $value in $theme-colors {
+    .bg-#{$color}-transparent {
+        background-color: var(--#{$color}-transparent);
+    }
+}
+
+.bg-dark {
+    background: $darkmode-dark !important;
+}
+
+.bg-gray-300 {
+    background: $gray-300 !important;
+}
+
+.text-body {
+    color: $gray-700 !important;
+}
+.text-gray-100 {
+    color: $gray-100 !important;
+}
+
+.heading-color {
+    color: $gray-900 !important;
+}
+
+.bg-primary-200 {
+    background-color: $primary-200 !important;
+}
+
+.bg-secondary-200 {
+    background-color: $secondary-200 !important;
+}
+
+.bg-purple-200 {
+    background-color: $purple-200 !important;
+}
+
+.bg-teal-200 {
+    background-color: $teal-200 !important;
+}

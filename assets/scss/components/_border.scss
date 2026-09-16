@@ -1,0 +1,321 @@
+/*============================
+    6. Border
+============================*/
+
+@use "../utils/mixins" as *;
+@use '../variables' as *;
+
+.border {
+    border: 1px solid $border-color !important;
+
+    &.border-dashed {
+        border-style: dashed !important;
+    }
+
+    &.border-dotted {
+        border-style: dotted !important;
+    }
+
+    &.border-primary {
+        border: 1px solid $primary !important;
+        opacity: 1;
+    }
+
+    &.border-secondary {
+        border: 1px solid $secondary !important;
+        opacity: 1;
+    }
+
+    &.border-info {
+        border-color: $info !important;
+        opacity: 1;
+    }
+
+    &.border-success {
+        border-color: $success !important;
+        opacity: 1;
+    }
+
+    &.border-warning {
+        border: 1px solid $warning !important;
+        opacity: 1;
+    }
+
+    &.border-danger {
+        border: 1px solid $danger !important;
+        opacity: 1;
+    }
+
+    &.border-white {
+        border: 1px solid $white !important;
+        opacity: 1;
+    }
+
+    &.border-light {
+        border: 1px solid $light !important;
+        opacity: 1;
+    }
+
+    &.border-dark {
+        border: 1px solid $dark !important;
+        opacity: 1;
+    }
+
+    &.border-1 {
+        border-width: 1px !important;
+    }
+
+    &.border-2 {
+        border-width: 2px !important;
+    }
+
+    &.border-3 {
+        border-width: 3px !important;
+    }
+
+    &.border-4 {
+        border-width: 4px !important;
+    }
+
+    &.border-5 {
+        border-width: 5px !important;
+    }
+
+    &.border-block-start-dashed {
+        border-top-style: dashed;
+    }
+
+    &.border-block-start-dotted {
+        border-top-style: dotted;
+    }
+
+    &.border-inline-end-dashed {
+        border-inline-end-style: dashed;
+    }
+
+    &.border-inline-end-dotted {
+        border-inline-end-style: dotted;
+    }
+
+    &.border-block-end-dashed {
+        border-bottom-style: dashed;
+    }
+
+    &.border-block-end-dotted {
+        border-bottom-style: dotted;
+    }
+
+    &.border-inline-start-dashed {
+        border-inline-start-style: dashed;
+    }
+
+    &.border-inline-start-dotted {
+        border-inline-start-style: dotted;
+    }
+
+    &.border-0 {
+        border: 0 !important;
+    }
+
+    &.border-top-0 {
+        border-block-start: 0 !important;
+    }
+
+    &.border-end-0 {
+        border-inline-end: 0 !important;
+    }
+
+    &.border-bottom-0 {
+        border-block-end: 0 !important;
+    }
+
+    &.border-start-0 {
+        border-inline-start: 0 !important;
+    }
+}
+
+.border-top {
+    border-top: 1px solid $border-color !important;
+
+    &.border-block-start-dashed {
+        border-top-style: dashed !important;
+    }
+
+    &.border-block-start-dotted {
+        border-top-style: dotted !important;
+    }
+
+    &.border-primary {
+        border-color: $primary !important;
+    }
+
+    &.border-secondary {
+        border-color: $secondary !important;
+    }
+
+    &.border-warning {
+        border-color: $warning !important;
+    }
+
+    &.border-info {
+        border-color: $info !important;
+    }
+
+    &.border-success {
+        border-color: $success !important;
+    }
+
+    &.border-danger {
+        border-color: $danger !important;
+    }
+
+    &.border-light {
+        border-color: $light !important;
+    }
+
+    &.border-dark {
+        border-color: $dark !important;
+    }
+}
+
+.border-end {
+    border-inline-end: 1px solid $border-color !important;
+
+    &.border-inline-end-dashed {
+        border-inline-end-style: dashed !important;
+    }
+
+    &.border-inline-end-dotted {
+        border-inline-end-style: dotted !important;
+    }
+
+    &.border-primary {
+        border-color: $primary !important;
+    }
+
+    &.border-secondary {
+        border-color: $secondary !important;
+    }
+
+    &.border-warning {
+        border-color: $warning !important;
+    }
+
+    &.border-info {
+        border-color: $info !important;
+    }
+
+    &.border-success {
+        border-color: $success !important;
+    }
+
+    &.border-danger {
+        border-color: $danger !important;
+    }
+
+    &.border-light {
+        border-color: $light !important;
+    }
+
+    &.border-dark {
+        border-color: $dark !important;
+    }
+}
+
+.border-bottom {
+    border-bottom: 1px solid $border-color !important;
+
+    &.border-block-end-dashed {
+        border-bottom-style: dashed !important;
+    }
+
+    &.border-block-end-dotted {
+        border-bottom-style: dotted !important;
+    }
+
+    &.border-primary {
+        border-color: $primary !important;
+    }
+
+    &.border-secondary {
+        border-color: $secondary !important;
+    }
+
+    &.border-warning {
+        border-color: $warning !important;
+    }
+
+    &.border-info {
+        border-color: $info !important;
+    }
+
+    &.border-success {
+        border-color: $success !important;
+    }
+
+    &.border-danger {
+        border-color: $danger !important;
+    }
+
+    &.border-light {
+        border-color: $light !important;
+    }
+
+    &.border-dark {
+        border-color: $dark !important;
+    }
+}
+
+.border-start {
+    border-inline-start: 1px solid $border-color !important;
+
+    &.border-inline-start-dashed {
+        border-inline-start-style: dashed !important;
+    }
+
+    &.border-inline-start-dotted {
+        border-inline-start-style: dotted !important;
+    }
+
+    &.border-primary {
+        border-color: $primary !important;
+    }
+
+    &.border-secondary {
+        border-color: $secondary !important;
+    }
+
+    &.border-warning {
+        border-color: $warning !important;
+    }
+
+    &.border-info {
+        border-color: $info !important;
+    }
+
+    &.border-success {
+        border-color: $success !important;
+    }
+
+    &.border-danger {
+        border-color: $danger !important;
+    }
+
+    &.border-light {
+        border-color: $light !important;
+    }
+
+    &.border-dark {
+        border-color: $dark !important;
+    }
+}
+
+.border-dashed {
+    &.border-primary {
+        border-style: dashed !important;
+    }
+}
+
+.border-light {
+    border-color: $light !important;
+}

@@ -1,0 +1,62 @@
+// Cameo homepage styles. Edit this partial and compile main.scss.
+/* Keep hero copy below the fixed header and darken every slider image. */
+:where(html.cameo-home) .hero-section-one > .tab-content::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(0,0,0,.84) 0%, rgba(0,0,0,.66) 38%, rgba(0,0,0,.30) 72%, rgba(0,0,0,.12) 100%);
+    pointer-events: none;
+}
+:where(html.cameo-home) .hero-section-one .banner-section-one{
+    min-height: max(920px, 100svh);
+    padding: 230px 0 60px;
+}
+:where(html.cameo-home) .hero-section-one .banner-details-one{ padding: 0 0 76px; }
+:where(html.cameo-home) .hero-section-one .banner-content-one{ position: relative; }
+:where(html.cameo-home) .hero-section-one .banner-content-one .banner-project-description{
+    max-width: 620px;
+    margin: -12px 0 30px;
+    color: #fff;
+    font-size: clamp(15px, 1.1vw, 18px);
+    line-height: 1.7;
+}
+:where(html.cameo-home) .hero-section-one .banner-content-one .banner-btn .primary-btn{
+    max-width: 100%;
+    white-space: normal;
+}
+:where(html.cameo-home) .hero-section-one .banner-content-one .sub-title{
+    line-height: 1.5;
+    margin-bottom: 22px;
+}
+:where(html.cameo-home) .hero-section-one .banner-content-one h1.title{
+    font-size: clamp(44px, 4.2vw, 72px);
+    line-height: 1.16;
+    margin-bottom: 36px;
+}
+:where(html.cameo-home) .hero-section-one .banner-content-one .section-title{
+    top: 75%;
+    left: -42px;
+    white-space: nowrap;
+}
+:where(html.cameo-home) .hero-section-one .banner-data-one{ gap: 24px; }
+:where(html.cameo-home) .hero-section-one .banner-tab-one .banner-data-one .banner-text-one{ background: rgba(15,15,18,.82); }
+@media (max-width: 1199.98px) {
+:where(html.cameo-home) .hero-section-one .banner-section-one{ padding-top: 210px; }
+:where(html.cameo-home) .hero-section-one .banner-content-one .section-title{ left: -24px; }
+}
+@media (max-width: 991.98px) {
+:where(html.cameo-home) .hero-section-one .banner-section-one{ min-height: 980px; padding: 250px 0 50px; }
+:where(html.cameo-home) .hero-section-one .banner-details-one{ padding-bottom: 54px; }
+:where(html.cameo-home) .hero-section-one .banner-content-one{ max-width: 720px; margin: auto; }
+:where(html.cameo-home) .hero-section-one .banner-content-one .section-title{ position: static; transform: none; white-space: normal; margin-bottom: 18px; }
+:where(html.cameo-home) .hero-section-one > .tab-content::after{ background: linear-gradient(90deg,rgba(0,0,0,.82),rgba(0,0,0,.52)); }
+}
+@media (max-width: 575.98px) {
+:where(html.cameo-home) .hero-section-one .banner-tab-one{ display: block; }
+:where(html.cameo-home) .hero-section-one .banner-tab-one .nav-tabs{ margin-bottom: 24px; }
+:where(html.cameo-home) .hero-section-one .banner-section-one{ min-height: 1050px; padding: 250px 0 40px; }
+:where(html.cameo-home) .hero-section-one .banner-content-one h1.title{ font-size: clamp(32px,8.5vw,44px); }
+:where(html.cameo-home) .hero-section-one .banner-content-one .sub-title{ font-size: 16px; }
+:where(html.cameo-home) .hero-section-one .banner-data-one{ flex-direction: column; gap: 16px; }
+:where(html.cameo-home) .hero-section-one .banner-text-one{ width: 100%; }
+}

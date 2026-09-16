@@ -1,0 +1,90 @@
+/*============================
+    27. Feature
+============================*/
+
+@use "../utils/mixins" as *;
+@use '../variables' as *;
+
+
+// Signature 
+.signature-section {
+    position: relative;
+    .section-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        @include respond-below(lg) {
+            flex-direction: column;
+            text-align: center;
+        }
+        p {
+            text-align: right;
+            width: 40%;
+            @include respond-below(xxl) {
+                width: 50%;
+            }
+            @include respond-below(xl) {
+                width: 60%;
+            }
+            @include respond-below(lg) {
+                text-align: center;
+                width: 100%;
+            }
+        }
+    }
+    .scissors-icon {
+        position: absolute;
+        left: -7px;
+        top: 11%;
+        z-index: -1;
+        @include respond-below(xxl) {
+            top: 0;
+        }
+    }
+}
+.signature-item {
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: $dark-gradient;
+    }
+    &:hover {
+        .signature-content {
+            bottom: 0px;
+        }
+    }
+    .signature-content {
+        position: absolute;
+        bottom: -144px;
+        padding: 24px;
+        transition: all 0.7s;
+        @include respond-below(xl) {
+            bottom: -136px;
+            padding: 14px;
+        }
+        @include respond-below(lg) {
+            bottom: -112px;
+            padding: 14px;
+        }
+        @include respond-below(md) {
+            bottom: -128px;
+        }
+        .signature-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: $white;
+        }
+        .description {
+            color: $white;
+            margin-bottom: 24px;
+            @include respond-below(sm) {
+                width: 60%;
+            }
+        }
+    }
+}

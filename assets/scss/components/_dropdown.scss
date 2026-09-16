@@ -1,0 +1,115 @@
+/*============================
+   10. Dropdown
+============================*/
+
+@use "../utils/mixins" as *;
+@use '../variables' as *;
+
+.dropdown-menu {
+    box-shadow: $box-shadow;
+    animation-name: DropDownSlideUp;
+    animation-duration: 0.3s;
+    animation-fill-mode: both;
+    will-change: transform;
+    border-radius: $border-radius-md;
+    padding: 12px;
+    border: 1px solid $border-color;
+    background-color: $white;
+
+    @mixin dropdown-menu-color($color) {
+        background-color: $color;
+
+        li a {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .dropdown-item {
+
+            &:hover,
+            &:focus,
+            &:active,
+            &.active {
+                color: $white;
+            }
+        }
+    }
+
+    @mixin dropmenu-light-color($color) {
+        backdrop-filter: blur(2rem);
+
+        .dropdown-item {
+
+            &:hover,
+            &:focus,
+            &:active,
+            &.active {
+                color: $white;
+                background-color: $color !important;
+            }
+        }
+    }
+
+    &[data-popper-placement="top-start"],
+    &[data-popper-placement="top"] {
+        animation-name: DropDownSlideDown;
+    }
+
+    .dropdown-item {
+        border-radius: $border-radius-md;
+        font-size: 14px;
+        font-weight: $font-weight-medium;
+        color: $gray-600;
+        padding: 8px 16px;
+
+        &:hover,
+        &.active,
+        &:active {
+            color: $heading-color;
+            background: $light;
+        }
+    }
+}
+
+@keyframes DropDownSlideUp {
+    100% {
+        margin-top: -1px;
+    }
+
+    0% {
+        margin-top: 5px;
+    }
+}
+
+@keyframes DropDownSlideDown {
+    100% {
+        margin-bottom: 0;
+    }
+
+    0% {
+        margin-bottom: 5px;
+    }
+}
+
+.dropdown-divider {
+    border-color: $border-color;
+}
+
+.dropdown-menu-lg {
+    width: 400px;
+
+    @include respond-below(md) {
+        width: 300px;
+    }
+}
+
+.dropdown-toggle {
+    &::after {
+        display: inline-block;
+        vertical-align: 0;
+        content: "\ea5f";
+        font-family: 'tabler-icons';
+        border: 0;
+        font-size: 14px;
+        position: relative;
+    }
+}

@@ -1,0 +1,229 @@
+@use "../utils/mixins" as *;
+@use '../variables' as *;
+
+/*============================
+    2. Button
+============================*/
+
+button {
+    cursor: pointer;
+
+    &:focus {
+        outline: 0;
+        box-shadow: none;
+    }
+}
+
+@each $color, $value in $theme-colors {
+    .#{$color}-btn-outline {
+        color: var(--#{$color});
+        border: 1px solid var(--#{$color});
+        border-radius: $border-radius-md;
+        padding: 10px 16px;
+        font-size: 15px;
+        transition: all 0.5s;
+        font-weight: $font-weight-semibold;
+        text-align: center;
+        display: inline-block;
+
+        @include respond-below(md) {
+            padding: 10px 16px;
+            font-size: 14px;
+        }
+
+        &:hover,
+        &:focus,
+        &.focus,
+        &:active,
+        &.active {
+            background-color: var(--#{$color});
+            border: 1px solid var(--#{$color});
+            color: $white;
+            box-shadow: none;
+        }
+    }
+}
+
+@each $color, $value in $theme-colors {
+    .#{$color}-btn {
+        color: $darkmode-white;
+        border: 1px solid var(--#{$color});
+        background-color: var(--#{$color});
+        border-radius: 4px;
+        padding: 12px 24px;
+        font-size: 16px;
+        transition: all 0.5s;
+        font-family: $font-family-primary;
+        font-weight: $font-weight-semibold;
+        text-align: center;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: none;
+
+        @include respond-below(md) {
+            padding: 10px 16px;
+            font-size: 14px;
+        }
+
+        &:hover,
+        &:focus,
+        &.focus,
+        &:active,
+        &.active {
+            background-color: var(--#{$color}-hover);
+            border: 1px solid var(--#{$color}-hover);
+            color: $darkmode-white;
+        }
+    }
+}
+
+.primary-btn {
+    color: $darkmode-white;
+
+    &:hover,
+    &:focus,
+    &.focus,
+    &:active,
+    &.active {
+        color: $darkmode-white;
+    }
+}
+
+.white-btn {
+    color: $gray-900;
+    border: 1px solid $border-color;
+    background-color: $white;
+
+    &:hover,
+    &:focus,
+    &.focus,
+    &:active,
+    &.active {
+        background-color: $primary;
+        border: 1px solid $primary;
+        color: $darkmode-white !important;
+    }
+}
+
+.dark-btn {
+    color: $white;
+    border: 1px solid $dark;
+    background-color: $dark;
+
+    &:hover,
+    &:focus,
+    &.focus,
+    &:active,
+    &.active {
+        background-color: $primary;
+        border: 1px solid $primary;
+        color: $darkmode-white;
+    }
+}
+
+.light-btn {
+    color: $gray-900 !important;
+    border: 1px solid $gray-100;
+}
+
+.light-btn-outline {
+    color: $gray-900 !important;
+    border: 1px solid $border-color;
+    border-radius: $border-radius-md;
+    padding: 10px 16px;
+    font-size: 15px;
+    transition: all 0.5s;
+    font-weight: $font-weight-semibold;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    @include respond-below(md) {
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+
+    &:hover,
+    &:focus,
+    &.focus,
+    &:active,
+    &.active {
+        background-color: $primary;
+        border-color: $primary;
+        color: $darkmode-white !important;
+        box-shadow: none;
+    }
+}
+
+[data-bs-theme=dark] {
+    .btn {
+        &.dark-btn {
+            background-color: $light;
+            border-color: $light;
+            color: $dark;
+
+            &:hover {
+                background-color: $primary;
+            }
+        }
+    }
+}
+
+@each $color, $value in $theme-colors {
+    .theme-1 {
+        .#{$color}-btn {
+            border-radius: $rounded-pill;
+        }
+    }
+}
+
+.theme-2 {
+    .primary-btn {
+        position: relative;
+        background: $primary;
+        background-size: 200% auto;
+        transition: all 0.4s ease-in-out;
+        overflow: hidden;
+        z-index: 0;
+        border: none;
+
+        &:hover {
+            background-position: right center;
+        }
+    }
+}
+
+.btn-icon {
+    padding: 10px 16px;
+    font-size: 15px;
+    transition: all 0.5s;
+    font-weight: $font-weight-semibold;
+}
+
+.btn-large {
+    padding: 16px 28px;
+    font-size: 18px;
+    font-family: $font-family-primary;
+
+    @include respond-below(md) {
+        padding: 8px 12px;
+        font-size: 15px;
+    }
+}
+
+.btn-medium {
+    padding: 10px 16px;
+    font-size: 14px;
+
+    &.btn-icon {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+.btn-small {
+    padding: 8px 20px;
+    font-size: 14px;
+}

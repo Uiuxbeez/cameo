@@ -1,0 +1,174 @@
+/*============================
+    . Branches
+============================*/
+
+@use "../utils/mixins" as *;
+@use '../variables' as *;
+
+
+.membership-section-header {
+    text-align: center;
+    margin-bottom: 40px;
+
+    h2 {
+        margin-bottom: 8px;
+    }
+
+}
+
+
+.our-membership-section {
+    padding: 80px 0px;
+    .our-membership-card {
+        .membership-badge {
+            display: block;
+            width: 56px;
+            height: 56px;
+            padding: 8px;
+            border-radius: 4px;
+            background: $primary;
+            color: $white;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+    }
+}
+
+.membership-plans-section {
+    padding: 80px 0;
+    background: $dark;
+
+    .membership-section-header {
+        color: $white;
+        margin-bottom: 80px;
+
+        h2 {
+            color: $white;
+        }
+    }
+
+    .membership-plan-card {
+        padding: 40px;
+        border: 5px solid transparent;
+        border-radius: 4px;
+        background: $white;
+        position: relative;
+        &.most-popular {
+            @include respond-below(lg) {
+                margin-top: 30px;
+            }
+        }
+        .most-popular-badge {
+            position: absolute;
+            background: $primary;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 14px;
+            color: $white;
+            left: 50%;
+            transform: translateX(-50%);
+            top: -35px;
+        }
+
+        .membership-plan-card-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 24px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid $border-color;
+
+            .membership-badge {
+                width: 56px;
+                height: 56px;
+                padding: 8px;
+                border-radius: 4px;
+                background: $dark;
+                color: $white;
+                margin-bottom: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            .price {
+                font-size: 48px;
+                font-weight: 600;
+                color: $gray-900;
+                margin-right: 4px;
+                margin-bottom: 6px;
+                span {
+                    font-size: 16px;
+                    color: $gray-600;
+                    font-weight: 400;
+                }
+            }
+            p {
+                color: $primary;
+                font-weight: 500;
+            }
+
+        }
+
+        .membership-plan-card-body {
+            .membership-plan-card-list {
+                display: flex;
+                align-items: center;
+                margin-bottom: 12px;
+            }
+            .dark-btn {
+                margin-top: 12px;
+            }
+        }
+
+        &:hover {
+            border: 5px solid $primary;
+            .membership-badge {
+                background: $primary;
+            }
+            .btn-dark {
+                background: $dark;
+            }
+        }
+
+    }
+}
+
+.membership-faq-section {
+    padding: 80px 0px;
+    .accordion-item {
+        border-radius: 4px;
+    }
+    .accordion-header .accordion-button.collapsed { 
+        background: $white;
+        color: $dark;
+        border-radius: 4px;
+        &::after {
+            color: $dark;
+        }
+    }
+    .accordion-collapse.collapse.show {
+        background: $dark;
+        p {
+            color: $white;
+        }
+    } 
+    .membership.faq-accordion .accordion-item .accordion-button {
+        border-radius: inherit !important;
+    }
+    .accordion-button:not(.collapsed) {
+        background: $dark;
+        color: $white;
+    }
+    .accordion-button:not(.collapsed)::after {
+        color: $white;
+    }
+}

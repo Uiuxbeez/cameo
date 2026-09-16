@@ -1,0 +1,140 @@
+/*============================
+    4. Accordion
+============================*/
+
+@use "../utils/mixins" as *;
+@use '../variables' as *;
+
+.accordion-button {
+    background-color: $white;
+    color: $gray-900;
+    padding: 20px;
+    font-size: 18px;
+    font-weight: $font-weight-bold;
+
+    @include respond-below(md) {
+        font-size: 17px;
+    }
+
+    &:not(.collapsed) {
+        color: $gray-900;
+        background-color: transparent;
+        box-shadow: none;
+
+        &:after {
+            color: $gray-900;
+            background-image: none;
+        }
+    }
+
+    &:focus {
+        border-color: inherit;
+        box-shadow: none;
+    }
+
+    &:after {
+        content: "\eb0b";
+        font-family: $font-tabler;
+        font-size: 20px;
+        line-height: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 3.125rem;
+        color: $gray-900;
+        background-image: none;
+    }
+}
+
+.accordion-body {
+    padding: 0 20px 20px;
+    font-size: 16px;
+    color: $body-color;
+}
+
+.accordion-item {
+    color: $body-color;
+    background-color: $white;
+    border: 1px solid $border-color;
+    @include rounded(5px);
+    position: relative;
+}
+
+.accordions-items-seperate {
+    .accordion-item:not(:first-of-type) {
+        margin-block-start: 1rem;
+    }
+
+    .accordion-item {
+        border-block-start: 1px solid $border-color;
+        border-radius: $border-radius-md;
+        overflow: hidden;
+    }
+}
+
+.accordion-item:last-of-type {
+    border-bottom-right-radius: 0.35rem;
+    border-bottom-left-radius: 0.35rem;
+}
+
+.accordion-item:first-of-type {
+    border-top-left-radius: 0.35rem;
+    border-top-right-radius: 0.35rem;
+}
+
+.accordion {
+    &.accordionicon-none {
+        .accordion-button:after {
+            display: none;
+        }
+    }
+
+    &.accordionicon-left {
+        .accordion-button {
+            padding-inline-start: 2.5rem;
+
+            &:after {
+                position: absolute;
+                inset-inline-start: 0.625rem;
+            }
+        }
+    }
+
+    &.accordion-list {
+        .accordion-item {
+            border: 0;
+            background: transparent;
+
+            &:last-child {
+                border-bottom: 0 !important;
+            }
+
+            .accordion-header {
+                .accordion-button {
+                    font-size: 16px;
+                    font-weight: $font-weight-medium;
+                    color: $gray-900;
+
+                    &:not(.collapsed) {
+                        &:after {
+                            content: "\f0d8";
+                            transform: none;
+                        }
+                    }
+
+                    &:after {
+                        content: "\f0d7";
+                        color: $gray-600;
+                        font-size: 16px;
+                    }
+                }
+            }
+
+            .accordion-collapse {
+                .accordion-body {
+                    padding: 16px 0 0;
+                }
+            }
+        }
+    }
+}

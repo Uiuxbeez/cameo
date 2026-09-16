@@ -1,0 +1,86 @@
+/*============================
+    11. Breadcrumb
+============================*/
+
+@use "../utils/mixins" as *;
+@use '../variables' as *;
+
+.breadcrumb-bar {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 130px 0;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+
+    @include respond-below(lg) {
+        padding: 60px 0 60px;
+    }
+    @include respond-below(md) {
+        padding: 40px 0 40px;
+    }
+    .page-breadcrumb {
+        background: $white-100;
+        padding: 8px 12px;
+        border-radius: 4px;
+        backdrop-filter: blur(20px);
+        display: inline-flex;
+        align-items: center;
+        margin-bottom: 20px;
+        @include respond-below(sm) {
+            margin-bottom: 12px;
+        }
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0;
+            
+            .breadcrumb-item {
+                color: $white;
+                font-size: 16px;
+                font-weight: $font-weight-normal;
+                position: relative;
+                &:first-child{
+                    &::before {
+                        content: unset;
+                    }
+                }
+                &::before {
+                    content: "\ea1f";
+                    font-family: "tabler-icons";
+                    font-size: 16px;
+                    font-weight: $font-weight-normal;
+                    color: $white;
+                }
+                a {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    font-size: 16px;
+                    font-weight: $font-weight-normal;
+                    color: $white;
+                    &:hover {
+                        color: $primary !important;
+                    }
+                }
+            }
+        }
+    }
+    .breadcrumb-title {
+        font-size: 56px;
+        font-weight: $font-weight-semibold;
+        color: $white;
+        margin-bottom: 0;
+        @include respond-below(lg) {
+            font-size: 48px;
+        }
+        @include respond-below(md) {
+            font-size: 40px;
+        }
+        @include respond-below(sm) {
+            font-size: 30px;
+        }
+    }
+}
