@@ -692,7 +692,7 @@
         <!-- Additional reference design: capabilities and trust -->
         <section class="s2-section s2-expertise" id="signage-capabilities" aria-labelledby="s2-cap-title">
           <div class="s2-container">
-            <header class="s2-heading"><span class="section-badge mb-2">Our Capabilities</span><h2 id="s2-cap-title">End-to-End Signage &amp; Branding Expertise</h2><p>From concept to installation, we deliver complete signage solutions with precision, creativity and<br class="d-none d-lg-block"> cutting-edge technology — all under one roof.</p><a class="s2-button" href="#signage-portfolio">Explore Our Services <i class="ti ti-arrow-right" aria-hidden="true"></i></a></header>
+            <header class="s2-heading"><span class="section-badge mb-2">Our Capabilities</span><h2 id="s2-cap-title">End-to-End Signage &amp; Branding Expertise</h2><p>From concept to installation, we deliver complete signage solutions with precision, creativity and<br class="d-none d-lg-block"> cutting-edge technology — all under one roof.</p></header>
             <div class="s2-cap-grid"><div class="s2-cap-column"><article class="s2-cap-card"><div><span class="s2-icon"><i class="ti ti-bulb" aria-hidden="true"></i></span><h3>3D Signage</h3><p>High-impact 3D signs to make your brand stand out.</p><a href="https://cameoadvt.com/contact-us/" aria-label="Learn more about 3D Signage"><span class="s2-arrow"><i class="ti ti-arrow-right" aria-hidden="true"></i></span> Learn More</a></div><img src="assets/img/cameo/client-projects/wellington-illuminated-lettering.jpeg" alt="Wellington illuminated lettering" loading="lazy"></article><article class="s2-cap-card"><div><span class="s2-icon"><i class="ti ti-home" aria-hidden="true"></i></span><h3>Interior Signage</h3><p>Stylish interior signs for offices, retail and commercial spaces.</p><a href="https://cameoadvt.com/contact-us/" aria-label="Learn more about Interior Signage"><span class="s2-arrow"><i class="ti ti-arrow-right" aria-hidden="true"></i></span> Learn More</a></div><img src="assets/img/cameo/client-projects/fresh-produce-indoor-signage.jpeg" alt="Fresh produce indoor signage" loading="lazy"></article><article class="s2-cap-card"><div><span class="s2-icon"><i class="ti ti-truck" aria-hidden="true"></i></span><h3>Vehicle Branding</h3><p>Transform your vehicles into moving advertisements.</p><a href="https://cameoadvt.com/contact-us/" aria-label="Learn more about Vehicle Branding"><span class="s2-arrow"><i class="ti ti-arrow-right" aria-hidden="true"></i></span> Learn More</a></div><img src="assets/img/cameo/client-projects/jetour-vehicle-branding.jpeg" alt="Jetour vehicle branding" loading="lazy"></article></div><div class="s2-story"><img src="assets/img/cameo/client-projects/jotun-sign-installation.jpeg" alt="Jotun sign installation" loading="lazy"><div><span>Transforming Spaces<br>Branding Dubai</span><div class="s2-story-rule"></div><blockquote>“Signage is not just our business, it’s how brands make a lasting impression.”</blockquote><a href="https://www.youtube.com/watch?v=-FnrCZJw6TE" class="s2-watch"><span><i class="ti ti-player-play-filled" aria-hidden="true"></i></span>Watch Our Story</a></div></div><div class="s2-cap-column"><article class="s2-cap-card"><div><span class="s2-icon"><i class="ti ti-building" aria-hidden="true"></i></span><h3>Outdoor Signage</h3><p>Durable outdoor signs for maximum visibility.</p><a href="https://cameoadvt.com/contact-us/" aria-label="Learn more about Outdoor Signage"><span class="s2-arrow"><i class="ti ti-arrow-right" aria-hidden="true"></i></span> Learn More</a></div><img src="assets/img/cameo/client-projects/aramex-building-signage.jpeg" alt="Aramex building signage" loading="lazy"></article><article class="s2-cap-card"><div><span class="s2-icon"><i class="ti ti-building-store" aria-hidden="true"></i></span><h3>Exhibition Stands</h3><p>Eye-catching exhibition booths and displays.</p><a href="https://cameoadvt.com/contact-us/" aria-label="Learn more about Exhibition Stands"><span class="s2-arrow"><i class="ti ti-arrow-right" aria-hidden="true"></i></span> Learn More</a></div><img src="assets/img/cameo/client-projects/nexus-branded-display.jpeg" alt="Nexus branded display" loading="lazy"></article><article class="s2-cap-card"><div><span class="s2-icon"><i class="ti ti-device-desktop" aria-hidden="true"></i></span><h3>Display Stands</h3><p>Custom display stands for product promotions.</p><a href="https://cameoadvt.com/contact-us/" aria-label="Learn more about Display Stands"><span class="s2-arrow"><i class="ti ti-arrow-right" aria-hidden="true"></i></span> Learn More</a></div><img src="assets/img/cameo/client-projects/fresh-produce-display-panel.jpeg" alt="Fresh produce display panel" loading="lazy"></article></div></div>
             <div class="s2-trust">
               <header class="s2-heading"><span class="section-badge mb-2">Why Dubai Businesses Trust Us</span><h2>More Than a Signage Partner — A Growth Enabler</h2><p>We combine creativity, technology and local expertise to deliver signage solutions that<br class="d-none d-lg-block"> help businesses across Dubai grow, stand out and stay ahead.</p></header>
@@ -1525,20 +1525,21 @@
 
             const updateProgress = () => {
                 heroTabs.forEach((tab, index) => {
-                    const fill = index === activeIndex ? Math.max(0, Math.min(progress / duration, 1)) : 0;
+                    const isActive = index === activeIndex;
+                    const fill = isActive ? Math.max(0, Math.min(progress / duration, 1)) : 0;
                     const svg = tab.querySelector('.hero-progress-svg');
                     const path = svg ? svg.querySelector('path') : null;
 
+                    tab.classList.toggle('is-active', isActive);
+                    tab.classList.toggle('is-progressing', isActive && fill > 0);
+
                     if (path) {
                         const length = path.getTotalLength();
-                        const offset = length * (1 - fill);
+                        const visibleLength = length * fill;
                         path.style.strokeDasharray = `${length}`;
-                        path.style.strokeDashoffset = `${offset}`;
-                        path.style.stroke = path.dataset.strokeColor || '#f12727';
+                        path.style.strokeDashoffset = `${length - visibleLength}`;
+                        path.setAttribute('stroke', `url(#hero-progress-gradient-${index})`);
                     }
-
-                    tab.style.setProperty('--progress', fill.toFixed(4));
-                    tab.classList.toggle('is-progressing', index === activeIndex && fill > 0);
                 });
             };
 
@@ -1593,24 +1594,23 @@
                     gradient.setAttribute('x2', '100%');
                     gradient.setAttribute('y2', '0%');
 
-                    const stop1 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
-                    stop1.setAttribute('offset', '0%');
-                    stop1.setAttribute('stop-color', '#ff7d66');
-                    const stop2 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
-                    stop2.setAttribute('offset', '100%');
-                    stop2.setAttribute('stop-color', '#f12727');
+                    const redStop = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
+                    redStop.setAttribute('offset', '0%');
+                    redStop.setAttribute('stop-color', '#ef1d2f');
+                    const orangeStop = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
+                    orangeStop.setAttribute('offset', '100%');
+                    orangeStop.setAttribute('stop-color', '#ff9f1c');
 
-                    gradient.appendChild(stop1);
-                    gradient.appendChild(stop2);
+                    gradient.appendChild(redStop);
+                    gradient.appendChild(orangeStop);
                     defs.appendChild(gradient);
                     svg.appendChild(defs);
 
                     const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
                     path.setAttribute('d', 'M 4 96 L 96 96 L 96 4 L 4 4 L 4 96');
-                    path.dataset.strokeColor = '#f12727';
+                    path.setAttribute('stroke', `url(#hero-progress-gradient-${heroTabs.indexOf(tab)})`);
                     path.style.strokeDasharray = '0';
                     path.style.strokeDashoffset = '0';
-                    path.style.stroke = '#f12727';
                     svg.appendChild(path);
                     tab.appendChild(svg);
                 }
