@@ -558,7 +558,6 @@
 .wellness-section {
     position: relative;
     overflow: hidden;
-    padding-top: 0;
     &.wellness-section-six {
         background: url(../img/home-2/well-bg-1.png);
         background-size: cover;
@@ -1425,5 +1424,19 @@
     }
 }
 
+.zigzak-box {
+background-color: #59595C;
+position: relative;
+overflow: hidden;
+border-radius: 10px;
+}
 
-
+.pricing-service-content {
+    background-color: var(--white);
+    padding: 30px;
+    height: 100%;
+    clip-path: polygon(0 0, 100% 0, 99% 97%, 0 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

@@ -154,6 +154,78 @@
 		}, 350);
 	});
 
+	// Hero section auto-rotate tabs with animated progress fill
+	document.addEventListener('DOMContentLoaded', function () {
+		const heroTabNav = document.getElementById('myTab');
+		if (!heroTabNav) return;
+
+		const heroTabs = Array.from(heroTabNav.querySelectorAll('.nav-link'));
+		if (heroTabs.length < 2) return;
+
+		let heroTabIndex = heroTabs.findIndex((tab) => tab.classList.contains('active'));
+		if (heroTabIndex < 0) heroTabIndex = 0;
+		let heroInterval = null;
+		let heroProgress = 0;
+		const heroDuration = 6000;
+		const heroStep = 50;
+
+		const updateHeroProgress = () => {
+			heroTabs.forEach((tab, index) => {
+				const isActive = index === heroTabIndex;
+				const progress = isActive ? Math.min(heroProgress / heroDuration, 1) : 0;
+				tab.style.setProperty('--progress', progress.toFixed(4));
+				tab.classList.toggle('is-progressing', isActive);
+			});
+		};
+
+		const showHeroTab = (index) => {
+			const tab = heroTabs[index];
+			if (!tab) return;
+			heroTabIndex = index;
+			heroProgress = 0;
+
+			if (window.bootstrap && window.bootstrap.Tab) {
+				const tabInstance = window.bootstrap.Tab.getOrCreateInstance(tab);
+				tabInstance.show();
+			} else {
+				tab.click();
+			}
+
+			updateHeroProgress();
+		};
+
+		const startHeroRotation = () => {
+			clearInterval(heroInterval);
+			heroProgress = 0;
+			updateHeroProgress();
+			heroInterval = setInterval(() => {
+				heroProgress += heroStep;
+				updateHeroProgress();
+
+				if (heroProgress >= heroDuration) {
+					const nextIndex = (heroTabIndex + 1) % heroTabs.length;
+					showHeroTab(nextIndex);
+				}
+			}, heroStep);
+		};
+
+		heroTabs.forEach((tab) => {
+			tab.addEventListener('click', () => {
+				heroTabIndex = heroTabs.indexOf(tab);
+				heroProgress = 0;
+				updateHeroProgress();
+				startHeroRotation();
+			});
+			tab.addEventListener('mouseenter', () => clearInterval(heroInterval));
+			tab.addEventListener('mouseleave', startHeroRotation);
+			tab.addEventListener('focus', () => clearInterval(heroInterval));
+			tab.addEventListener('blur', startHeroRotation);
+		});
+
+		updateHeroProgress();
+		startHeroRotation();
+	});
+
 	// Animation
 	const tiltElements = document.getElementsByClassName('tilt');
 

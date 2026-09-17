@@ -753,14 +753,13 @@
         }
         .nav-link {
             padding: 0px;
-            border: 1px solid transparent;
+            border: 0px solid transparent;
             border-radius: 4px;
             height: 140px;
             width: 50px;
             overflow: hidden;
             transition: all 0.4s;
             &.active {
-                border: 1px solid $primary;
                 width: 130px;
             }
             img {
