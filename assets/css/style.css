@@ -7334,12 +7334,13 @@ footer .join-sec p {
   }
 }
 .banner-tab-one .nav-tabs .nav-link {
+  position: relative;
   padding: 0px;
   border: 0px solid transparent;
   border-radius: 4px;
   height: 140px;
   width: 50px;
-  overflow: hidden;
+  overflow: visible;
   transition: all 0.5s;
 }
 .banner-tab-one .nav-tabs .nav-link.active {
@@ -7349,6 +7350,34 @@ footer .join-sec p {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  filter: grayscale(1);
+  opacity: 0.6;
+  transition: filter 0.25s ease, opacity 0.25s ease;
+}
+.banner-tab-one .nav-tabs .nav-link.active img,
+.banner-tab-one .nav-tabs .nav-link.is-active img {
+  filter: grayscale(0);
+  opacity: 1;
+}
+.banner-tab-one .nav-tabs .nav-link .hero-progress-svg {
+  position: absolute;
+  inset: -6px;
+  width: calc(100% + 12px);
+  height: calc(100% + 12px);
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0;
+}
+.banner-tab-one .nav-tabs .nav-link.active .hero-progress-svg,
+.banner-tab-one .nav-tabs .nav-link.is-active .hero-progress-svg {
+  opacity: 1;
+}
+.banner-tab-one .nav-tabs .nav-link .hero-progress-svg path {
+  fill: none;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 5px rgba(241, 39, 39, 0.35));
 }
 .banner-tab-one .banner-data-one {
   display: flex;
