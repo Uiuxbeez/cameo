@@ -22399,6 +22399,82 @@ html:where(.cameo-home)[data-cameo-theme=dark] body p:not(.counter-value):not(.s
   top: 0 !important;
 }
 
+@media (min-width: 992px) {
+  :where(html.cameo-skin2) header.header-six.s2-header .navbar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  }
+  :where(html.cameo-skin2) header.header-six.s2-header .navbar .menu-wrapper {
+    grid-column: 1;
+    grid-row: 1;
+    margin-left: 0;
+    min-width: 0;
+  }
+  :where(html.cameo-skin2) header.header-six.s2-header .navbar .header-logo {
+    grid-column: 2;
+    grid-row: 1;
+    position: static;
+    transform: none;
+    padding: 0;
+    margin: 0;
+  }
+  :where(html.cameo-skin2) header.header-six.s2-header .navbar .header-items {
+    grid-column: 3;
+    grid-row: 1;
+    justify-self: end;
+  }
+  :where(html.cameo-skin2) header.header-six.s2-header .header-nav .main-nav {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 14px;
+    row-gap: 0;
+  }
+}
+@media (max-width: 991.98px) {
+  :where(html.cameo-skin2) header.header-six.s2-header .navbar-header {
+    position: relative;
+    justify-content: flex-end;
+  }
+  :where(html.cameo-skin2) header.header-six.s2-header .navbar-header .navbar-brand {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+  }
+}
+:where(html.cameo-skin2) .cameo-contact-rail {
+  position: fixed;
+  right: 0;
+  top: 58%;
+  transform: translateY(-50%);
+  z-index: 1020;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 12px 0 0 12px;
+  background: var(--primary);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
+}
+:where(html.cameo-skin2) .cameo-contact-rail a {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  color: #fff;
+  font-size: 21px;
+  text-decoration: none;
+}
+:where(html.cameo-skin2) .cameo-contact-rail a + a {
+  border-top: 1px solid rgba(255, 255, 255, 0.2509803922);
+}
+:where(html.cameo-skin2) .cameo-contact-rail a:hover {
+  background: var(--primary-hover);
+}
+:where(html.cameo-skin2) .cameo-contact-rail a:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: -4px;
+}
+
 html.cameo-home.cameo-skin2 .cameo-hero-slider .banner-section-one {
   display: flex;
   align-items: center;
