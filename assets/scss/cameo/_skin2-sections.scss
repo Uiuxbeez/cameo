@@ -11,7 +11,7 @@
 :where(html.cameo-home) .s2-eyebrow{text-transform:uppercase;letter-spacing:2px;font-size:11px;color:#eb2428;display:inline-flex;align-items:center;gap:16px}
 :where(html.cameo-home) .s2-eyebrow:after{content:"";width:48px;height:1px;background:#eb2428}
 :where(html.cameo-home) .s2-portfolio-heading{display:grid;grid-template-columns:1.15fr 1fr;align-items:center;gap:50px}
-:where(html.cameo-home) .s2-portfolio-heading h2{font-size:clamp(36px,4.2vw,62px);margin-bottom:0}
+:where(html.cameo-home) .s2-portfolio-heading h2{font-size:clamp(36px,4.2vw,32px);margin-bottom:0}
 :where(html.cameo-home) .s2-portfolio-heading h2 strong{font-weight:700}
 :where(html.cameo-home) .s2-script{font-family:"Brush Script MT","Segoe Script",cursive;font-style:italic;font-size:34px;line-height:1.4;transform:rotate(-10deg);text-align:center;color:#737b90}
 :where(html.cameo-home) .s2-script:after{content:"";display:block;width:70px;height:1px;background:#eb2428;margin:8px 0 0 auto;transform:rotate(-10deg)}

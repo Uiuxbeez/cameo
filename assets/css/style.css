@@ -21307,7 +21307,7 @@ html:where(.cameo-home)[data-cameo-theme=dark] .stat-item-one:hover h3 {
 }
 
 :where(html.cameo-home) .s2-portfolio-heading h2 {
-  font-size: clamp(36px, 4.2vw, 62px);
+  font-size: clamp(36px, 4.2vw, 32px);
   margin-bottom: 0;
 }
 
