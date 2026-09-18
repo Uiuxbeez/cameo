@@ -15,6 +15,7 @@
 }
 :where(html.cameo-home) :where(body) :is(h3, h4, h5, h6, .title, .section-title){
     font-weight: 500;
+    font-size: 24px;
 }/* Main titles can also carry the template's .title class. */
 :where(html.cameo-home) :where(body) :is(h1, h2).title{
     font-weight: 500;
@@ -46,7 +47,7 @@
     }
 
     p:not(.counter-value):not(.step-count):not(.section-title) {
-        font-size: 14px;
+        font-size: 16px;
         line-height: 1.8;
         letter-spacing: 0;
         color: #171717;

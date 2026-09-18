@@ -7334,13 +7334,12 @@ footer .join-sec p {
   }
 }
 .banner-tab-one .nav-tabs .nav-link {
-  position: relative;
   padding: 0px;
   border: 0px solid transparent;
   border-radius: 4px;
   height: 140px;
   width: 50px;
-  overflow: visible;
+  overflow: hidden;
   transition: all 0.5s;
 }
 .banner-tab-one .nav-tabs .nav-link.active {
@@ -7350,34 +7349,6 @@ footer .join-sec p {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: grayscale(1);
-  opacity: 0.6;
-  transition: filter 0.25s ease, opacity 0.25s ease;
-}
-.banner-tab-one .nav-tabs .nav-link.active img,
-.banner-tab-one .nav-tabs .nav-link.is-active img {
-  filter: grayscale(0);
-  opacity: 1;
-}
-.banner-tab-one .nav-tabs .nav-link .hero-progress-svg {
-  position: absolute;
-  inset: -6px;
-  width: calc(100% + 12px);
-  height: calc(100% + 12px);
-  pointer-events: none;
-  z-index: 2;
-  opacity: 0;
-}
-.banner-tab-one .nav-tabs .nav-link.active .hero-progress-svg,
-.banner-tab-one .nav-tabs .nav-link.is-active .hero-progress-svg {
-  opacity: 1;
-}
-.banner-tab-one .nav-tabs .nav-link .hero-progress-svg path {
-  fill: none;
-  stroke-width: 3;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  filter: drop-shadow(0 0 5px rgba(241, 39, 39, 0.35));
 }
 .banner-tab-one .banner-data-one {
   display: flex;
@@ -22137,6 +22108,7 @@ html:where(.cameo-home)[data-cameo-theme=dark] .s2-section {
 
 :where(html.cameo-home) :where(body) :is(h3, h4, h5, h6, .title, .section-title) {
   font-weight: 500;
+  font-size: 24px;
 } /* Main titles can also carry the template's .title class. */
 :where(html.cameo-home) :where(body) :is(h1, h2).title {
   font-weight: 500;
@@ -22168,7 +22140,7 @@ html:where(.cameo-home)[data-cameo-theme=dark] .s2-section {
   margin-bottom: 16px;
 }
 :where(html.cameo-home) body p:not(.counter-value):not(.step-count):not(.section-title) {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.8;
   letter-spacing: 0;
   color: #171717;
@@ -22432,6 +22404,43 @@ html:where(.cameo-home)[data-cameo-theme=dark] body p:not(.counter-value):not(.s
   top: 0 !important;
 }
 
+html.cameo-home.cameo-skin2 .cameo-hero-slider .banner-section-one {
+  display: flex;
+  align-items: center;
+  min-height: max(960px, 100svh);
+  padding: 230px 0 110px;
+}
+html.cameo-home.cameo-skin2 .cameo-hero-slider .banner-details-one {
+  padding-bottom: 0;
+}
+html.cameo-home.cameo-skin2 .cameo-hero-slider .cameo-hero-progress {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 5px;
+  z-index: 1032;
+  pointer-events: none;
+}
+html.cameo-home.cameo-skin2 .cameo-hero-slider .cameo-hero-progress > span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #ed1c24, #ff8a00);
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+@media (max-width: 991.98px) {
+  html.cameo-home.cameo-skin2 .cameo-hero-slider .banner-section-one {
+    min-height: max(760px, 100svh);
+    padding: 230px 0 90px;
+  }
+}
+@media (max-width: 575.98px) {
+  html.cameo-home.cameo-skin2 .cameo-hero-slider .banner-section-one {
+    min-height: max(700px, 100svh);
+    padding: 210px 0 80px;
+  }
+}
+
 /* Keep hero copy below the fixed header and darken every slider image. */
 :where(html.cameo-home) .hero-section-one > .tab-content::after {
   content: "";
@@ -22460,22 +22469,74 @@ html:where(.cameo-home)[data-cameo-theme=dark] body p:not(.counter-value):not(.s
   color: #fff;
   font-size: clamp(15px, 1.1vw, 18px);
   line-height: 1.7;
+  letter-spacing: 0.02em;
 }
 
 :where(html.cameo-home) .hero-section-one .banner-content-one .banner-btn .primary-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   max-width: 100%;
   white-space: normal;
 }
 
+:where(html.cameo-home) .hero-section-one .banner-content-one .banner-btn {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+:where(html.cameo-home) .hero-section-one .banner-content-one .banner-btn .secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 12px 22px;
+  border: 1px solid #fff;
+  background: #fff;
+  color: #151515;
+  font-weight: 600;
+  transition: border-color 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+}
+
+:where(html.cameo-home) .hero-section-one .banner-content-one .banner-btn .secondary-btn:hover {
+  border-color: #f1f1f1;
+  background: #f1f1f1;
+  color: #151515;
+}
+
 :where(html.cameo-home) .hero-section-one .banner-content-one .sub-title {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
   line-height: 1.5;
-  margin-bottom: 22px;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+}
+
+:where(html.cameo-home) .hero-section-one .banner-content-one .sub-title em {
+  color: #f12727;
+  font-style: normal;
+  padding: 0 6px;
 }
 
 :where(html.cameo-home) .hero-section-one .banner-content-one h1.title {
-  font-size: clamp(44px, 4.2vw, 59px);
-  line-height: 1.16;
-  margin-bottom: 36px;
+  font-size: clamp(48px, 5.4vw, 77px);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.4;
+  margin-bottom: 23px;
+  text-transform: uppercase;
+}
+
+:where(html.cameo-home) .hero-section-one .banner-content-one h1.title span {
+  display: block;
+}
+
+:where(html.cameo-home) .hero-section-one .banner-content-one h1.title span:nth-child(2) {
+  color: #f12727;
 }
 
 :where(html.cameo-home) .hero-section-one .banner-content-one .section-title {
@@ -22538,6 +22599,12 @@ html:where(.cameo-home)[data-cameo-theme=dark] body p:not(.counter-value):not(.s
   }
   :where(html.cameo-home) .hero-section-one .banner-content-one .sub-title {
     font-size: 16px;
+  }
+  :where(html.cameo-home) .hero-section-one .banner-content-one .banner-btn {
+    justify-content: center;
+  }
+  :where(html.cameo-home) .hero-section-one .banner-content-one h1.title {
+    line-height: 1.02;
   }
   :where(html.cameo-home) .hero-section-one .banner-data-one {
     flex-direction: column;
@@ -22651,6 +22718,554 @@ html:where(.cameo-home)[data-cameo-theme=dark] body p:not(.counter-value):not(.s
     flex-direction: column;
   }
 }
+:where(html.cameo-home) .cameo-locations {
+  position: relative;
+  overflow: hidden;
+  padding: 92px 0 86px;
+  background: #f7f8f9;
+  border: 0;
+  color: #111;
+}
+
+:where(html.cameo-home) .cameo-locations::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 88% 30%, rgba(210, 218, 225, 0.42), transparent 30%), linear-gradient(115deg, #fff 0%, #f7f8f9 54%, #edf2f5 100%);
+}
+
+:where(html.cameo-home) .cameo-locations .container {
+  position: relative;
+  z-index: 1;
+}
+
+:where(html.cameo-home) .cameo-locations-layout {
+  display: grid;
+  grid-template-columns: minmax(420px, 0.9fr) minmax(0, 1.35fr);
+  min-height: 610px;
+  align-items: center;
+  gap: 42px;
+}
+
+:where(html.cameo-home) .cameo-locations-copy {
+  position: relative;
+  z-index: 3;
+}
+
+:where(html.cameo-home) .cameo-locations .cameo-locations-label {
+  margin: 0 0 14px;
+  color: #e31c24;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.36em;
+}
+
+:where(html.cameo-home) .cameo-locations h2 {
+  margin: 0 0 12px;
+  color: #08090a;
+  font-size: clamp(52px, 5.2vw, 86px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 0.96;
+}
+
+:where(html.cameo-home) .cameo-locations h2 span {
+  color: #e31c24;
+}
+
+:where(html.cameo-home) .cameo-locations .cameo-locations-intro {
+  max-width: 520px;
+  margin: 0 0 36px;
+  color: #5f6870;
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+:where(html.cameo-home) .cameo-location-feature {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  min-height: 164px;
+  margin-bottom: 20px;
+  padding: 12px 22px 12px 12px;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid #d9dee2;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(41, 54, 63, 0.08);
+}
+
+:where(html.cameo-home) .cameo-location-feature-image {
+  width: 255px;
+  height: 136px;
+  overflow: hidden;
+  flex: 0 0 auto;
+  border-radius: 10px;
+}
+
+:where(html.cameo-home) .cameo-location-feature-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+:where(html.cameo-home) .cameo-location-feature-copy {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+}
+
+:where(html.cameo-home) .cameo-location-pin {
+  color: #e31c24;
+  font-size: 31px;
+  line-height: 1;
+}
+
+:where(html.cameo-home) .cameo-location-feature h3 {
+  margin: 7px 0 8px;
+  color: #121416;
+  font-size: 22px;
+}
+
+:where(html.cameo-home) .cameo-location-feature p {
+  margin: 0;
+  color: #69727a;
+  font-size: 16px;
+  line-height: 1.3;
+}
+
+:where(html.cameo-home) .cameo-location-arrow {
+  display: grid;
+  width: 52px;
+  height: 52px;
+  margin-left: auto;
+  place-items: center;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: #e31c24;
+  color: #fff;
+  font-size: 23px;
+}
+
+:where(html.cameo-home) .cameo-location-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+:where(html.cameo-home) .cameo-location-stat {
+  display: flex;
+  min-height: 168px;
+  padding: 26px 18px 20px;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid #d9dee2;
+  border-radius: 11px;
+  background: rgba(255, 255, 255, 0.72);
+  color: #16191b;
+  text-align: center;
+}
+
+:where(html.cameo-home) .cameo-location-stat.is-selected {
+  border-color: #e31c24;
+  box-shadow: 0 10px 24px rgba(41, 54, 63, 0.08);
+}
+
+:where(html.cameo-home) .cameo-location-stat > span {
+  margin-bottom: 10px;
+  color: #e31c24;
+  font-size: 45px;
+  line-height: 1;
+}
+
+:where(html.cameo-home) .cameo-location-stat strong {
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+:where(html.cameo-home) .cameo-location-stat small {
+  margin-top: 5px;
+  color: #69727a;
+  line-height: 1.15;
+}
+
+:where(html.cameo-home) .cameo-locations-map-wrap {
+  position: relative;
+  min-height: 610px;
+}
+
+:where(html.cameo-home) .cameo-uae-map {
+  position: absolute;
+  inset: 0 -12vw 0 -7vw;
+  min-height: 610px;
+  z-index: 1;
+  background: #eaf0f3;
+}
+
+:where(html.cameo-home) .cameo-uae-map .leaflet-tile-pane {
+  filter: grayscale(1) saturate(0.25) contrast(0.92) brightness(1.12);
+  opacity: 0.68;
+}
+
+:where(html.cameo-home) .cameo-map-caption {
+  position: absolute;
+  top: 58px;
+  right: 5%;
+  z-index: 3;
+  color: #717b83;
+  font-size: 15px;
+  letter-spacing: 0.18em;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+:where(html.cameo-home) .cameo-map-caption::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 3px;
+  margin-top: 18px;
+  background: #e31c24;
+}
+
+:where(html.cameo-home.cameo-skin2) .cameo-map-caption {
+  padding: 16px 20px;
+  border: 1px solid #e1e5e8;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 6px 20px rgba(40, 55, 65, 0.1);
+  color: #22292f;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  line-height: 1.6;
+  pointer-events: none;
+}
+:where(html.cameo-home.cameo-skin2) .cameo-map-caption::after {
+  margin-top: 10px;
+}
+
+:where(html.cameo-home) .cameo-map-stats {
+  position: absolute;
+  right: 1%;
+  bottom: 30px;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  align-items: end;
+  column-gap: 28px;
+  color: #69727a;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+:where(html.cameo-home) .cameo-map-stats strong {
+  color: #e31c24;
+  font-size: 32px;
+  line-height: 1;
+}
+
+:where(html.cameo-home) .cameo-map-stats span {
+  padding: 0 24px;
+  border-right: 1px solid #cbd1d5;
+  font-size: 14px;
+  grid-row: 2;
+}
+
+:where(html.cameo-home) .cameo-live-pin-wrap {
+  display: block;
+  position: relative;
+  width: 40px !important;
+  height: 40px !important;
+  overflow: visible;
+}
+
+:where(html.cameo-home) .cameo-live-pin {
+  display: block;
+  position: absolute;
+  left: 9px;
+  top: 5px;
+  width: 22px;
+  height: 22px;
+  box-sizing: border-box;
+  border: 4px solid #fff;
+  border-radius: 50% 50% 50% 0;
+  background: #e31c24;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.28);
+  transform: rotate(-45deg);
+  z-index: 2;
+}
+
+:where(html.cameo-home) .cameo-live-pin::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+:where(html.cameo-home) .cameo-live-pin-wrap::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 1px;
+  width: 28px;
+  height: 28px;
+  border: 2px solid rgba(227, 28, 36, 0.72);
+  border-radius: 50%;
+  animation: cameo-map-wave 2.2s cubic-bezier(0.2, 0.7, 0.3, 1) infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+:where(html.cameo-home) .leaflet-tooltip.cameo-map-tooltip {
+  padding: 7px 12px;
+  border: 0;
+  border-radius: 4px;
+  background: #e31c24;
+  box-shadow: 0 5px 14px rgba(100, 19, 23, 0.25);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
+:where(html.cameo-home) .leaflet-tooltip.cameo-map-tooltip::before {
+  border-right-color: #e31c24;
+}
+
+@keyframes cameo-map-wave {
+  0% {
+    opacity: 0.9;
+    transform: scale(0.35);
+  }
+  75%, 100% {
+    opacity: 0;
+    transform: scale(2.4);
+  }
+}
+@keyframes cameo-location-pulse {
+  0% {
+    transform: scale(0.45);
+    opacity: 0.9;
+  }
+  70%, 100% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+}
+@media (max-width: 991.98px) {
+  :where(html.cameo-home) .cameo-locations-layout {
+    grid-template-columns: 1fr;
+  }
+  :where(html.cameo-home) .cameo-locations-map-wrap, :where(html.cameo-home) .cameo-uae-map {
+    min-height: 480px;
+  }
+}
+@media (max-width: 575.98px) {
+  :where(html.cameo-home) .cameo-locations {
+    padding: 60px 0;
+  }
+  :where(html.cameo-home) .cameo-locations h2 {
+    font-size: 56px;
+  }
+  :where(html.cameo-home) .cameo-location-feature {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  :where(html.cameo-home) .cameo-location-feature-image {
+    width: 100%;
+    height: 160px;
+  }
+  :where(html.cameo-home) .cameo-location-stats {
+    grid-template-columns: 1fr;
+  }
+  :where(html.cameo-home) .cameo-location-stat {
+    min-height: 130px;
+  }
+  :where(html.cameo-home) .cameo-map-stats {
+    right: 10px;
+    bottom: 18px;
+    column-gap: 3px;
+  }
+}
+:where(html.cameo-home.cameo-skin2) .cameo-locations-heading {
+  margin: 0 0 34px;
+  text-align: left;
+}
+
+:where(html.cameo-home.cameo-skin2) .cameo-locations-heading .section-badge {
+  display: inline-block;
+  margin-bottom: 13px;
+  color: #e31c24;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+:where(html.cameo-home.cameo-skin2) .cameo-locations-heading .title {
+  margin: 0 0 12px;
+  color: #101214;
+  font-size: clamp(48px, 4.5vw, 72px);
+  line-height: 0.98;
+}
+
+:where(html.cameo-home.cameo-skin2) .cameo-locations-heading .title .text-primary {
+  color: #e31c24 !important;
+}
+
+:where(html.cameo-home.cameo-skin2) .cameo-locations-heading p {
+  max-width: 490px;
+  margin: 0;
+  color: #657079 !important;
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+:where(html.cameo-home.cameo-skin2) .cameo-location-stat > svg {
+  width: 42px;
+  height: 42px;
+  margin-bottom: 11px;
+  fill: none;
+  stroke: #e31c24;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+:where(html.cameo-home.cameo-skin2) .cameo-map-stats {
+  right: 24px;
+  bottom: 24px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(100px, 1fr));
+  gap: 0;
+  padding: 17px 12px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: 0 12px 30px rgba(40, 55, 65, 0.12);
+  backdrop-filter: blur(8px);
+}
+
+:where(html.cameo-home.cameo-skin2) .cameo-map-stat {
+  display: flex;
+  min-width: 100px;
+  padding: 0 18px;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  border-right: 1px solid #d4dade;
+  text-align: center;
+}
+
+:where(html.cameo-home.cameo-skin2) .cameo-map-stat:last-child {
+  border-right: 0;
+}
+
+:where(html.cameo-home.cameo-skin2) .cameo-map-stat strong {
+  color: #e31c24;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+:where(html.cameo-home.cameo-skin2) .cameo-map-stat:last-child strong {
+  font-size: 17px;
+}
+
+:where(html.cameo-home.cameo-skin2) .cameo-map-stat span {
+  padding: 0;
+  border: 0;
+  color: #657079;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+:where(html.cameo-home.cameo-skin2) .cameo-locations-heading .section-badge {
+  margin-bottom: 10px;
+  font-size: 12px;
+  letter-spacing: 0.24em;
+  line-height: 1.4;
+}
+
+:where(html.cameo-home.cameo-skin2) .cameo-locations-heading .title {
+  margin-bottom: 10px;
+  font-size: clamp(36px, 3.2vw, 48px);
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.08;
+}
+
+:where(html.cameo-home.cameo-skin2) .cameo-locations-heading p {
+  max-width: 430px;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+html.cameo-home.cameo-skin2 .cameo-locations-copy {
+  min-width: 0;
+}
+html.cameo-home.cameo-skin2 .cameo-locations-copy .cameo-location-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 30%) minmax(0, 1fr) 40px;
+  gap: 12px;
+  padding: 12px;
+  background: #fff;
+}
+html.cameo-home.cameo-skin2 .cameo-locations-copy .cameo-location-feature-image {
+  width: 100%;
+  height: 136px;
+}
+html.cameo-home.cameo-skin2 .cameo-locations-copy .cameo-location-feature-copy {
+  min-width: 0;
+  gap: 8px;
+}
+html.cameo-home.cameo-skin2 .cameo-locations-copy .cameo-location-feature-copy > div {
+  min-width: 0;
+}
+html.cameo-home.cameo-skin2 .cameo-locations-copy .cameo-location-feature-copy h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  line-height: 1.35;
+}
+html.cameo-home.cameo-skin2 .cameo-locations-copy .cameo-location-feature-copy p {
+  color: #69727a !important;
+  font-size: 14px;
+  line-height: 1.6;
+}
+html.cameo-home.cameo-skin2 .cameo-locations-copy .cameo-location-pin {
+  flex-shrink: 0;
+  font-size: 24px;
+}
+html.cameo-home.cameo-skin2 .cameo-locations-copy .cameo-location-arrow {
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+}
+@media (max-width: 575.98px) {
+  html.cameo-home.cameo-skin2 .cameo-locations-copy .cameo-location-feature {
+    grid-template-columns: minmax(0, 1fr) 40px;
+  }
+  html.cameo-home.cameo-skin2 .cameo-locations-copy .cameo-location-feature-image {
+    grid-column: 1/-1;
+    height: 160px;
+  }
+  html.cameo-home.cameo-skin2 .cameo-locations-copy .cameo-location-arrow {
+    align-self: center;
+  }
+}
+
 :where(html.cameo-skin2) .about-section-one {
   background: url("../img/home-2/well-bg-1.png") center/cover no-repeat;
 }

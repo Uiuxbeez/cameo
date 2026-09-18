@@ -17,6 +17,115 @@
 :where(html.cameo-home) .cameo-locations .cameo-locations-cities{grid-template-columns:1fr}
 :where(html.cameo-home) .cameo-locations .cameo-locations-cities li{padding:18px 0;border-right:0;border-bottom:1px solid #444}
 :where(html.cameo-home) .cameo-locations .cameo-locations-bottom{align-items:flex-start;flex-direction:column}}
+
+:where(html.cameo-home) .cameo-locations{position:relative;overflow:hidden;padding:92px 0 86px;background:#f7f8f9;border:0;color:#111}
+:where(html.cameo-home) .cameo-locations::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 88% 30%,rgba(210,218,225,.42),transparent 30%),linear-gradient(115deg,#fff 0%,#f7f8f9 54%,#edf2f5 100%)}
+:where(html.cameo-home) .cameo-locations .container{position:relative;z-index:1}
+:where(html.cameo-home) .cameo-locations-layout{display:grid;grid-template-columns:minmax(420px,.9fr) minmax(0,1.35fr);min-height:610px;align-items:center;gap:42px}
+:where(html.cameo-home) .cameo-locations-copy{position:relative;z-index:3}
+:where(html.cameo-home) .cameo-locations .cameo-locations-label{margin:0 0 14px;color:#e31c24;font-size:15px;font-weight:700;letter-spacing:.36em}
+:where(html.cameo-home) .cameo-locations h2{margin:0 0 12px;color:#08090a;font-size:clamp(52px,5.2vw,86px);font-weight:700;letter-spacing:-.04em;line-height:.96}
+:where(html.cameo-home) .cameo-locations h2 span{color:#e31c24}
+:where(html.cameo-home) .cameo-locations .cameo-locations-intro{max-width:520px;margin:0 0 36px;color:#5f6870;font-size:20px;line-height:1.2}
+:where(html.cameo-home) .cameo-location-feature{position:relative;display:flex;align-items:center;gap:22px;min-height:164px;margin-bottom:20px;padding:12px 22px 12px 12px;background:rgba(255,255,255,.88);border:1px solid #d9dee2;border-radius:12px;box-shadow:0 12px 30px rgba(41,54,63,.08)}
+:where(html.cameo-home) .cameo-location-feature-image{width:255px;height:136px;overflow:hidden;flex:0 0 auto;border-radius:10px}
+:where(html.cameo-home) .cameo-location-feature-image img{width:100%;height:100%;object-fit:cover}
+:where(html.cameo-home) .cameo-location-feature-copy{display:flex;align-items:flex-start;gap:13px}
+:where(html.cameo-home) .cameo-location-pin{color:#e31c24;font-size:31px;line-height:1}
+:where(html.cameo-home) .cameo-location-feature h3{margin:7px 0 8px;color:#121416;font-size:22px}
+:where(html.cameo-home) .cameo-location-feature p{margin:0;color:#69727a;font-size:16px;line-height:1.3}
+:where(html.cameo-home) .cameo-location-arrow{display:grid;width:52px;height:52px;margin-left:auto;place-items:center;flex:0 0 auto;border-radius:50%;background:#e31c24;color:#fff;font-size:23px}
+:where(html.cameo-home) .cameo-location-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+:where(html.cameo-home) .cameo-location-stat{display:flex;min-height:168px;padding:26px 18px 20px;align-items:center;flex-direction:column;justify-content:center;border:1px solid #d9dee2;border-radius:11px;background:rgba(255,255,255,.72);color:#16191b;text-align:center}
+:where(html.cameo-home) .cameo-location-stat.is-selected{border-color:#e31c24;box-shadow:0 10px 24px rgba(41,54,63,.08)}
+:where(html.cameo-home) .cameo-location-stat>span{margin-bottom:10px;color:#e31c24;font-size:45px;line-height:1}
+:where(html.cameo-home) .cameo-location-stat strong{font-size:14px;text-transform:uppercase}
+:where(html.cameo-home) .cameo-location-stat small{margin-top:5px;color:#69727a;line-height:1.15}
+:where(html.cameo-home) .cameo-locations-map-wrap{position:relative;min-height:610px}
+:where(html.cameo-home) .cameo-uae-map{position:absolute;inset:0 -12vw 0 -7vw;min-height:610px;z-index:1;background:#eaf0f3}
+:where(html.cameo-home) .cameo-uae-map .leaflet-tile-pane{filter:grayscale(1) saturate(.25) contrast(.92) brightness(1.12);opacity:.68}
+:where(html.cameo-home) .cameo-map-caption{position:absolute;top:58px;right:5%;z-index:3;color:#717b83;font-size:15px;letter-spacing:.18em;line-height:1.45;text-transform:uppercase}
+:where(html.cameo-home) .cameo-map-caption::after{content:"";display:block;width:40px;height:3px;margin-top:18px;background:#e31c24}
+:where(html.cameo-home.cameo-skin2) .cameo-map-caption {
+  padding: 16px 20px;
+  border: 1px solid #e1e5e8;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 6px 20px rgba(40, 55, 65, .1);
+  color: #22292f;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  line-height: 1.6;
+  pointer-events: none;
+
+  &::after { margin-top: 10px; }
+}
+:where(html.cameo-home) .cameo-map-stats{position:absolute;right:1%;bottom:30px;z-index:3;display:grid;grid-template-columns:repeat(3,auto);align-items:end;column-gap:28px;color:#69727a;text-align:center;text-transform:uppercase}
+:where(html.cameo-home) .cameo-map-stats strong{color:#e31c24;font-size:32px;line-height:1}
+:where(html.cameo-home) .cameo-map-stats span{padding:0 24px;border-right:1px solid #cbd1d5;font-size:14px;grid-row:2}
+:where(html.cameo-home) .cameo-live-pin-wrap{display:block;position:relative;width:40px!important;height:40px!important;overflow:visible}
+:where(html.cameo-home) .cameo-live-pin{display:block;position:absolute;left:9px;top:5px;width:22px;height:22px;box-sizing:border-box;border:4px solid #fff;border-radius:50% 50% 50% 0;background:#e31c24;box-shadow:0 3px 8px rgba(0,0,0,.28);transform:rotate(-45deg);z-index:2}
+:where(html.cameo-home) .cameo-live-pin::after{content:"";position:absolute;left:5px;top:5px;width:4px;height:4px;border-radius:50%;background:#fff}
+:where(html.cameo-home) .cameo-live-pin-wrap::before{content:"";position:absolute;left:6px;top:1px;width:28px;height:28px;border:2px solid rgba(227,28,36,.72);border-radius:50%;animation:cameo-map-wave 2.2s cubic-bezier(.2,.7,.3,1) infinite;pointer-events:none;z-index:1}
+:where(html.cameo-home) .leaflet-tooltip.cameo-map-tooltip{padding:7px 12px;border:0;border-radius:4px;background:#e31c24;box-shadow:0 5px 14px rgba(100,19,23,.25);color:#fff;font-size:13px;font-weight:700;letter-spacing:.02em;line-height:1.2}
+:where(html.cameo-home) .leaflet-tooltip.cameo-map-tooltip::before{border-right-color:#e31c24}
+@keyframes cameo-map-wave{0%{opacity:.9;transform:scale(.35)}75%,100%{opacity:0;transform:scale(2.4)}}
+@keyframes cameo-location-pulse{0%{transform:scale(.45);opacity:.9}70%,100%{transform:scale(1.35);opacity:0}}
+@media(max-width:991.98px){:where(html.cameo-home) .cameo-locations-layout{grid-template-columns:1fr}:where(html.cameo-home) .cameo-locations-map-wrap,:where(html.cameo-home) .cameo-uae-map{min-height:480px}}
+@media(max-width:575.98px){:where(html.cameo-home) .cameo-locations{padding:60px 0}:where(html.cameo-home) .cameo-locations h2{font-size:56px}:where(html.cameo-home) .cameo-location-feature{align-items:flex-start;flex-wrap:wrap}:where(html.cameo-home) .cameo-location-feature-image{width:100%;height:160px}:where(html.cameo-home) .cameo-location-stats{grid-template-columns:1fr}:where(html.cameo-home) .cameo-location-stat{min-height:130px}:where(html.cameo-home) .cameo-map-stats{right:10px;bottom:18px;column-gap:3px}}
+:where(html.cameo-home.cameo-skin2) .cameo-locations-heading{margin:0 0 34px;text-align:left}
+:where(html.cameo-home.cameo-skin2) .cameo-locations-heading .section-badge{display:inline-block;margin-bottom:13px;color:#e31c24;font-size:13px;font-weight:700;letter-spacing:.28em;text-transform:uppercase}
+:where(html.cameo-home.cameo-skin2) .cameo-locations-heading .title{margin:0 0 12px;color:#101214;font-size:clamp(48px,4.5vw,72px);line-height:.98}
+:where(html.cameo-home.cameo-skin2) .cameo-locations-heading .title .text-primary{color:#e31c24!important}
+:where(html.cameo-home.cameo-skin2) .cameo-locations-heading p{max-width:490px;margin:0;color:#657079!important;font-size:18px;line-height:1.4}
+:where(html.cameo-home.cameo-skin2) .cameo-location-stat>svg{width:42px;height:42px;margin-bottom:11px;fill:none;stroke:#e31c24;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.8}
+:where(html.cameo-home.cameo-skin2) .cameo-map-stats{right:24px;bottom:24px;display:grid;grid-template-columns:repeat(3,minmax(100px,1fr));gap:0;padding:17px 12px 14px;border:1px solid rgba(255,255,255,.7);border-radius:10px;background:rgba(255,255,255,.78);box-shadow:0 12px 30px rgba(40,55,65,.12);backdrop-filter:blur(8px)}
+:where(html.cameo-home.cameo-skin2) .cameo-map-stat{display:flex;min-width:100px;padding:0 18px;align-items:center;flex-direction:column;justify-content:center;border-right:1px solid #d4dade;text-align:center}
+:where(html.cameo-home.cameo-skin2) .cameo-map-stat:last-child{border-right:0}
+:where(html.cameo-home.cameo-skin2) .cameo-map-stat strong{color:#e31c24;font-size:26px;font-weight:700;line-height:1;white-space:nowrap}
+:where(html.cameo-home.cameo-skin2) .cameo-map-stat:last-child strong{font-size:17px}
+:where(html.cameo-home.cameo-skin2) .cameo-map-stat span{padding:0;border:0;color:#657079;font-size:11px;font-weight:600;letter-spacing:.08em;line-height:1.2;text-transform:uppercase}
+:where(html.cameo-home.cameo-skin2) .cameo-locations-heading .section-badge{margin-bottom:10px;font-size:12px;letter-spacing:.24em;line-height:1.4}
+:where(html.cameo-home.cameo-skin2) .cameo-locations-heading .title{margin-bottom:10px;font-size:clamp(36px,3.2vw,48px);font-weight:600;letter-spacing:0;line-height:1.08}
+:where(html.cameo-home.cameo-skin2) .cameo-locations-heading p{max-width:430px;font-size:14px;line-height:1.8}
+
+// Keep the office card readable within the existing left column.
+html.cameo-home.cameo-skin2 .cameo-locations-copy {
+  min-width: 0;
+
+  .cameo-location-feature {
+    display: grid;
+    grid-template-columns: minmax(0, 30%) minmax(0, 1fr) 40px;
+    gap: 12px;
+    padding: 12px;
+    background: #fff;
+  }
+
+  .cameo-location-feature-image {
+    width: 100%;
+    height: 136px;
+  }
+
+  .cameo-location-feature-copy {
+    min-width: 0;
+    gap: 8px;
+
+    > div { min-width: 0; }
+    h3 { margin: 0 0 8px; font-size: 18px; line-height: 1.35; }
+    p { color: #69727a !important; font-size: 14px; line-height: 1.6; }
+  }
+
+  .cameo-location-pin { flex-shrink: 0; font-size: 24px; }
+  .cameo-location-arrow { width: 40px; height: 40px; font-size: 20px; }
+
+  @media (max-width: 575.98px) {
+    .cameo-location-feature { grid-template-columns: minmax(0, 1fr) 40px; }
+    .cameo-location-feature-image { grid-column: 1 / -1; height: 160px; }
+    .cameo-location-arrow { align-self: center; }
+  }
+}
+
 :where(html.cameo-skin2) .about-section-one {
   background: url('../img/home-2/well-bg-1.png') center / cover no-repeat;
 }

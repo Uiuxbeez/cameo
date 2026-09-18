@@ -38,6 +38,7 @@
 
     <!-- Main CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
@@ -52,7 +53,8 @@
     <div class="main-wrapper" role="main">
 
         <!-- Hero Section Start -->
-        <div class="hero-section-one">
+        <div class="hero-section-one cameo-hero-slider">
+            <div class="cameo-hero-progress" aria-hidden="true"><span></span></div>
             <div class="header-top wow fadeInUp" style="padding:30px 0">
 				<div class="container-fluid">
 					<div class="d-flex align-items-center justify-content-between">
@@ -142,13 +144,13 @@
                             <div class="col-lg-10"> 
                                 <div class="banner-content-one wow fadeInUp" data-wow-duration="2s"
                                     data-wow-delay="0.2s">
-                                    <p class="section-title d-none">Signage &amp; Advertising in Dubai</p>
-                                    <span class="sub-title">High-Access &amp; Complex Signage Installation</span>
-                                    <h1 class="title">We Take On <br>The Signage Jobs Others Won’t.</h1>
-                                    <p class="banner-project-description">Challenging heights. Difficult access. Complex installations. We bring careful planning, specialist equipment and precise execution to the signage projects others turn away.</p>
+                                    <p class="section-title d-none">Signage &amp; Wayfinding Solutions Across the UAE</p>
+                                    <span class="sub-title">Cameo Advertising <em> / </em> Signage &amp; Wayfinding</span>
+                                    <h1 class="title"><span>We Design.</span><span>We Fabricate.</span><span>We Install.</span></h1>
+                                    <h4 class="text-white mb-5">Premium Signage &amp; Wayfinding Solutions Across the UAE</h4>
                                     <div class="banner-btn">
-                                        <a href="https://cameoadvt.com/contact-us/" class="primary-btn">Discuss Your Challenging Project <i
-                                                class="ti ti-arrow-up-right"></i></a>
+                                        <a href="#signaure-section" class="primary-btn">Explore Projects <i class="ti ti-arrow-up-right"></i></a>
+                                        <a href="https://cameoadvt.com/contact-us/" class="secondary-btn">Start a Project <i class="ti ti-arrow-up-right"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -156,72 +158,22 @@
                         </div>
                         <!-- end row -->
                     </div>
-                    <div class="banner-tab-one">
 
-                        <!-- start row -->
-                        <div class="row">
-                            <div class="col-xxl-6 col-xl-5 col-lg-5">
-                                <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                    <li class="nav-item wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.2s">
-                                        <button class="nav-link active" id="installation-tab" data-bs-toggle="tab"
-                                            data-bs-target="#installation" type="button" role="tab" aria-controls="installation"
-                                            aria-selected="true"><img src="assets/img/cameo/hero-signage-installation.jpeg"
-                                                alt="Outdoor signage installation" class="img-fluid"></button>
-                                    </li>
-                                    <li class="nav-item wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.2s">
-                                        <button class="nav-link" id="home-tab" data-bs-toggle="tab"
-                                            data-bs-target="#home" type="button" role="tab" aria-controls="home"
-                                            aria-selected="false"><img src="assets/img/cameo/hero-dubai-first.png"
-                                                alt="Signage project" class="img-fluid"></button>
-                                    </li>
-                                    <li class="nav-item wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.2s">
-                                        <button class="nav-link" id="profile-tab" data-bs-toggle="tab"
-                                            data-bs-target="#profile" type="button" role="tab" aria-controls="profile"
-                                            aria-selected="false"><img src="assets/img/cameo/hero-dubai-marina.png"
-                                                alt="Commercial signage" class="img-fluid"></button>
-                                    </li>
-                                    <li class="nav-item wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.2s">
-                                        <button class="nav-link" id="contact-tab" data-bs-toggle="tab"
-                                            data-bs-target="#contact" type="button" role="tab" aria-controls="contact"
-                                            aria-selected="false"><img src="assets/img/cameo/hero-bayside.jpg"
-                                                alt="Branding project" class="img-fluid"></button>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="col-xxl-6 col-xl-7 col-lg-7">
-                                <div class="banner-data-one wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.2s">
-                                    <div class="banner-text-one">
-                                        <h2 class="title"> <i class="ti ti-clock"></i> Opening Hours</h2>
-                                        <p>MON - SAT 9:00 AM - 6:00 PM</p>
-                                        <p>Al Qusais, Dubai, UAE</p>
-                                    </div>
-                                    <div class="banner-text-one wow fadeInUp" data-wow-duration="2s"
-                                        data-wow-delay="0.2s">
-                                        <h2 class="title"> <i class="ti ti-phone-calling"></i> Discuss Your Project</h2>
-                                        <p>+971 4 22 33 716</p>
-                                        <p>info@cameoadvt.com</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end row -->
-
-                    </div>
                 </div>
             </div>
             <!-- Banner section -->
 
             <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active" id="installation" role="tabpanel" aria-labelledby="installation-tab">
+                <div class="tab-pane fade show active" id="installation">
                     <img src="assets/img/cameo/hero-signage-installation.jpeg" alt="Elevated work platforms installing an illuminated outdoor sign" class="img-fluid" fetchpriority="high">
                 </div>
-                <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <div class="tab-pane fade" id="home">
                     <img src="assets/img/cameo/hero-dubai-first.png" alt="Cameo Advertising signage against the Dubai skyline" class="img-fluid">
                 </div>
-                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                <div class="tab-pane fade" id="profile">
                     <img src="assets/img/cameo/hero-dubai-marina.png" alt="Cameo Advertising signage at Dubai Marina at night" class="img-fluid">
                 </div>
-                <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                <div class="tab-pane fade" id="contact">
                     <img src="assets/img/cameo/hero-bayside.jpg" alt="Bayside illuminated rooftop signage at sunset" class="img-fluid">
                 </div>
             </div>
@@ -1362,16 +1314,42 @@
 
         <section class="cameo-locations" aria-labelledby="cameo-locations-title">
             <div class="container">
-                <p class="cameo-locations-label">Our Presence in the UAE</p>
-                <h2 id="cameo-locations-title">Three Emirates. One Signage Partner.</h2>
-                <ul class="cameo-locations-cities" aria-label="Locations">
-                    <li><i class="ti ti-map-pin" aria-hidden="true"></i>Dubai</li>
-                    <li><i class="ti ti-map-pin" aria-hidden="true"></i>Abu Dhabi</li>
-                    <li><i class="ti ti-map-pin" aria-hidden="true"></i>Sharjah</li>
-                </ul>
-                <div class="cameo-locations-bottom">
-                    <p>From complex installations to everyday branding, let’s bring your next project to life.</p>
-                    <a href="https://cameoadvt.com/contact-us/">Discuss Your Project <i class="ti ti-arrow-up-right" aria-hidden="true"></i></a>
+                <div class="cameo-locations-layout">
+                    <div class="cameo-locations-copy">
+                        <div class="section-header mb-0 wow fadeInUp" data-aos-duration="2s" data-aos-delay="0.2s">
+                            <span class="section-badge mb-2">Our Locations</span>
+                            <h2 class="title">Across the <span class="text-primary">UAE</span></h2>
+                            <p>Strategically located to serve our clients across Dubai, Abu Dhabi and Sharjah.</p>
+                        </div>
+                        <article class="cameo-location-feature">
+                            <div class="cameo-location-feature-image">
+                                <img src="assets/img/cameo/client-projects/acacia-entrance-signage.jpeg" alt="Cameo signage project in Dubai" loading="lazy">
+                            </div>
+                            <div class="cameo-location-feature-copy">
+                                <span class="cameo-location-pin" aria-hidden="true"><i class="ti ti-map-pin-filled"></i></span>
+                                <div>
+                                    <h3>Head Office - Dubai</h3>
+                                    <p>Al Qusais - Al Qusais Industrial Area,<br>Dubai, UAE</p>
+                                </div>
+                            </div>
+                            <a href="https://maps.google.com/?q=Cameo+Advertising+LLC+Al+Qusais+Dubai" class="cameo-location-arrow" aria-label="Open Cameo Dubai office in maps"><i class="ti ti-arrow-right"></i></a>
+                        </article>
+
+                        <div class="cameo-location-stats">
+                            <button type="button" class="cameo-location-stat is-selected" data-location="dubai"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M10 40V18l14-8 14 8v22M17 40V25h14v15M20 18h8M24 10V5M17 32h3M28 32h3" /></svg><strong>Dubai</strong><small>Our Head Office</small></button>
+                            <button type="button" class="cameo-location-stat" data-location="abudhabi"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 40h32M12 40V23h24v17M16 23c0-9 16-9 16 0M24 14V8M18 30h4v10h-4zM26 30h4v10h-4z" /></svg><strong>Abu Dhabi</strong><small>Expanding Our Presence</small></button>
+                            <button type="button" class="cameo-location-stat" data-location="sharjah"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="25" r="12" /><circle cx="24" cy="25" r="3" /><path d="M24 13V8M24 37v4M12 25H7M36 25h5M15.5 16.5 12 13M32.5 16.5 36 13M15.5 33.5 12 37M32.5 33.5 36 37M24 28V16M18 40h12M21 40l3-15 3 15" /></svg><strong>Sharjah</strong><small>Serving Northern Emirates</small></button>
+                        </div>
+                    </div>
+                    <div class="cameo-locations-map-wrap">
+                        <div id="cameo-uae-map" class="cameo-uae-map" aria-label="Interactive map showing Cameo locations in the UAE"></div>
+                        <div class="cameo-map-caption">One UAE<br>Many possibilities</div>
+                        <div class="cameo-map-stats" aria-label="Cameo UAE coverage highlights">
+                            <div class="cameo-map-stat"><strong>3</strong><span>Key Cities</span></div>
+                            <div class="cameo-map-stat"><strong>1</strong><span>Strong Team</span></div>
+                            <div class="cameo-map-stat"><strong>Nationwide</strong><span>Support</span></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1481,8 +1459,77 @@
     <!-- Wow JS -->
     <script src="assets/plugins/wow/js/wow.min.js"></script>
 
+    <!-- Real UAE map -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
     <!-- Main JS -->
     <script src="assets/js/script.min.js"></script>
+    <script src="assets/js/cameo-hero-slider.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const mapElement = document.getElementById('cameo-uae-map');
+            if (!mapElement || typeof L === 'undefined') return;
+
+            const locations = {
+                dubai: { name: 'Dubai', position: [25.2048, 55.2708], zoom: 10 },
+                abudhabi: { name: 'Abu Dhabi', position: [24.4539, 54.3773], zoom: 9 },
+                sharjah: { name: 'Sharjah', position: [25.3463, 55.4209], zoom: 10 }
+            };
+            const map = L.map(mapElement, {
+                zoomControl: false,
+                attributionControl: true,
+                scrollWheelZoom: false,
+                dragging: true,
+                minZoom: 6,
+                maxZoom: 13
+            }).setView([24.65, 54.8], 7.35);
+            window.cameoUaeMap = map;
+
+            L.control.zoom({ position: 'bottomleft' }).addTo(map);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '&copy; OpenStreetMap contributors'
+            }).addTo(map);
+
+            const route = Object.values(locations).map(location => location.position);
+            L.polyline(route, { color: '#e31c24', weight: 1.5, opacity: .5, dashArray: '5 10' }).addTo(map);
+
+            Object.entries(locations).forEach(([key, location]) => {
+                const marker = L.marker(location.position, {
+                    icon: L.divIcon({
+                        className: 'cameo-live-pin-wrap',
+                        html: '<span class="cameo-live-pin"></span>',
+                        iconSize: [40, 40],
+                        iconAnchor: [20, 34]
+                    })
+                }).addTo(map);
+                marker.bindTooltip(location.name, { permanent: true, direction: 'right', offset: [12, -16], className: 'cameo-map-tooltip' });
+                marker.on('click', () => selectLocation(key));
+            });
+
+            function selectLocation(key) {
+                const location = locations[key];
+                if (!location) return;
+                document.querySelectorAll('.cameo-location-stat').forEach(button => {
+                    button.classList.toggle('is-selected', button.dataset.location === key);
+                });
+                map.flyTo(location.position, location.zoom, { duration: 1.25, easeLinearity: .25 });
+            }
+
+            document.querySelectorAll('.cameo-location-stat').forEach(button => {
+                button.addEventListener('click', () => selectLocation(button.dataset.location));
+            });
+
+            const refreshMapSize = () => {
+                map.invalidateSize(true);
+                map.setView([24.65, 54.8], 7, { animate: false });
+            };
+            requestAnimationFrame(() => requestAnimationFrame(refreshMapSize));
+            setTimeout(refreshMapSize, 700);
+            window.addEventListener('resize', refreshMapSize);
+        });
+    </script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const heroTabNav = document.getElementById('myTab');

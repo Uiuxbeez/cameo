@@ -1,4 +1,40 @@
 // Cameo homepage styles. Edit this partial and compile main.scss.
+html.cameo-home.cameo-skin2 .cameo-hero-slider {
+    .banner-section-one {
+        display: flex;
+        align-items: center;
+        min-height: max(960px, 100svh);
+        padding: 230px 0 110px;
+    }
+
+    .banner-details-one { padding-bottom: 0; }
+
+    .cameo-hero-progress {
+        position: absolute;
+        inset: 0 0 auto;
+        height: 5px;
+        z-index: 1032;
+        pointer-events: none;
+
+        > span {
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, #ed1c24, #ff8a00);
+            transform: scaleX(0);
+            transform-origin: left center;
+        }
+    }
+
+    @media (max-width: 991.98px) {
+        .banner-section-one { min-height: max(760px, 100svh); padding: 230px 0 90px; }
+    }
+
+    @media (max-width: 575.98px) {
+        .banner-section-one { min-height: max(700px, 100svh); padding: 210px 0 80px; }
+    }
+}
+
 /* Keep hero copy below the fixed header and darken every slider image. */
 :where(html.cameo-home) .hero-section-one > .tab-content::after{
     content: "";
@@ -19,19 +55,65 @@
     color: #fff;
     font-size: clamp(15px, 1.1vw, 18px);
     line-height: 1.7;
+    letter-spacing: .02em;
 }
 :where(html.cameo-home) .hero-section-one .banner-content-one .banner-btn .primary-btn{
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
     max-width: 100%;
     white-space: normal;
 }
+:where(html.cameo-home) .hero-section-one .banner-content-one .banner-btn{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+:where(html.cameo-home) .hero-section-one .banner-content-one .banner-btn .secondary-btn{
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 48px;
+    padding: 12px 22px;
+    border: 1px solid #fff;
+    background: #fff;
+    color: #151515;
+    font-weight: 600;
+    transition: border-color .25s ease, background-color .25s ease, color .25s ease;
+}
+:where(html.cameo-home) .hero-section-one .banner-content-one .banner-btn .secondary-btn:hover{
+    border-color: #f1f1f1;
+    background: #f1f1f1;
+    color: #151515;
+}
 :where(html.cameo-home) .hero-section-one .banner-content-one .sub-title{
+    color: rgba(255,255,255,.78);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: .16em;
     line-height: 1.5;
-    margin-bottom: 22px;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+}
+:where(html.cameo-home) .hero-section-one .banner-content-one .sub-title em{
+    color: #f12727;
+    font-style: normal;
+    padding: 0 6px;
 }
 :where(html.cameo-home) .hero-section-one .banner-content-one h1.title{
-    font-size: clamp(44px, 4.2vw, 59px);
-    line-height: 1.16;
-    margin-bottom: 36px;
+    font-size: clamp(48px, 5.4vw, 77px);
+    font-weight: 600;
+    letter-spacing: .01em;
+    line-height: 1.4;
+    margin-bottom: 23px;
+    text-transform: uppercase;
+}
+:where(html.cameo-home) .hero-section-one .banner-content-one h1.title span{
+    display: block;
+}
+:where(html.cameo-home) .hero-section-one .banner-content-one h1.title span:nth-child(2){
+    color: #f12727;
 }
 :where(html.cameo-home) .hero-section-one .banner-content-one .section-title{
     top: 75%;
@@ -57,6 +139,8 @@
 :where(html.cameo-home) .hero-section-one .banner-section-one{ min-height: 1050px; padding: 250px 0 40px; }
 :where(html.cameo-home) .hero-section-one .banner-content-one h1.title{ font-size: clamp(32px,8.5vw,44px); }
 :where(html.cameo-home) .hero-section-one .banner-content-one .sub-title{ font-size: 16px; }
+:where(html.cameo-home) .hero-section-one .banner-content-one .banner-btn{ justify-content: center; }
+:where(html.cameo-home) .hero-section-one .banner-content-one h1.title{ line-height: 1.02; }
 :where(html.cameo-home) .hero-section-one .banner-data-one{ flex-direction: column; gap: 16px; }
 :where(html.cameo-home) .hero-section-one .banner-text-one{ width: 100%; }
 }
