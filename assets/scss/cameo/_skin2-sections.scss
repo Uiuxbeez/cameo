@@ -1,5 +1,13 @@
 // Cameo homepage styles. Edit this partial and compile main.scss.
 
+:where(html.cameo-home.cameo-skin2) .wellness-section.wellness-section-six .section-header {
+    padding-left: 0;
+}
+
+:where(html.cameo-home.cameo-skin2) .wellness-section-six .wellness-content {
+    margin-left: 0;
+}
+
 :where(html.cameo-home) .s2-section{--s2-ink:#0c1023;--s2-muted:#727c93;--s2-border:#e5eaf1;--s2-card:#fff;padding:80px 0;background:linear-gradient(120deg,#fff,#f5f9fd);color:var(--s2-ink)}
 // Section content uses Bootstrap .container for shared widths and gutters.
 :where(html.cameo-home) .s2-section h2,

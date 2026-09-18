@@ -21236,6 +21236,14 @@ html:where(.cameo-home)[data-cameo-theme=dark] .stat-item-one:hover h3 {
     height: 280px;
   }
 }
+:where(html.cameo-home.cameo-skin2) .wellness-section.wellness-section-six .section-header {
+  padding-left: 0;
+}
+
+:where(html.cameo-home.cameo-skin2) .wellness-section-six .wellness-content {
+  margin-left: 0;
+}
+
 :where(html.cameo-home) .s2-section {
   --s2-ink:#0c1023;
   --s2-muted:#727c93;
