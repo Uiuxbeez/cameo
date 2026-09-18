@@ -21246,12 +21246,6 @@ html:where(.cameo-home)[data-cameo-theme=dark] .stat-item-one:hover h3 {
   color: var(--s2-ink);
 }
 
-:where(html.cameo-home) .s2-container {
-  width: calc(100% - 60px);
-  max-width: 1480px;
-  margin: auto;
-}
-
 :where(html.cameo-home) .s2-section h2,
 :where(html.cameo-home) .s2-section h3 {
   color: var(--s2-ink);
@@ -21549,10 +21543,6 @@ html:where(.cameo-home)[data-cameo-theme=dark] .stat-item-one:hover h3 {
 
 :where(html.cameo-home) .s2-portfolio-footer a i {
   margin-left: 10px;
-}
-
-:where(html.cameo-home) .s2-expertise .s2-container {
-  max-width: 1320px;
 }
 
 :where(html.cameo-home) .s2-heading {
@@ -21999,9 +21989,6 @@ html:where(.cameo-home)[data-cameo-theme=dark] .s2-section {
 @media (max-width: 575px) {
   :where(html.cameo-home) .s2-section {
     padding: 50px 0;
-  }
-  :where(html.cameo-home) .s2-container {
-    width: calc(100% - 32px);
   }
   :where(html.cameo-home) .s2-portfolio-heading {
     grid-template-columns: 1fr;

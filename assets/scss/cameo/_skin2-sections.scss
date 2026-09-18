@@ -1,7 +1,7 @@
 // Cameo homepage styles. Edit this partial and compile main.scss.
 
 :where(html.cameo-home) .s2-section{--s2-ink:#0c1023;--s2-muted:#727c93;--s2-border:#e5eaf1;--s2-card:#fff;padding:80px 0;background:linear-gradient(120deg,#fff,#f5f9fd);color:var(--s2-ink)}
-:where(html.cameo-home) .s2-container{width:calc(100% - 60px);max-width:1480px;margin:auto}
+// Section content uses Bootstrap .container for shared widths and gutters.
 :where(html.cameo-home) .s2-section h2,
 :where(html.cameo-home) .s2-section h3{color:var(--s2-ink);letter-spacing:-.035em}
 :where(html.cameo-home) .s2-section h2{font-size:clamp(28px,3.4vw,48px);font-weight:400;line-height:1.15;margin:18px 0}
@@ -56,7 +56,6 @@
 :where(html.cameo-home) .s2-rule{height:1px;background:var(--s2-border);flex:1}
 :where(html.cameo-home) .s2-portfolio-footer a{color:#ed2428;font-size:14px}
 :where(html.cameo-home) .s2-portfolio-footer a i{margin-left:10px}
-:where(html.cameo-home) .s2-expertise .s2-container{max-width:1320px}
 :where(html.cameo-home) .s2-heading{text-align:center;margin-bottom:30px}
 :where(html.cameo-home) .s2-heading h2{font-size:clamp(27px,3vw,42px)}
 :where(html.cameo-home) .s2-button{display:inline-flex;gap:12px;align-items:center;justify-content:center;border-radius:30px;padding:12px 24px;background:#e92528;color:#fff!important;font-size:13px;margin-top:18px}
@@ -144,7 +143,6 @@ html:where(.cameo-home)[data-cameo-theme="dark"] .s2-section{--s2-ink:#f5f5f5;--
 :where(html.cameo-home) .s2-trust{padding-top:70px}}
 @media(max-width:575px){
 :where(html.cameo-home) .s2-section{padding:50px 0}
-:where(html.cameo-home) .s2-container{width:calc(100% - 32px)}
 :where(html.cameo-home) .s2-portfolio-heading{grid-template-columns:1fr;gap:18px}
 :where(html.cameo-home) .s2-filters{justify-content:flex-start;gap:5px;overflow-x:auto;padding:5px 0}
 :where(html.cameo-home) .s2-filters button{padding:8px 13px;font-size:13px;flex-shrink:0}
