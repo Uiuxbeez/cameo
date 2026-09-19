@@ -44,7 +44,7 @@
 :where(html.cameo-home) header.header-six.s2-header .navbar{
     height: 96px;
     padding: 0;
-    gap: 22px;
+    gap: 167px;
 }
 :where(html.cameo-home) header.header-six.s2-header .navbar .header-logo{
     width: 203px;
@@ -104,6 +104,11 @@
         text-transform: uppercase;
         white-space: nowrap;
     }
+}
+// Match the two marked gaps at 48px while retaining the centered header group.
+@media (min-width: 1400px) {
+:where(html.cameo-skin2) header.header-six.s2-header .navbar .header-logo{ margin-right: 26px; }
+:where(html.cameo-skin2) header.header-six.s2-header .navbar .header-items > .primary-btn{ margin-left: 0px; }
 }
 @media (min-width: 992px) and (max-width: 1399.98px) {
 :where(html.cameo-home) header.header-six.s2-header > .container{ padding: 0 16px; }
