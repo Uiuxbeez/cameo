@@ -22304,7 +22304,7 @@ html:where(.cameo-home)[data-cameo-theme=dark] body p:not(.counter-value):not(.s
     padding: 0 16px;
   }
   :where(html.cameo-home) header.header-six.s2-header .navbar {
-    gap: 12px;
+    gap: 104px;
   }
   :where(html.cameo-home) header.header-six.s2-header .header-nav .main-nav {
     gap: 10px;
