@@ -1,0 +1,45 @@
+// Extend pages/_contact-us.scss with the shared Cameo inner-page palette.
+html.cameo-contact-page {
+  .contact-info { margin-right: 0; }
+  .contact-info h2 { font-size: clamp(28px, 2.5vw, 36px); margin: 16px 0 30px; }
+  .contact-item-two {
+    gap: 16px;
+    margin-bottom: 22px;
+    h3 { font-size: 16px; margin: 0 0 5px; }
+    a, address, p { color: var(--ca-muted); font-size: 15px; line-height: 1.65; margin: 0; font-style: normal; }
+    a:hover { color: #ed1825; }
+    .contact-icon { background: #191919; color: #fff; }
+  }
+  .google-map { margin-top: 30px; }
+  .google-map iframe { border: 0; height: 300px; width: 100%; }
+  .cp-directions { margin-top: 20px; }
+  .cp-locations {
+    background: #191919;
+    h2 { text-align: center; font-size: clamp(28px, 3vw, 40px); margin-bottom: 16px; }
+    .cp-locations-intro { position: relative; color: #ddd; text-align: center; margin: 0 auto 40px; }
+    .contact-item { height: 100%; padding: 30px 24px; }
+    .contact-icon { color: #ed1825; flex-shrink: 0; }
+    h3 { color: #191919; font-size: 20px; margin-bottom: 10px; }
+    .contact-item p { color: #626269; font-size: 14px; line-height: 1.7; margin: 0; }
+    .contact-item a { display: inline-block; color: #d71925; font-size: 14px; margin-top: 12px; }
+  }
+  .enquire-form {
+    background: var(--ca-soft);
+    border-color: var(--ca-line);
+    border-radius: 5px;
+    padding: 40px;
+    h3 { margin-bottom: 12px; }
+    > p { margin-bottom: 26px; }
+    input, textarea { background: var(--ca-paper); }
+    textarea { min-height: 165px; }
+  }
+  a:focus-visible { outline: 2px solid #ed1825; outline-offset: 4px; }
+  @media (max-width: 991px) {
+    .contact-info { margin-bottom: 10px; }
+  }
+  @media (max-width: 575px) {
+    .enquire-form { padding: 24px; }
+    .ca-form-grid { grid-template-columns: 1fr; }
+    .contact-item-two a { overflow-wrap: anywhere; }
+  }
+}

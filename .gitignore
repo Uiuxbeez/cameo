@@ -1,0 +1,11 @@
+node_modules/
+dist/
+web/public/assets/
+.env
+.env.*
+!.env.example
+.neon
+.local/
+test-results/
+playwright-report/
+*.log

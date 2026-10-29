@@ -1,0 +1,15 @@
+/* Responsive fixes for the original shell inside the React viewport and builder. */
+html.cameo-home .wow { visibility: visible !important; }
+@media (min-width: 992px) and (max-width: 1650px) {
+  html.cameo-home header.header-six.s2-header .navbar { gap: clamp(16px, 3vw, 48px); }
+  html.cameo-home header.header-six.s2-header .navbar .header-logo { margin-right: 0; flex-shrink: 0; }
+  html.cameo-home header.header-six.s2-header .header-nav .main-nav { gap: 14px; }
+}
+@media (max-width: 991px) {
+  html.cameo-home header.header-six.s2-header .navbar { width: 100%; }
+  html.cameo-home .hero-section-one > .header-top .d-flex { gap: 8px !important; }
+  html.cameo-home .hero-section-one > .header-top p { max-width: 47%; }
+  html.cameo-about .ca-hero-content { padding-top: 235px; }
+  html.cameo-home.menu-opened .main-menu-wrapper { left: 0 !important; transform: translateX(0) !important; }
+  html.cameo-home .sidebar-overlay { z-index: 1029; }
+}

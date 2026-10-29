@@ -114,3 +114,9 @@
 @use 'cameo/skin2-header';
 @use 'cameo/home-banner';
 @use 'cameo/home-palette';
+
+@use 'cameo/about' as cameo-about;
+
+@use 'cameo/projects' as cameo-projects;
+
+@use 'cameo/project-details' as cameo-project-details;

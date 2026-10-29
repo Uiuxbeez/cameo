@@ -1,0 +1,43 @@
+// Project overview: striped specifications styled after the supplied reference.
+html.cameo-project-details {
+  .project-specifications {
+    width: 100%; border-collapse: collapse; table-layout: fixed; margin: 24px 0 0;
+    th, td { padding: 19px 20px; border: 0; vertical-align: top; font-size: 14px; line-height: 1.6; overflow-wrap: anywhere; }
+    th { width: 30%; color: #171717; font-weight: 600; text-align: left; }
+    td { color: #60646c; font-weight: 400; }
+    tr:nth-child(odd) { background: #ededed; }
+    tr:nth-child(even) { background: #fff; }
+  }
+  @media(max-width: 575px) {
+    .project-specifications {
+      th, td { padding: 14px 12px; }
+      th { width: 34%; }
+    }
+  }
+}
+
+html.cameo-project-details {
+  .ca-project-content { padding: 64px 0; }
+  .branch-details-hero { overflow: hidden; isolation: isolate; }
+  .branch-details-hero::after { content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.05) 35%, rgba(0,0,0,.85)); }
+  .branch-details-hero-img img { display: block; height: clamp(320px, 34vw, 500px); object-fit: cover; }
+  .branch-type-badge { background: rgba(0,0,0,.7); color: #fff; }
+  .branch-details-hero-content .branch-details-name { color: #fff; font-size: clamp(28px, 3vw, 42px); margin: 0 0 8px; }
+  body .ca-project-content p.branch-details-address { color: #fff; margin: 0; }
+  .ca-detail-card { margin-top: 28px; padding: 24px; border: 1px solid var(--ca-line); border-radius: 8px; background: var(--ca-paper); }
+  .ca-detail-card h2 { font-size: 24px; line-height: 1.4; margin: 0 0 24px; padding-bottom: 16px; border-bottom: 1px solid var(--ca-line); }
+  .project-specifications { margin-top: 0; }
+  .project-specifications th { color: var(--ca-ink); }
+  .project-specifications td { color: var(--ca-muted); }
+  .project-specifications tr:nth-child(odd) { background: var(--ca-soft); }
+  .project-specifications tr:nth-child(even) { background: var(--ca-paper); }
+  .ca-detail-gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+  .ca-detail-gallery-item { display: block; overflow: hidden; border-radius: 8px; aspect-ratio: 4 / 3; }
+  .ca-detail-gallery-item img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .ca-detail-gallery-item:focus-visible { outline: 3px solid #eb2428; outline-offset: 3px; }
+  @media(max-width: 575px) {
+    .ca-project-content { padding: 40px 0; }
+    .ca-detail-card { padding: 16px; }
+    .ca-detail-gallery { grid-template-columns: 1fr; gap: 16px; }
+  }
+}

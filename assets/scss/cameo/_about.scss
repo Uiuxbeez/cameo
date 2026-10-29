@@ -1,0 +1,100 @@
+// About page only; shared Skin 2 shell remains in its existing partials.
+html.cameo-about {
+  --ca-paper: #fff; --ca-soft: #f5f5f3; --ca-ink: #191919; --ca-muted: #626269; --ca-line: #dededb;
+  &[data-cameo-theme="dark"] { --ca-paper: #151518; --ca-soft: #202024; --ca-ink: #f5f5f5; --ca-muted: #bcbcc3; --ca-line: #39393f; }
+  body { background: var(--ca-paper); }
+  .ca-section { padding: 96px 0; background: var(--ca-paper); color: var(--ca-ink); }
+  .ca-section p { color: var(--ca-muted); margin-bottom: 20px; }
+  .ca-section h2 { font-size: clamp(30px, 3.2vw, 46px); line-height: 1.2; letter-spacing: 0; font-weight: 600; margin: 18px 0 26px; color: var(--ca-ink); }
+  .ca-section h3 { font-size: 24px; font-weight: 600; color: var(--ca-ink); }
+  .ca-eyebrow { display: block; font-size: 14px; font-weight: 600; letter-spacing: 2px; color: #eb2428; }
+  .ca-text-link { display: inline-flex; align-items: center; gap: 24px; font-size: 13px; font-weight: 600; color: inherit; border-bottom: 1px solid currentColor; padding-bottom: 9px; }
+  .ca-hero { position: relative; min-height: 650px; background: linear-gradient(90deg, rgba(9,13,20,.93),rgba(9,13,20,.48) 65%,rgba(9,13,20,.2)), url('../img/cameo/hero-signage-installation.jpeg') center 48% / cover; color: white; }
+  .ca-hero-content { position: relative; padding-top: 205px; padding-bottom: 88px; }
+  .ca-breadcrumb { display: flex; gap: 14px; font-size: 14px; margin-bottom: 42px; color: #ddd; a { color: inherit; } }
+  .ca-hero h1 { font-size: clamp(42px, 5.4vw, 76px); line-height: 1.08; letter-spacing: 0; font-weight: 600; color: white; margin: 20px 0 24px; }
+  .ca-hero em, .ca-evolution em { font-style: normal; color: #ff4247; }
+  .ca-hero .ca-text-link { margin-top: 12px; }
+  .ca-hero-note { position: absolute; right: 40px; bottom: 34px; display: flex; align-items: center; gap: 14px; letter-spacing: 2px; font-size: 13px; span { width: 50px; height: 1px; background: #ffffff60; } }
+  .ca-story-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 80px; align-items: center; }
+  .ca-story-images { position: relative; padding: 0 52px 96px 0; }
+  .ca-main-photo { width: 100%; height: 490px; object-fit: cover; border-radius: 10px; }
+  .ca-detail-photo { position: absolute; right: 0; bottom: 32px; width: 57%; height: 230px; object-fit: cover; border: 8px solid var(--ca-paper); border-radius: 12px; }
+  .ca-photo-label { position: absolute; bottom: 2px; left: 0; max-width: 42%; strong { display: block; font-size: 20px; } span { font-size: 14px; line-height: 1.5; display: block; color: var(--ca-muted); } }
+  .ca-section .ca-lead { font-size: 17px; color: var(--ca-ink); line-height: 1.65; }
+  .ca-story .primary-btn { margin-top: 10px; }
+  .ca-facts { margin-top: 65px; padding-top: 34px; border-top: 1px solid var(--ca-line); display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; strong { display: block; font-size: clamp(25px,3vw,40px); font-weight: 600; line-height: 1.4; } span { font-size: 14px; color: var(--ca-muted); } }
+  .ca-values { background: var(--ca-soft); }
+  .ca-heading-row { display: flex; justify-content: space-between; align-items: center; gap: 50px; margin-bottom: 25px; >p { max-width: 370px; } }
+  .ca-value-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; article { background: var(--ca-paper); border: 1px solid var(--ca-line); border-radius: 10px; padding: 32px; } p { margin-bottom: 0; } }
+  .ca-card-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 42px; i { font-size: 34px; color: #eb2428; } span { font-size: 13px; letter-spacing: 1.4px; color: var(--ca-muted); } }
+  .ca-process-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 40px; article { border-top: 1px solid var(--ca-line); padding-top: 25px; } span { color: #eb2428; font-size: 13px; display: block; margin-bottom: 22px; } }
+  .ca-evolution { padding: 95px 0; background: linear-gradient(90deg,rgba(9,13,20,.94),rgba(9,13,20,.5)),url('../img/cameo/hero-dubai-marina.png') center / cover; h2 { color: white; font-size: clamp(32px,4vw,54px); line-height: 1.2; letter-spacing: 0; font-weight: 600; margin: 20px 0; } p { max-width: 630px; color: #eee !important; margin-bottom: 28px; } }
+  .ca-clients { text-align: center; padding: 65px 0; }
+  .ca-client-list { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 14px; margin-top: 32px; span { padding: 18px 22px; border: 1px solid var(--ca-line); border-radius: 6px; font-size: 14px; font-weight: 700; letter-spacing: .3px; } }
+  .ca-contact { background: var(--ca-soft); }
+  .ca-contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 90px; align-items: center; }
+  .ca-contact-phone { display: block; font-size: 25px; color: var(--ca-ink); margin: 26px 0 5px; }
+  .ca-contact .ca-hours { margin-top: 25px; font-size: 14px; }
+  .ca-form { padding: 35px; background: var(--ca-paper); border: 1px solid var(--ca-line); border-radius: 12px; label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 16px; } input,textarea { width: 100%; margin-top: 7px; padding: 11px 13px; border: 1px solid var(--ca-line); border-radius: 5px; background: var(--ca-soft); color: var(--ca-ink); font-size: 14px; } textarea { resize: vertical; } input:focus,textarea:focus { outline: 2px solid #eb2428; outline-offset: 2px; } .primary-btn { width: 100%; justify-content: center; } .ca-form-note { font-size: 14px; line-height: 1.6; margin: 14px 0 0; } }
+  .ca-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 16px; }
+  @media(max-width: 991px) { .ca-story-grid,.ca-contact-grid { gap: 35px; } .ca-value-grid { gap: 14px; article { padding: 24px; } } .ca-story-images { padding-right: 20px; } .ca-main-photo { height: 440px; } .ca-heading-row { gap: 25px; } }
+  @media(max-width: 767px) { .ca-section { padding: 60px 0; } .ca-hero { min-height: 580px; } .ca-hero-content { padding-top: 155px; padding-bottom: 80px; } .ca-hero h1 { letter-spacing: -1.6px; } .ca-hero-note { right: 22px; bottom: 23px; } .ca-breadcrumb { margin-bottom: 30px; } .ca-story-grid,.ca-contact-grid,.ca-value-grid,.ca-process-grid { grid-template-columns: 1fr; } .ca-story-images { max-width: 500px; } .ca-main-photo { height: 360px; } .ca-detail-photo { height: 195px; } .ca-facts { grid-template-columns: 1fr 1fr; margin-top: 38px; row-gap: 28px; } .ca-heading-row { display: block; margin-bottom: 30px; } .ca-card-top { margin-bottom: 26px; } .ca-process-grid { gap: 20px; } .ca-evolution { padding: 65px 0; } .ca-form { padding: 24px; } .ca-client-list { gap: 10px; span { font-size: 14px; padding: 14px; } } }
+  @media(max-width: 380px) { .ca-form-grid { grid-template-columns: 1fr; } }
+}
+
+// Keep the shared Montserrat family, with readable About-page copy and controls.
+html.cameo-about body {
+  :is(.ca-section, .ca-hero, .ca-evolution) p:not(.ca-hours):not(.ca-form-note) {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.8;
+    color: var(--ca-ink);
+  }
+  .ca-section .ca-lead { font-size: 18px; font-weight: 500; }
+  :is(.ca-hero, .ca-evolution) p { color: #f5f5f5 !important; }
+  .ca-form :is(input, textarea) { font-size: 16px; line-height: 1.6; }
+  :is(.ca-section, .ca-hero, .ca-evolution) .primary-btn,
+  .ca-text-link { font-size: 15px; font-weight: 600; }
+  .ca-story-grid > *, .ca-contact-grid > * { min-width: 0; }
+}
+
+// Video statement and continuously scrolling original client logos.
+html.cameo-about {
+  .ca-evolution.advertising-video {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding: 120px 0;
+    background: url('../img/cameo/hero-dubai-marina.png') center / cover;
+    &::before { background: linear-gradient(90deg, rgba(0, 28, 35, .8), rgba(12, 20, 30, .65) 55%, rgba(195, 22, 82, .65)); }
+    .ca-evolution-panel { border: 1px dashed #ffffff30; padding: 48px 32px; text-align: center; }
+    h2 { color: #fff; font-size: clamp(20px, 1.65vw, 26px); font-weight: 600; line-height: 1.5; letter-spacing: 0; margin: 0 auto 24px; max-width: 1320px; }
+  }
+  .ca-clients { padding: 50px 0; background: #fff; }
+  .ca-client-marquee { overflow: hidden; }
+  .ca-client-track { display: flex; width: max-content; animation: ca-client-scroll 32s linear infinite; }
+  .ca-client-group { display: flex; align-items: center; gap: 30px; margin: 0; padding: 0 30px 0 0; list-style: none; }
+  .ca-client-logo {
+    flex: 0 0 185px; width: 185px; height: 110px; border: 1px solid #e9e9e9; background: #fff;
+    &::before, &::marker { content: none; }
+    img { display: block; width: 100%; height: 100%; object-fit: contain; filter: grayscale(1); opacity: .65; transition: filter .25s ease, opacity .25s ease; }
+    &:hover img, &:focus img { filter: grayscale(0); opacity: 1; }
+    &:focus-visible { outline: 2px solid #eb2428; outline-offset: -2px; }
+  }
+  .ca-client-marquee:hover .ca-client-track,
+  .ca-client-marquee:focus-within .ca-client-track { animation-play-state: paused; }
+  @media (max-width: 767px) {
+    .ca-evolution.advertising-video { padding: 65px 0; .ca-evolution-panel { padding: 32px 20px; } }
+    .ca-clients { padding: 32px 0; }
+    .ca-client-group { gap: 20px; padding-right: 20px; }
+    .ca-client-logo { flex-basis: 155px; width: 155px; height: 95px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .ca-client-marquee { overflow-x: auto; }
+    .ca-client-track { animation: none; }
+    .ca-client-group[aria-hidden] { display: none; }
+    .ca-evolution .video-background { display: none; }
+  }
+}
+@keyframes ca-client-scroll { to { transform: translateX(-50%); } }

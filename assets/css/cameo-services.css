@@ -1,0 +1,34 @@
+/* Services extend the existing Skin 2 inner-page shell. */
+html.cameo-services .ca-hero-content > p { max-width: 720px; }
+html.cameo-services .ca-breadcrumb { flex-wrap: wrap; }
+html.cameo-services .signature-section { background: var(--ca-paper); }
+html.cameo-services .signature-section .section-header { color: var(--ca-ink); }
+html.cameo-services .signature-section .section-header .title,
+html.cameo-services .signature-section .section-header p { color: var(--ca-ink); }
+html.cameo-services .cs-overview { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; }
+html.cameo-services .cs-overview > * { min-width: 0; }
+html.cameo-services .cs-image { margin: 0; }
+html.cameo-services .cs-image img { width: 100%; height: 460px; object-fit: cover; border-radius: 6px; }
+html.cameo-services .cs-image figcaption { padding-top: 14px; color: var(--ca-muted); font-size: 14px; }
+html.cameo-services .cs-offerings { background: var(--ca-soft); }
+html.cameo-services .cs-list,
+html.cameo-services .cs-reasons { padding: 0; margin: 0; list-style: none; }
+html.cameo-services .cs-list li { display: flex; align-items: center; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--ca-line); font-size: 18px; }
+html.cameo-services .cs-list i { color: #ed1825; font-size: 24px; }
+html.cameo-services .cs-reasons { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; margin: 40px 0; }
+html.cameo-services .cs-reasons li { border-top: 1px solid var(--ca-line); padding-top: 24px; }
+html.cameo-services .cs-number { display: block; color: #ed1825; font-size: 14px; margin-bottom: 24px; }
+html.cameo-services .cs-reasons h3 { font-size: 21px; line-height: 1.4; margin-bottom: 16px; }
+html.cameo-services a:focus-visible { outline: 2px solid #ed1825; outline-offset: 4px; }
+@media (max-width: 991px) {
+  html.cameo-services .cs-overview { gap: 32px; }
+  html.cameo-services .cs-reasons { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 767px) {
+  html.cameo-services .cs-overview { grid-template-columns: 1fr; }
+  html.cameo-services .cs-image img { height: 340px; }
+  html.cameo-services .ca-hero-note { font-size: 10px; letter-spacing: 1px; }
+}
+@media (max-width: 479px) {
+  html.cameo-services .cs-reasons { grid-template-columns: 1fr; }
+}

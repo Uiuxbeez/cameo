@@ -1,0 +1,23 @@
+// Projects reuses the About shell, enquiry form and homepage image-card design.
+html.cameo-projects {
+  // Hero, breadcrumb and heading typography inherit the About page styles.
+  .ca-project-gallery { padding: 65px 0 90px; }
+  .ca-project-intro { max-width: 780px; margin: 0 auto 32px; text-align: center; }
+  .ca-project-gallery h2 { margin: 12px 0 16px; font-size: clamp(26px, 2.5vw, 36px); line-height: 1.3; color: var(--ca-ink); }
+  .ca-project-intro p { margin-bottom: 0; }
+  .ca-project-filters { --s2-muted: var(--ca-muted); flex-wrap: wrap; gap: 10px; margin: 30px 0 18px; }
+  .ca-project-filters button { font-size: 14px; font-weight: 500; }
+  .ca-project-filters button:focus-visible { outline: 2px solid #eb2428; outline-offset: 3px; }
+  .ca-project-status { text-align: center; font-size: 14px; margin: 28px 0 0; }
+  .ca-project-more { text-align: center; margin-top: 36px; }
+  .ca-project-more [hidden] { display: none !important; }
+  .service-categories-grid { background: var(--ca-paper); border-color: var(--ca-line); }
+  .service-categories-grid::after { background: var(--ca-paper); }
+  .service-categories-overlay img { display: block; aspect-ratio: 6 / 5; height: auto; object-fit: cover; }
+  .arrow-btn:focus-visible { outline: 3px solid #eb2428; outline-offset: 3px; }
+  @media(max-width: 767px) {
+    .ca-project-gallery { padding: 45px 0 60px; }
+    .ca-project-gallery h2 { margin-bottom: 32px; }
+    .service-categories-grid { padding: 20px; }
+  }
+}
