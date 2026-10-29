@@ -1,6 +1,6 @@
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { load } from 'cheerio';
-const files = ['index-skin2','about-us','services','service-wayfinding-signage','service-outdoor-signage','service-indoor-signage','service-graphics','service-led-screen','service-vehicle-branding','projects','project-details','clients','contact-us'];
+const files = ['index','about-us','services','service-wayfinding-signage','service-outdoor-signage','service-indoor-signage','service-graphics','service-led-screen','service-vehicle-branding','projects','project-details','clients','contact-us'];
 const pages = [];
 for (const file of files) {
   const $ = load(await readFile(`${file}.html`, 'utf8'));
@@ -11,7 +11,7 @@ for (const file of files) {
       let value = $(el).attr(attr);
       if (!value) continue;
       if (value.startsWith('assets/')) value = `/${value}`;
-      if (/^(index|index-skin2)\.html$/.test(value)) value = '/';
+      if (/^(index|index-skin2)\.html(?:#.*)?$/.test(value)) value = '/' + (value.includes('#') ? value.slice(value.indexOf('#')) : '');
       else if (/^[\w-]+\.html(?:#.*)?$/.test(value)) value = '/' + value.replace('.html','');
       $(el).attr(attr, value);
     }
@@ -28,7 +28,7 @@ for (const file of files) {
     if ($(el).is('.back-to-top')) return;
     let label = $(el).hasClass('hero-section-one') ? 'Hero Banner' : $(el).find('h2,h3').first().text().replace(/\s+/g,' ').trim();
     if (!label) label = $(el).attr('aria-label') || `Section ${index+1}`;
-    sections.push({ id: `${file}-${index}`, name: label.slice(0,100), visible: true, html: $.html(el) });
+    sections.push({ id: `${file === 'index' ? 'index-skin2' : file}-${index}`, name: label.slice(0,100), visible: true, html: $.html(el) });
   });
   const forms = $('.ca-form');
   // Forms are submitted to the new API by the React runtime.
@@ -36,7 +36,7 @@ for (const file of files) {
     section.html = section.html.replaceAll('Prepare email enquiry','Send message').replaceAll('Opens your email app with your project details ready to send.','Your enquiry will be sent to the Cameo team.');
   }
   const auxiliary = $('body').children().filter((_,el) => !$(el).is('.main-wrapper')).toArray().map(el=>$.html(el)).join('');
-  pages.push({ slug: file==='index-skin2'?'home':file, title: $('title').text(), description: $('meta[name="description"]').attr('content') || '', htmlClass: $('html').attr('class') || '', styles: $('link[rel="stylesheet"]').map((_,el)=>$(el).attr('href')).get(), header, footer, auxiliary, sections });
+  pages.push({ slug: file==='index'?'home':file, title: $('title').text(), description: $('meta[name="description"]').attr('content') || '', htmlClass: $('html').attr('class') || '', styles: $('link[rel="stylesheet"]').map((_,el)=>$(el).attr('href')).get(), header, footer, auxiliary, sections });
 }
 await mkdir('content', { recursive:true });
 await writeFile('content/pages.json', JSON.stringify(pages,null,2));
