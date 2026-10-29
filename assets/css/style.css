@@ -21366,9 +21366,9 @@ html:where(.cameo-home)[data-cameo-theme=dark] .stat-item-one:hover h3 {
 
 :where(html.cameo-home) .s2-project-grid {
   display: grid;
-  grid-template-columns: 2.25fr 1fr 1fr 1fr;
-  gap: 14px;
-  align-items: start;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  align-items: stretch;
 }
 
 :where(html.cameo-home) .s2-project {
@@ -21436,79 +21436,21 @@ html:where(.cameo-home)[data-cameo-theme=dark] .stat-item-one:hover h3 {
   justify-content: center;
 }
 
-:where(html.cameo-home) .s2-feature {
-  grid-column: 1;
-  grid-row: 1;
+:where(html.cameo-home) .s2-project {
+  display: flex;
+  flex-direction: column;
 }
 
-:where(html.cameo-home) .s2-feature > img {
-  height: 442px;
+:where(html.cameo-home) .s2-project-copy {
+  flex: 1;
 }
 
-:where(html.cameo-home) .s2-wide {
-  grid-column: 1;
-  grid-row: 2;
-  margin-top: 0;
+:where(html.cameo-home) .s2-project-copy > a {
+  font-size: 0;
 }
 
-:where(html.cameo-home) .s2-wide > img {
-  height: 280px;
-}
-
-:where(html.cameo-home) .s2-feature:after,
-:where(html.cameo-home) .s2-wide:after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.7333333333), transparent 80%);
-  pointer-events: none;
-}
-
-:where(html.cameo-home) .s2-feature .s2-project-copy,
-:where(html.cameo-home) .s2-wide .s2-project-copy {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  padding: 30px;
-  z-index: 1;
-  max-width: 350px;
-}
-
-:where(html.cameo-home) .s2-feature h3,
-:where(html.cameo-home) .s2-wide h3,
-:where(html.cameo-home) .s2-feature p,
-:where(html.cameo-home) .s2-wide p {
-  color: white;
-}
-
-:where(html.cameo-home) .s2-feature h3 {
-  font-size: 30px;
-}
-
-:where(html.cameo-home) .s2-feature .s2-project-copy > a,
-:where(html.cameo-home) .s2-wide .s2-project-copy > a {
-  position: static;
-  width: auto;
-  border: 0;
-  justify-content: start;
-  border-radius: 0;
-  color: white;
-  gap: 14px;
-  margin-top: 14px;
-}
-
-:where(html.cameo-home) .s2-feature .s2-project-copy > a i,
-:where(html.cameo-home) .s2-wide .s2-project-copy > a i {
-  display: grid;
-  place-items: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: #e92528;
-}
-
-:where(html.cameo-home) .s2-project:nth-child(n+6) > img {
-  height: 168px;
+:where(html.cameo-home) .s2-project-copy > a i {
+  font-size: 18px;
 }
 
 :where(html.cameo-home) .s2-project-grid.is-filtered {
@@ -21901,7 +21843,7 @@ html:where(.cameo-home)[data-cameo-theme=dark] .s2-section {
     gap: 24px;
   }
   :where(html.cameo-home) .s2-project-grid {
-    grid-template-columns: 1.7fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
   :where(html.cameo-home) .s2-project-copy {
     padding-left: 14px;
@@ -21951,10 +21893,6 @@ html:where(.cameo-home)[data-cameo-theme=dark] .s2-section {
   :where(html.cameo-home) .s2-project > img,
   :where(html.cameo-home) .s2-project:nth-child(n+6) > img {
     height: 240px;
-  }
-  :where(html.cameo-home) .s2-feature > img,
-  :where(html.cameo-home) .s2-wide > img {
-    height: 366px;
   }
   :where(html.cameo-home) .s2-cap-grid {
     grid-template-columns: 1fr 1fr;

@@ -13,3 +13,5 @@ html.cameo-home .wow { visibility: visible !important; }
   html.cameo-home.menu-opened .main-menu-wrapper { left: 0 !important; transform: translateX(0) !important; }
   html.cameo-home .sidebar-overlay { z-index: 1029; }
 }
+
+[data-service-hidden="true"]{display:none!important}

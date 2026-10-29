@@ -1,4 +1,6 @@
 import express from 'express';
+import {servicePage} from './service-template.js';
+import {load} from 'cheerio';
 import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
 import multer from 'multer';
@@ -46,7 +48,17 @@ export function createApp(db, { origins=['http://localhost:5173','http://127.0.0
   await db.transaction(async tx=>{await tx.update(users).set({password:await hashPassword(password)}).where(eq(users.id,user.id));await tx.delete(sessions).where(eq(sessions.userId,user.id));});
   res.clearCookie('cameo_session',{...cookie,maxAge:undefined}).json({ok:true});
  });
- app.get('/api/pages/:slug',async(req,res)=>{const [row]=await db.select({content:pages.published}).from(pages).where(eq(pages.slug,req.params.slug)); if(!row?.content)return res.status(404).json({error:'Page not found.'});res.json(row.content);});
+ app.get('/api/seo/pages',async(_req,res)=>{const rows=await db.select({slug:pages.slug,seo:sql`${pages.published}->'seo'`,updatedAt:pages.updatedAt}).from(pages).where(sql`${pages.published} IS NOT NULL`);res.json(rows);});
+ app.post('/api/admin/service-pages',auth,async(req,res)=>{
+  const data=z.object({slug:z.string().regex(/^service-[a-z0-9]+(?:-[a-z0-9]+)*$/).max(100),title:z.string().trim().min(1).max(150),summary:z.string().trim().min(1).max(500),image:z.string().max(2000).refine(v=>/^\/(?!\/)/.test(v)||/^https:\/\//.test(v))}).parse(req.body);
+  const [template]=await db.select().from(pages).where(eq(pages.slug,'service-outdoor-signage'));
+  if(!template)return res.status(409).json({error:'The service detail template is missing.'});
+  const draft=servicePage(template.draft,data);
+  const [row]=await db.insert(pages).values({slug:data.slug,draft}).onConflictDoNothing().returning();
+  if(!row)return res.status(409).json({error:'That service URL already exists. Choose the existing page or use a new URL.'});
+  res.status(201).json(row);
+ });
+ app.get('/api/pages/:slug',async(req,res)=>{const [row]=await db.select({content:pages.published}).from(pages).where(eq(pages.slug,req.params.slug)); if(!row?.content)return res.status(404).json({error:'Page not found.'});const content=structuredClone(row.content);content.sections=content.sections.map(s=>{const $=load(s.html,null,false);$('[data-service-hidden="true"]').remove();return {...s,html:$.html()};});res.json(content);});
  app.get('/api/admin/pages',auth,async(_req,res)=>res.json(await db.select({slug:pages.slug,title:sql`${pages.draft}->>'title'`,version:pages.version,publishedVersion:pages.publishedVersion,updatedAt:pages.updatedAt}).from(pages).orderBy(pages.slug)));
  app.get('/api/admin/pages/:slug',auth,async(req,res)=>{const [row]=await db.select().from(pages).where(eq(pages.slug,req.params.slug));if(!row)return res.status(404).json({error:'Page not found.'});res.json(row);});
  app.put('/api/admin/pages/:slug',auth,async(req,res)=>{
@@ -57,6 +69,11 @@ export function createApp(db, { origins=['http://localhost:5173','http://127.0.0
  });
  app.post('/api/admin/pages/:slug/publish',auth,async(req,res)=>{
   const version=z.number().int().positive().parse(req.body.version);
+  const [candidate]=await db.select().from(pages).where(and(eq(pages.slug,req.params.slug),eq(pages.version,version)));
+  if(!candidate)return res.status(409).json({error:'The draft changed. Reload before publishing.'});
+  let invalidServiceLink=false;const targets=new Set();for(const section of candidate.draft.sections.filter(s=>s.visible)){const $=load(section.html);$('.signature-item').each((_,el)=>{if($(el).closest('[data-service-hidden="true"]').length)return;const href=$(el).find('.signature-btn a').attr('href');if(/^\/service-[a-z0-9-]+$/.test(href||''))targets.add(href.slice(1));else invalidServiceLink=true;});}
+  if(invalidServiceLink)return res.status(422).json({error:'Choose or create a detail page for every visible service card before publishing.'});
+  for(const slug of targets){const [linked]=await db.select({published:pages.published}).from(pages).where(eq(pages.slug,slug));if(!linked?.published)return res.status(422).json({error:`Publish the ${slug} detail page before publishing this service grid.`});}
   const [row]=await db.update(pages).set({published:sql`${pages.draft}`,publishedVersion:pages.version,updatedAt:new Date()}).where(and(eq(pages.slug,req.params.slug),eq(pages.version,version))).returning();
   if(!row)return res.status(409).json({error:'The draft changed. Reload before publishing.'});res.json(row);
  });

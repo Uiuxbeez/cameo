@@ -3,13 +3,15 @@ import parse from 'html-react-parser';
 import { api } from './api';
 import { initPage } from './runtime';
 import publicOverrides from './public-overrides.css?inline';
+import {seoHead} from '../../shared/seo.js';
 
 export function Page({content,preview=false}){
  const ref=useRef(null);
  useEffect(()=>{
   document.documentElement.className=content.htmlClass;
-  document.title=content.title;
-  let meta=document.querySelector('meta[name="description"]');if(!meta){meta=document.createElement('meta');meta.name='description';document.head.append(meta);}meta.content=content.description;
+  const bootstrap=document.getElementById('cameo-initial-page');let initial;try{initial=JSON.parse(bootstrap?.textContent||'null');}catch{}
+  document.head.querySelectorAll('[data-cms-seo],title,meta[name="description"]').forEach(el=>el.remove());
+  const tags=document.createElement('template');tags.innerHTML=seoHead(content,initial?.origin||location.origin,{preview:preview||initial?.previewHost});document.head.append(tags.content);
   const links=content.styles.map(href=>{const link=document.createElement('link');link.rel='stylesheet';link.href=href;document.head.append(link);return link;});
   const style=document.createElement('style');style.textContent=publicOverrides;document.head.append(style);
   const dispose=initPage(ref.current,{preview});
@@ -24,9 +26,9 @@ export function Page({content,preview=false}){
  return <div ref={ref}><div className="main-wrapper" role="main">{parse(content.header)}{content.sections.filter(s=>s.visible).map(s=><React.Fragment key={s.id}>{parse(s.html,options)}</React.Fragment>)}{parse(content.footer)}</div>{parse(content.auxiliary)}</div>;
 }
 export function PublicPage(){
- const [content,setContent]=useState(null),[error,setError]=useState('');
+ const [content,setContent]=useState(()=>{try{return JSON.parse(document.getElementById('cameo-initial-page')?.textContent||'null')?.content||null;}catch{return null;}}),[error,setError]=useState('');
  let slug=location.pathname.replace(/^\/+|\/+$/g,'').replace(/\.html$/,'');if(!slug||['index','index-skin2'].includes(slug))slug='home';
- useEffect(()=>{api(`/pages/${encodeURIComponent(slug)}`).then(setContent).catch(e=>setError(e.message));},[slug]);
+ useEffect(()=>{if(content?.slug===slug)return;api(`/pages/${encodeURIComponent(slug)}`).then(setContent).catch(e=>setError(e.message));},[slug]);
  if(error)return <main style={{padding:50,fontFamily:'sans-serif'}}><h1>{error}</h1><a href="/">Return home</a></main>;
  return content?<Page content={content}/>:<p style={{padding:40}}>Loading Cameo Advertising…</p>;
 }

@@ -28,7 +28,7 @@
 :where(html.cameo-home) .s2-filters button[aria-pressed="true"]{background:#e92528;color:#fff}
 :where(html.cameo-home) .s2-section a:focus-visible,
 :where(html.cameo-home) .s2-section button:focus-visible{outline:3px solid #e92528;outline-offset:4px}
-:where(html.cameo-home) .s2-project-grid{display:grid;grid-template-columns:2.25fr 1fr 1fr 1fr;gap:14px;align-items:start}
+:where(html.cameo-home) .s2-project-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;align-items:stretch}
 :where(html.cameo-home) .s2-project{position:relative;border:1px solid var(--s2-border);border-radius:10px;overflow:hidden;background:var(--s2-card);min-width:0}
 :where(html.cameo-home) .s2-project[hidden]{display:none}
 :where(html.cameo-home) .s2-project>img{display:block;width:100%;height:290px;object-fit:cover}
@@ -38,24 +38,11 @@
 :where(html.cameo-home) .s2-project-copy h3{font-size:19px}
 :where(html.cameo-home) .s2-project-copy p{font-size:13px}
 :where(html.cameo-home) .s2-project-copy>a{position:absolute;right:16px;bottom:40px;border:1px solid var(--s2-border);border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center}
-:where(html.cameo-home) .s2-feature{grid-column:1;grid-row:1}
-:where(html.cameo-home) .s2-feature>img{height:442px}
-:where(html.cameo-home) .s2-wide{grid-column:1;grid-row:2;margin-top:0}
-:where(html.cameo-home) .s2-wide>img{height:280px}
-:where(html.cameo-home) .s2-feature:after,
-:where(html.cameo-home) .s2-wide:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#000b,transparent 80%);pointer-events:none}
-:where(html.cameo-home) .s2-feature .s2-project-copy,
-:where(html.cameo-home) .s2-wide .s2-project-copy{position:absolute;bottom:0;left:0;padding:30px;z-index:1;max-width:350px}
-:where(html.cameo-home) .s2-feature h3,
-:where(html.cameo-home) .s2-wide h3,
-:where(html.cameo-home) .s2-feature p,
-:where(html.cameo-home) .s2-wide p{color:white}
-:where(html.cameo-home) .s2-feature h3{font-size:30px}
-:where(html.cameo-home) .s2-feature .s2-project-copy>a,
-:where(html.cameo-home) .s2-wide .s2-project-copy>a{position:static;width:auto;border:0;justify-content:start;border-radius:0;color:white;gap:14px;margin-top:14px}
-:where(html.cameo-home) .s2-feature .s2-project-copy>a i,
-:where(html.cameo-home) .s2-wide .s2-project-copy>a i{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:#e92528}
-:where(html.cameo-home) .s2-project:nth-child(n+6)>img{height:168px}
+// One card treatment, including older CMS content with feature/wide classes.
+:where(html.cameo-home) .s2-project{display:flex;flex-direction:column}
+:where(html.cameo-home) .s2-project-copy{flex:1}
+:where(html.cameo-home) .s2-project-copy>a{font-size:0}
+:where(html.cameo-home) .s2-project-copy>a i{font-size:18px}
 :where(html.cameo-home) .s2-project-grid.is-filtered{grid-template-columns:repeat(4,1fr)}
 :where(html.cameo-home) .s2-project-grid.is-filtered .s2-project{grid-column:auto;grid-row:auto}
 :where(html.cameo-home) .s2-project-grid.is-filtered .s2-project>img{height:290px}
@@ -118,7 +105,7 @@
 html:where(.cameo-home)[data-cameo-theme="dark"] .s2-section{--s2-ink:#f5f5f5;--s2-muted:#b3bbcb;--s2-border:#343c4b;--s2-card:#20242c;background:linear-gradient(120deg,#14171d,#1b222d)}
 @media(max-width:1199px){
 :where(html.cameo-home) .s2-portfolio-heading{gap:24px}
-:where(html.cameo-home) .s2-project-grid{grid-template-columns:1.7fr 1fr 1fr 1fr}
+:where(html.cameo-home) .s2-project-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
 :where(html.cameo-home) .s2-project-copy{padding-left:14px}
 :where(html.cameo-home) .s2-project-copy h3{font-size:16px}
 :where(html.cameo-home) .s2-cap-card{gap:6px}
@@ -137,8 +124,6 @@ html:where(.cameo-home)[data-cameo-theme="dark"] .s2-section{--s2-ink:#f5f5f5;--
 :where(html.cameo-home) .s2-wide{grid-column:auto;grid-row:auto}
 :where(html.cameo-home) .s2-project>img,
 :where(html.cameo-home) .s2-project:nth-child(n+6)>img{height:240px}
-:where(html.cameo-home) .s2-feature>img,
-:where(html.cameo-home) .s2-wide>img{height:366px}
 :where(html.cameo-home) .s2-cap-grid{grid-template-columns:1fr 1fr}
 :where(html.cameo-home) .s2-story{grid-column:1/-1;grid-row:2;min-height:410px}
 :where(html.cameo-home) .s2-story>div{max-width:520px;margin:auto;padding:30px}

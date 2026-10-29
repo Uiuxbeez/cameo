@@ -87,6 +87,36 @@ node --env-file=.env scripts/verify-browser.mjs
 
 The browser verification requires installed Chrome and the current administrator password in the environment. It temporarily edits the contact page title, checks draft isolation and publish, then restores the original. Do not run it while another editor is working on that page.
 
-`npm run import:html` regenerates the initial seed from root HTML. It does not overwrite database content; `db:seed` is intentionally idempotent. The frontend is client-rendered; server-rendered SEO/prerendering is not included.
+`npm run import:html` regenerates the initial seed from root HTML. It does not overwrite database content; `db:seed` is intentionally idempotent. Cloudflare Pages now serves published page content and metadata in the initial HTML through `functions/_middleware.js`, then React takes over the interactive interface. Local Vite development still uses client rendering.
 
 Reference: [Railway config](https://docs.railway.com/config-as-code/reference), [Cloudflare Pages Functions](https://developers.cloudflare.com/pages/functions/), [Neon Drizzle guide](https://neon.com/docs/guides/drizzle).
+
+
+## Service cards and detail pages
+
+Service grids on Home and Services now have expandable item editors. Each item has a title, short information, image upload/library, image description, visibility toggle, move controls, and delete. Section introduction fields remain editable above the cards. Grids are page-specific; editing Home does not silently overwrite Services.
+
+Create detail page generates an unpublished service page with a banner, overview, offerings, benefits and enquiry section using the existing service design. The card is linked to the draft. Save the grid draft, open the detail page, fill in its content and SEO, and publish it. Then publish the grid. The API blocks publishing visible service-card links to missing/unpublished service pages. Hiding/deleting a card affects that grid only and does not delete its detail page or remove it from search results; use the detail page's noindex option when appropriate.
+
+## SEO deployment update
+
+Deploy the API changes on Railway **before** the frontend changes on Cloudflare. Existing JSON page records are backward-compatible; no database migration or reseeding is needed.
+
+Add a Cloudflare Pages production variable:
+
+```text
+SITE_URL=https://cameo-edc.pages.dev
+```
+
+Use your final canonical custom domain here once connected. Keep `API_ORIGIN` set to the Railway API URL. Configure the equivalent `SITE_URL` for preview deployments to make alternate preview hosts noindex. Cloudflare's middleware returns HTML for all visitors, not only crawlers.
+
+Page settings now include SEO title, description, canonical override, index/follow controls, Open Graph and Twitter card fields, social-image upload and alt text, generated Service/WebPage and breadcrumb JSON-LD, plus validated additional JSON-LD. Custom schema must describe actual visible content. Invalid JSON is rejected by the API. Title lengths and heading/alt checks are guidance, not ranking scores.
+
+- `/sitemap.xml` contains published indexable pages, excluding alternate canonical URLs.
+- `/robots.txt` provides crawl rules and the sitemap URL.
+- Admin and preview responses are noindex.
+- Missing pages return an HTTP 404; API outages return a retryable 503 rather than an empty indexable page.
+- Legacy `.html` and trailing-slash page URLs redirect to their clean paths.
+- Canonicals exclude tracking query strings. Metadata and page content are in the initial HTML for social bots and crawlers.
+
+After deployment, check View Source, the sitemap, and a social-link preview. Submit `/sitemap.xml` in Google Search Console and validate applicable structured data with Google's Rich Results Test. Indexing, rich-result eligibility and rankings depend on content and search-engine decisions; metadata does not guarantee them.

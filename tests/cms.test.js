@@ -14,8 +14,7 @@ const call=(path,options={})=>fetch(url+path,{...options,headers:{...headers,...
 before(async()=>{
  pg=new PGlite();db=drizzle(pg);await migrate(db,{migrationsFolder:'server/migrations',migrationsSchema:'cameo_cms_migrations'});
  await db.insert(users).values({email:'test@example.com',password:await hashPassword('Test-password-123456')});
- const [page]=JSON.parse(await readFile('content/pages.json','utf8'));const content=cleanPage(page);
- await db.insert(pages).values({slug:'home',draft:content,published:content,publishedVersion:1});
+ for(const page of JSON.parse(await readFile('content/pages.json','utf8'))){const content=cleanPage(page);await db.insert(pages).values({slug:page.slug,draft:content,published:content,publishedVersion:1});}
  server=createApp(db).listen(0,'127.0.0.1');await new Promise(r=>server.once('listening',r));url=`http://127.0.0.1:${server.address().port}/api`;
 });
 after(async()=>{if(server)await new Promise(r=>server.close(r));if(pg)await pg.close();});
@@ -43,4 +42,16 @@ test('HTML sanitization removes active content and preserves Cameo features',()=
 test('every imported page is valid and contains its original sections',async()=>{
  const imports=JSON.parse(await readFile('content/pages.json','utf8'));assert.equal(imports.length,13);
  for(const page of imports){const clean=cleanPage(page);assert.equal(clean.sections.length,page.sections.length);assert.ok(clean.sections[0].html.includes('data-cms-header'));}
+});
+test('service pages start as drafts and service grids cannot publish broken draft links',async()=>{
+ const login=await call('/auth/login',{method:'POST',body:JSON.stringify({email:'test@example.com',password:'Test-password-123456'})});cookie=login.headers.get('set-cookie').split(';')[0];
+ try{
+  const created=await call('/admin/service-pages',{method:'POST',body:JSON.stringify({slug:'service-new-test',title:'Test Service',summary:'A new service summary.',image:'/assets/test.jpg'})});assert.equal(created.status,201);const detail=await created.json();assert.equal(detail.published,null);
+  assert.equal((await call('/pages/service-new-test')).status,404);
+  const row=await (await call('/admin/pages/services')).json();row.draft.seo={metaTitle:'Services SEO',ogImage:'/assets/og.jpg',canonical:'https://example.com/services'};row.draft.sections.find(s=>s.html.includes('signature-item')).html=row.draft.sections.find(s=>s.html.includes('signature-item')).html.replace('/service-wayfinding-signage','/service-new-test');
+  const saved=await (await call('/admin/pages/services',{method:'PUT',body:JSON.stringify({version:row.version,content:row.draft})})).json();assert.equal(saved.draft.seo.metaTitle,'Services SEO');
+  assert.equal((await call('/admin/pages/services/publish',{method:'POST',body:JSON.stringify({version:saved.version})})).status,422);
+  assert.equal((await call('/admin/pages/service-new-test/publish',{method:'POST',body:JSON.stringify({version:detail.version})})).status,200);
+  assert.equal((await call('/admin/pages/services/publish',{method:'POST',body:JSON.stringify({version:saved.version})})).status,200);
+ }finally{await call('/auth/logout',{method:'POST'});cookie=null;}
 });
